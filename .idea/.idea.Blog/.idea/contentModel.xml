@@ -1,0 +1,323 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelStore">
+    <e p="C:\Users\ilker\AppData\Local\JetBrains\Rider2020.3\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\ilker\AppData\Local\JetBrains\Rider2020.3\resharper-host\Local\Transient\Rider\v203\SolutionCaches\_Blog.-1740466634.00" t="ExcludeRecursive" />
+    <e p="C:\Users\ilker\AppData\Roaming\JetBrains\Rider2020.3\consoles\db" t="IncludeRecursive" />
+    <e p="C:\Users\ilker\AppData\Roaming\JetBrains\Rider2020.3\extensions" t="IncludeRecursive" />
+    <e p="C:\Users\ilker\Desktop\Blog" t="IncludeFlat">
+      <e p="Blog.Business" t="IncludeRecursive">
+        <e p="Abstract" t="Include">
+          <e p="IAuthenticationMailService.cs" t="Include" />
+        </e>
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="Blog.Business.csproj" t="IncludeRecursive" />
+        <e p="BusinessAspects" t="Include">
+          <e p="Autofac" t="Include">
+            <e p="SecuredOperation.cs" t="Include" />
+          </e>
+        </e>
+        <e p="Concrete" t="Include">
+          <e p="AuthenticationMailManager.cs" t="Include" />
+        </e>
+        <e p="Constants" t="Include">
+          <e p="Messages.cs" t="Include" />
+          <e p="Utilities.cs" t="Include" />
+        </e>
+        <e p="DependencyResolvers" t="Include">
+          <e p="AutofacBusinessModule.cs" t="Include" />
+        </e>
+        <e p="Features" t="Include">
+          <e p="Authentication" t="Include">
+            <e p="Commands" t="Include">
+              <e p="ConfirmEmailCommand.cs" t="Include" />
+              <e p="ForgotPasswordCommand.cs" t="Include" />
+              <e p="ResetPasswordCommand.cs" t="Include" />
+              <e p="SendEmailConfirmationTokenCommand.cs" t="Include" />
+              <e p="SignUpAdminCommand.cs" t="Include" />
+              <e p="SignUpUserCommand.cs" t="Include" />
+              <e p="UpdateTwoFactorSecurityCommand.cs" t="Include" />
+            </e>
+            <e p="Handlers" t="Include">
+              <e p="Commands" t="Include">
+                <e p="ConfirmEmailCommandHandler.cs" t="Include" />
+                <e p="ForgotPasswordCommandHandler.cs" t="Include" />
+                <e p="ResetPasswordCommandHandler.cs" t="Include" />
+                <e p="SendEmailConfirmationTokenCommandHandler.cs" t="Include" />
+                <e p="SignUpAdminCommandHandler.cs" t="Include" />
+                <e p="SignUpUserCommandHandler.cs" t="Include" />
+                <e p="UpdateTwoFactorSecurityCommandHandler.cs" t="Include" />
+              </e>
+              <e p="Queries" t="Include">
+                <e p="GetUserByEmailQueryHandler.cs" t="Include" />
+                <e p="GetUserByIdQueryHandler.cs" t="Include" />
+                <e p="GetUserByUsernameQueryHandler.cs" t="Include" />
+                <e p="SignInQueryHandler.cs" t="Include" />
+                <e p="SignInWithTwoFactorQueryHandler.cs" t="Include" />
+              </e>
+            </e>
+            <e p="Queries" t="Include">
+              <e p="GetUserByEmailQuery.cs" t="Include" />
+              <e p="GetUserByIdQuery.cs" t="Include" />
+              <e p="GetUserByUsernameQuery.cs" t="Include" />
+              <e p="SignInQuery.cs" t="Include" />
+              <e p="SignInWithTwoFactorQuery.cs" t="Include" />
+            </e>
+            <e p="ValidationRules" t="Include">
+              <e p="ResetPasswordValidator.cs" t="Include" />
+              <e p="SignUpValidator.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+        <e p="Helpers" t="Include">
+          <e p="AuthenticationHelper.cs" t="Include" />
+          <e p="AutoMapperHelper.cs" t="Include" />
+          <e p="PaginationHelper.cs" t="Include" />
+        </e>
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="net5.0" t="Include">
+              <e p="Blog.Business.AssemblyInfo.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+      </e>
+      <e p="Blog.Core" t="IncludeRecursive">
+        <e p="Aspects" t="Include">
+          <e p="Autofac" t="Include">
+            <e p="Caching" t="Include">
+              <e p="CacheAspect.cs" t="Include" />
+              <e p="CacheRemoveAspect.cs" t="Include" />
+            </e>
+            <e p="Logger" t="Include">
+              <e p="LogAspect.cs" t="Include" />
+            </e>
+            <e p="Performance" t="Include">
+              <e p="PerformanceAspect.cs" t="Include" />
+            </e>
+            <e p="Transaction" t="Include">
+              <e p="TransactionScopeAspect.cs" t="Include" />
+              <e p="TransactionScopeAspectAsync.cs" t="Include" />
+            </e>
+            <e p="Validation" t="Include">
+              <e p="ValidationAspect.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="Blog.Core.csproj" t="IncludeRecursive" />
+        <e p="CrossCuttingConcerns" t="Include">
+          <e p="Caching" t="Include">
+            <e p="ICacheManager.cs" t="Include" />
+            <e p="Microsoft" t="Include">
+              <e p="MemoryCacheManager.cs" t="Include" />
+            </e>
+          </e>
+          <e p="Logging" t="Include">
+            <e p="LogDetail.cs" t="Include" />
+            <e p="LogDetailWithException.cs" t="Include" />
+            <e p="LogParameter.cs" t="Include" />
+            <e p="Serilog" t="Include">
+              <e p="ConfigurationModels" t="Include">
+                <e p="ElasticSearchConfiguration.cs" t="Include" />
+                <e p="FileLogConfiguration.cs" t="Include" />
+                <e p="MongoDbConfiguration.cs" t="Include" />
+              </e>
+              <e p="Loggers" t="Include">
+                <e p="ElasticsearchLogger.cs" t="Include" />
+                <e p="FileLogger.cs" t="Include" />
+                <e p="MongoDbLogger.cs" t="Include" />
+              </e>
+              <e p="LoggerServiceBase.cs" t="Include" />
+            </e>
+          </e>
+          <e p="Validation" t="Include">
+            <e p="ValidationTool.cs" t="Include" />
+          </e>
+        </e>
+        <e p="DataAccess" t="Include">
+          <e p="EntityFramework" t="Include">
+            <e p="EfEntityRepositoryBase.cs" t="Include" />
+          </e>
+          <e p="IDocumentDbRepository.cs" t="Include" />
+          <e p="IEntityRepository.cs" t="Include" />
+          <e p="MongoDb" t="Include">
+            <e p="Configuration" t="Include">
+              <e p="MongoDatabaseConfig.cs" t="Include" />
+            </e>
+            <e p="MongoDbRepositoryBase.cs" t="Include" />
+          </e>
+        </e>
+        <e p="DependencyResolvers" t="Include">
+          <e p="CoreModule.cs" t="Include" />
+        </e>
+        <e p="Entities" t="Include">
+          <e p="Concrete" t="Include">
+            <e p="PaginationFilter.cs" t="Include" />
+          </e>
+          <e p="DTOs" t="Include">
+            <e p="Authentication" t="Include">
+              <e p="Requests" t="Include">
+                <e p="SignUpRequest.cs" t="Include" />
+              </e>
+              <e p="Responses" t="Include">
+                <e p="SignInResponse.cs" t="Include" />
+                <e p="SignUpResponse.cs" t="Include" />
+                <e p="UserResponse.cs" t="Include" />
+              </e>
+            </e>
+          </e>
+          <e p="IDto.cs" t="Include" />
+          <e p="IEntity.cs" t="Include" />
+          <e p="Mail" t="Include">
+            <e p="MailRequest.cs" t="Include" />
+          </e>
+          <e p="MongoDb" t="Include">
+            <e p="DocumentEntity.cs" t="Include" />
+            <e p="IDocument.cs" t="Include" />
+          </e>
+        </e>
+        <e p="extensions" t="Include">
+          <e p="ErrorDetails.cs" t="Include" />
+          <e p="ExceptionMiddleware.cs" t="Include" />
+          <e p="ServiceCollectionExtensions.cs" t="Include" />
+        </e>
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="net5.0" t="Include">
+              <e p="Blog.Core.AssemblyInfo.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+        <e p="Settings" t="Include">
+          <e p="JwtSettings.cs" t="Include" />
+          <e p="MailSettings.cs" t="Include" />
+        </e>
+        <e p="Utilities" t="Include">
+          <e p="Encryption" t="Include">
+            <e p="SecurityKeyHelper.cs" t="Include" />
+          </e>
+          <e p="Interceptors" t="Include">
+            <e p="AspectInterceptorSelector.cs" t="Include" />
+            <e p="MethodInterception.cs" t="Include" />
+            <e p="MethodInterceptionBaseAttribute.cs" t="Include" />
+          </e>
+          <e p="IoC" t="Include">
+            <e p="ICoreModule.cs" t="Include" />
+            <e p="ServiceTool.cs" t="Include" />
+          </e>
+          <e p="Mail" t="Include">
+            <e p="IMailService.cs" t="Include" />
+            <e p="MailService.cs" t="Include" />
+          </e>
+          <e p="Messages" t="Include">
+            <e p="AspectMessages.cs" t="Include" />
+            <e p="MongoDbMessages.cs" t="Include" />
+            <e p="PaginationMessages.cs" t="Include" />
+            <e p="SerilogMessages.cs" t="Include" />
+          </e>
+          <e p="Results" t="Include">
+            <e p="ApiResult.cs" t="Include" />
+            <e p="DataResult.cs" t="Include" />
+            <e p="ErrorDataResult.cs" t="Include" />
+            <e p="ErrorResult.cs" t="Include" />
+            <e p="IDataResult.cs" t="Include" />
+            <e p="IResult.cs" t="Include" />
+            <e p="PaginatedResult.cs" t="Include" />
+            <e p="Result.cs" t="Include" />
+            <e p="SuccessDataResult.cs" t="Include" />
+            <e p="SuccessResult.cs" t="Include" />
+          </e>
+          <e p="Uri" t="Include">
+            <e p="IUriService.cs" t="Include" />
+            <e p="UriManager.cs" t="Include" />
+          </e>
+        </e>
+      </e>
+      <e p="Blog.DataAccess" t="IncludeRecursive">
+        <e p="Abstract" t="Include">
+          <e p="IPostRepository.cs" t="Include" />
+        </e>
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="Blog.DataAccess.csproj" t="IncludeRecursive" />
+        <e p="Concrete" t="Include">
+          <e p="EntityFramework" t="Include">
+            <e p="Contexts" t="Include">
+              <e p="ApplicationDbContext.cs" t="Include" />
+            </e>
+            <e p="EfPostRepository.cs" t="Include" />
+          </e>
+        </e>
+        <e p="DependencyResolvers" t="Include">
+          <e p="DataAccessModule.cs" t="Include" />
+        </e>
+        <e p="Migrations" t="Include">
+          <e p="20210716200452_InitialIdentityContext.cs" t="Include" />
+          <e p="20210716200452_InitialIdentityContext.Designer.cs" t="Include" />
+          <e p="20210716202800_InitialContext.cs" t="Include" />
+          <e p="20210716202800_InitialContext.Designer.cs" t="Include" />
+          <e p="IdentityContextModelSnapshot.cs" t="Include" />
+        </e>
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="net5.0" t="Include">
+              <e p="Blog.DataAccess.AssemblyInfo.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+      </e>
+      <e p="Blog.Entities" t="IncludeRecursive">
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="Blog.Entities.csproj" t="IncludeRecursive" />
+        <e p="Concrete" t="Include">
+          <e p="Comment.cs" t="Include" />
+          <e p="Image.cs" t="Include" />
+          <e p="Notification.cs" t="Include" />
+          <e p="Post.cs" t="Include" />
+          <e p="Tag.cs" t="Include" />
+          <e p="Topic.cs" t="Include" />
+          <e p="User.cs" t="Include" />
+        </e>
+        <e p="DTOs" t="Include" />
+        <e p="Enums" t="Include">
+          <e p="Roles.cs" t="Include" />
+        </e>
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="net5.0" t="Include">
+              <e p="Blog.Entities.AssemblyInfo.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+      </e>
+      <e p="Blog.sln" t="IncludeFlat" />
+      <e p="Blog.WebAPI" t="IncludeRecursive">
+        <e p="appsettings.Development.json" t="Include" />
+        <e p="appsettings.json" t="Include" />
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="Blog.WebAPI.csproj" t="IncludeRecursive" />
+        <e p="Controllers" t="Include">
+          <e p="AccountController.cs" t="Include" />
+        </e>
+        <e p="MailTemplates" t="Include">
+          <e p="Send2FAEmailTemplate.html" t="Include" />
+          <e p="SendForgotPasswordEmailTemplate.html" t="Include" />
+          <e p="SendVerificationEmailTemplate.html" t="Include" />
+        </e>
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="net5.0" t="Include">
+              <e p="Blog.WebAPI.AssemblyInfo.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+        <e p="Program.cs" t="Include" />
+        <e p="Properties" t="Include">
+          <e p="launchSettings.json" t="Include" />
+        </e>
+        <e p="Startup.cs" t="Include" />
+      </e>
+      <e p="packages" t="ExcludeRecursive" />
+    </e>
+  </component>
+</project>
