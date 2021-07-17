@@ -1,9 +1,10 @@
 using System;
 using System.Collections.Generic;
+using Blog.Core.Entities;
 
 namespace Blog.Entities.Concrete
 {
-    public class Notification
+    public class Notification:IEntity
     {
         public Guid Id { get; set; }
         public string Message { get; set; }

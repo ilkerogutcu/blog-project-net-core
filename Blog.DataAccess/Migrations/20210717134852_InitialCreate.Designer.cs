@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Blog.DataAccess.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20210716202800_InitialContext")]
-    partial class InitialContext
+    [Migration("20210717134852_InitialCreate")]
+    partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -20,6 +20,53 @@ namespace Blog.DataAccess.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("ProductVersion", "5.0.7")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+            modelBuilder.Entity("Blog.Entities.Concrete.Category", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier")
+                        .HasColumnName("id");
+
+                    b.Property<DateTime>("CreatedDate")
+                        .HasColumnType("datetime2")
+                        .HasColumnName("created_date");
+
+                    b.Property<string>("Description")
+                        .HasColumnType("nvarchar(max)")
+                        .HasColumnName("description");
+
+                    b.Property<Guid?>("ImageId")
+                        .HasColumnType("uniqueidentifier")
+                        .HasColumnName("image_id");
+
+                    b.Property<string>("LastModifiedBy")
+                        .HasColumnType("nvarchar(max)")
+                        .HasColumnName("last_modified_by");
+
+                    b.Property<DateTime?>("LastModifiedDate")
+                        .HasColumnType("datetime2")
+                        .HasColumnName("last_modified_date");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)")
+                        .HasColumnName("name");
+
+                    b.Property<string>("UserId")
+                        .HasColumnType("nvarchar(450)")
+                        .HasColumnName("user_id");
+
+                    b.HasKey("Id")
+                        .HasName("pk_categories");
+
+                    b.HasIndex("ImageId")
+                        .HasDatabaseName("ix_categories_image_id");
+
+                    b.HasIndex("UserId")
+                        .HasDatabaseName("ix_categories_user_id");
+
+                    b.ToTable("categories");
+                });
 
             modelBuilder.Entity("Blog.Entities.Concrete.Comment", b =>
                 {
@@ -99,6 +146,10 @@ namespace Blog.DataAccess.Migrations
                         .HasColumnType("uniqueidentifier")
                         .HasColumnName("id");
 
+                    b.Property<Guid?>("CategoryId")
+                        .HasColumnType("uniqueidentifier")
+                        .HasColumnName("category_id");
+
                     b.Property<string>("Content")
                         .HasColumnType("nvarchar(max)")
                         .HasColumnName("content");
@@ -119,9 +170,17 @@ namespace Blog.DataAccess.Migrations
                         .HasColumnType("datetime2")
                         .HasColumnName("last_modified_date");
 
-                    b.Property<string>("Slug")
+                    b.Property<string>("SeoAuthor")
                         .HasColumnType("nvarchar(max)")
-                        .HasColumnName("slug");
+                        .HasColumnName("seo_author");
+
+                    b.Property<string>("SeoDescription")
+                        .HasColumnType("nvarchar(max)")
+                        .HasColumnName("seo_description");
+
+                    b.Property<string>("SeoTags")
+                        .HasColumnType("nvarchar(max)")
+                        .HasColumnName("seo_tags");
 
                     b.Property<bool>("Status")
                         .HasColumnType("bit")
@@ -135,8 +194,15 @@ namespace Blog.DataAccess.Migrations
                         .HasColumnType("nvarchar(450)")
                         .HasColumnName("user_id");
 
+                    b.Property<int>("ViewsCount")
+                        .HasColumnType("int")
+                        .HasColumnName("views_count");
+
                     b.HasKey("Id")
                         .HasName("pk_posts");
+
+                    b.HasIndex("CategoryId")
+                        .HasDatabaseName("ix_posts_category_id");
 
                     b.HasIndex("ImageId")
                         .HasDatabaseName("ix_posts_image_id");
@@ -181,53 +247,6 @@ namespace Blog.DataAccess.Migrations
                         .HasDatabaseName("ix_tags_user_id");
 
                     b.ToTable("tags");
-                });
-
-            modelBuilder.Entity("Blog.Entities.Concrete.Topic", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier")
-                        .HasColumnName("id");
-
-                    b.Property<DateTime>("CreatedDate")
-                        .HasColumnType("datetime2")
-                        .HasColumnName("created_date");
-
-                    b.Property<string>("Description")
-                        .HasColumnType("nvarchar(max)")
-                        .HasColumnName("description");
-
-                    b.Property<Guid?>("ImageId")
-                        .HasColumnType("uniqueidentifier")
-                        .HasColumnName("image_id");
-
-                    b.Property<string>("LastModifiedBy")
-                        .HasColumnType("nvarchar(max)")
-                        .HasColumnName("last_modified_by");
-
-                    b.Property<DateTime?>("LastModifiedDate")
-                        .HasColumnType("datetime2")
-                        .HasColumnName("last_modified_date");
-
-                    b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)")
-                        .HasColumnName("name");
-
-                    b.Property<string>("UserId")
-                        .HasColumnType("nvarchar(450)")
-                        .HasColumnName("user_id");
-
-                    b.HasKey("Id")
-                        .HasName("pk_topics");
-
-                    b.HasIndex("ImageId")
-                        .HasDatabaseName("ix_topics_image_id");
-
-                    b.HasIndex("UserId")
-                        .HasDatabaseName("ix_topics_user_id");
-
-                    b.ToTable("topics");
                 });
 
             modelBuilder.Entity("Blog.Entities.Concrete.User", b =>
@@ -575,27 +594,30 @@ namespace Blog.DataAccess.Migrations
                     b.ToTable("post_tag");
                 });
 
-            modelBuilder.Entity("PostTopic", b =>
+            modelBuilder.Entity("Blog.Entities.Concrete.Category", b =>
                 {
-                    b.Property<Guid>("PostsId")
-                        .HasColumnType("uniqueidentifier")
-                        .HasColumnName("posts_id");
+                    b.HasOne("Blog.Entities.Concrete.Image", "Image")
+                        .WithMany()
+                        .HasForeignKey("ImageId")
+                        .HasConstraintName("fk_categories_images_image_id");
 
-                    b.Property<Guid>("TopicsId")
-                        .HasColumnType("uniqueidentifier")
-                        .HasColumnName("topics_id");
+                    b.HasOne("Blog.Entities.Concrete.User", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .HasConstraintName("fk_categories_users_user_id");
 
-                    b.HasKey("PostsId", "TopicsId")
-                        .HasName("pk_post_topic");
+                    b.Navigation("Image");
 
-                    b.HasIndex("TopicsId")
-                        .HasDatabaseName("ix_post_topic_topics_id");
-
-                    b.ToTable("post_topic");
+                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("Blog.Entities.Concrete.Post", b =>
                 {
+                    b.HasOne("Blog.Entities.Concrete.Category", "Category")
+                        .WithMany("Posts")
+                        .HasForeignKey("CategoryId")
+                        .HasConstraintName("fk_posts_categories_category_id");
+
                     b.HasOne("Blog.Entities.Concrete.Image", "Image")
                         .WithMany()
                         .HasForeignKey("ImageId")
@@ -605,6 +627,8 @@ namespace Blog.DataAccess.Migrations
                         .WithMany()
                         .HasForeignKey("UserId")
                         .HasConstraintName("fk_posts_users_user_id");
+
+                    b.Navigation("Category");
 
                     b.Navigation("Image");
 
@@ -617,23 +641,6 @@ namespace Blog.DataAccess.Migrations
                         .WithMany()
                         .HasForeignKey("UserId")
                         .HasConstraintName("fk_tags_users_user_id");
-
-                    b.Navigation("User");
-                });
-
-            modelBuilder.Entity("Blog.Entities.Concrete.Topic", b =>
-                {
-                    b.HasOne("Blog.Entities.Concrete.Image", "Image")
-                        .WithMany()
-                        .HasForeignKey("ImageId")
-                        .HasConstraintName("fk_topics_images_image_id");
-
-                    b.HasOne("Blog.Entities.Concrete.User", "User")
-                        .WithMany()
-                        .HasForeignKey("UserId")
-                        .HasConstraintName("fk_topics_users_user_id");
-
-                    b.Navigation("Image");
 
                     b.Navigation("User");
                 });
@@ -756,21 +763,9 @@ namespace Blog.DataAccess.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("PostTopic", b =>
+            modelBuilder.Entity("Blog.Entities.Concrete.Category", b =>
                 {
-                    b.HasOne("Blog.Entities.Concrete.Post", null)
-                        .WithMany()
-                        .HasForeignKey("PostsId")
-                        .HasConstraintName("fk_post_topic_posts_posts_id")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("Blog.Entities.Concrete.Topic", null)
-                        .WithMany()
-                        .HasForeignKey("TopicsId")
-                        .HasConstraintName("fk_post_topic_topics_topics_id")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                    b.Navigation("Posts");
                 });
 #pragma warning restore 612, 618
         }

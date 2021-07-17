@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Blog.DataAccess.Migrations
 {
-    public partial class InitialIdentityContext : Migration
+    public partial class InitialCreate : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -125,30 +125,6 @@ namespace Blog.DataAccess.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "application_user_notification",
-                columns: table => new
-                {
-                    notifications_id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    users_id = table.Column<string>(type: "nvarchar(450)", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("pk_application_user_notification", x => new { x.notifications_id, x.users_id });
-                    table.ForeignKey(
-                        name: "fk_application_user_notification_notifications_notifications_id",
-                        column: x => x.notifications_id,
-                        principalTable: "notifications",
-                        principalColumn: "id",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "fk_application_user_notification_users_users_id",
-                        column: x => x.users_id,
-                        principalTable: "AspNetUsers",
-                        principalColumn: "id",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "AspNetUserClaims",
                 columns: table => new
                 {
@@ -234,35 +210,57 @@ namespace Blog.DataAccess.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "posts",
+                name: "categories",
                 columns: table => new
                 {
                     id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     user_id = table.Column<string>(type: "nvarchar(450)", nullable: true),
                     image_id = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
-                    title = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    content = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    slug = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    status = table.Column<bool>(type: "bit", nullable: false),
+                    name = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    description = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     created_date = table.Column<DateTime>(type: "datetime2", nullable: false),
                     last_modified_date = table.Column<DateTime>(type: "datetime2", nullable: true),
                     last_modified_by = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("pk_posts", x => x.id);
+                    table.PrimaryKey("pk_categories", x => x.id);
                     table.ForeignKey(
-                        name: "fk_posts_images_image_id",
+                        name: "fk_categories_images_image_id",
                         column: x => x.image_id,
                         principalTable: "images",
                         principalColumn: "id",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
-                        name: "fk_posts_users_user_id",
+                        name: "fk_categories_users_user_id",
                         column: x => x.user_id,
                         principalTable: "AspNetUsers",
                         principalColumn: "id",
                         onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "notification_user",
+                columns: table => new
+                {
+                    notifications_id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    users_id = table.Column<string>(type: "nvarchar(450)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("pk_notification_user", x => new { x.notifications_id, x.users_id });
+                    table.ForeignKey(
+                        name: "fk_notification_user_notifications_notifications_id",
+                        column: x => x.notifications_id,
+                        principalTable: "notifications",
+                        principalColumn: "id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "fk_notification_user_users_users_id",
+                        column: x => x.users_id,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "id",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -288,29 +286,41 @@ namespace Blog.DataAccess.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "topics",
+                name: "posts",
                 columns: table => new
                 {
                     id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     user_id = table.Column<string>(type: "nvarchar(450)", nullable: true),
                     image_id = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
-                    name = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    description = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    category_id = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
+                    title = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    content = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    seo_author = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    seo_description = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    seo_tags = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    status = table.Column<bool>(type: "bit", nullable: false),
+                    views_count = table.Column<int>(type: "int", nullable: false),
                     created_date = table.Column<DateTime>(type: "datetime2", nullable: false),
                     last_modified_date = table.Column<DateTime>(type: "datetime2", nullable: true),
                     last_modified_by = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("pk_topics", x => x.id);
+                    table.PrimaryKey("pk_posts", x => x.id);
                     table.ForeignKey(
-                        name: "fk_topics_images_image_id",
+                        name: "fk_posts_categories_category_id",
+                        column: x => x.category_id,
+                        principalTable: "categories",
+                        principalColumn: "id",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "fk_posts_images_image_id",
                         column: x => x.image_id,
                         principalTable: "images",
                         principalColumn: "id",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
-                        name: "fk_topics_users_user_id",
+                        name: "fk_posts_users_user_id",
                         column: x => x.user_id,
                         principalTable: "AspNetUsers",
                         principalColumn: "id",
@@ -365,35 +375,6 @@ namespace Blog.DataAccess.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
-            migrationBuilder.CreateTable(
-                name: "post_topic",
-                columns: table => new
-                {
-                    posts_id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    topics_id = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("pk_post_topic", x => new { x.posts_id, x.topics_id });
-                    table.ForeignKey(
-                        name: "fk_post_topic_posts_posts_id",
-                        column: x => x.posts_id,
-                        principalTable: "posts",
-                        principalColumn: "id",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "fk_post_topic_topics_topics_id",
-                        column: x => x.topics_id,
-                        principalTable: "topics",
-                        principalColumn: "id",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateIndex(
-                name: "ix_application_user_notification_users_id",
-                table: "application_user_notification",
-                column: "users_id");
-
             migrationBuilder.CreateIndex(
                 name: "ix_asp_net_role_claims_role_id",
                 table: "AspNetRoleClaims",
@@ -439,9 +420,24 @@ namespace Blog.DataAccess.Migrations
                 filter: "[normalized_user_name] IS NOT NULL");
 
             migrationBuilder.CreateIndex(
+                name: "ix_categories_image_id",
+                table: "categories",
+                column: "image_id");
+
+            migrationBuilder.CreateIndex(
+                name: "ix_categories_user_id",
+                table: "categories",
+                column: "user_id");
+
+            migrationBuilder.CreateIndex(
                 name: "ix_comment_post_posts_id",
                 table: "comment_post",
                 column: "posts_id");
+
+            migrationBuilder.CreateIndex(
+                name: "ix_notification_user_users_id",
+                table: "notification_user",
+                column: "users_id");
 
             migrationBuilder.CreateIndex(
                 name: "ix_post_tag_tags_id",
@@ -449,9 +445,9 @@ namespace Blog.DataAccess.Migrations
                 column: "tags_id");
 
             migrationBuilder.CreateIndex(
-                name: "ix_post_topic_topics_id",
-                table: "post_topic",
-                column: "topics_id");
+                name: "ix_posts_category_id",
+                table: "posts",
+                column: "category_id");
 
             migrationBuilder.CreateIndex(
                 name: "ix_posts_image_id",
@@ -467,23 +463,10 @@ namespace Blog.DataAccess.Migrations
                 name: "ix_tags_user_id",
                 table: "tags",
                 column: "user_id");
-
-            migrationBuilder.CreateIndex(
-                name: "ix_topics_image_id",
-                table: "topics",
-                column: "image_id");
-
-            migrationBuilder.CreateIndex(
-                name: "ix_topics_user_id",
-                table: "topics",
-                column: "user_id");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.DropTable(
-                name: "application_user_notification");
-
             migrationBuilder.DropTable(
                 name: "AspNetRoleClaims");
 
@@ -503,13 +486,10 @@ namespace Blog.DataAccess.Migrations
                 name: "comment_post");
 
             migrationBuilder.DropTable(
+                name: "notification_user");
+
+            migrationBuilder.DropTable(
                 name: "post_tag");
-
-            migrationBuilder.DropTable(
-                name: "post_topic");
-
-            migrationBuilder.DropTable(
-                name: "notifications");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");
@@ -518,13 +498,16 @@ namespace Blog.DataAccess.Migrations
                 name: "comments");
 
             migrationBuilder.DropTable(
-                name: "tags");
+                name: "notifications");
 
             migrationBuilder.DropTable(
                 name: "posts");
 
             migrationBuilder.DropTable(
-                name: "topics");
+                name: "tags");
+
+            migrationBuilder.DropTable(
+                name: "categories");
 
             migrationBuilder.DropTable(
                 name: "AspNetUsers");

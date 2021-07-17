@@ -236,7 +236,10 @@
       </e>
       <e p="Blog.DataAccess" t="IncludeRecursive">
         <e p="Abstract" t="Include">
+          <e p="ICategoryRepository.cs" t="Include" />
+          <e p="ICommentRepository.cs" t="Include" />
           <e p="IPostRepository.cs" t="Include" />
+          <e p="ITagRepository.cs" t="Include" />
         </e>
         <e p="bin" t="ExcludeRecursive" />
         <e p="Blog.DataAccess.csproj" t="IncludeRecursive" />
@@ -245,18 +248,19 @@
             <e p="Contexts" t="Include">
               <e p="ApplicationDbContext.cs" t="Include" />
             </e>
+            <e p="EfCategoryRepository.cs" t="Include" />
+            <e p="EfCommentRepository.cs" t="Include" />
             <e p="EfPostRepository.cs" t="Include" />
+            <e p="EfTagRepository.cs" t="Include" />
           </e>
         </e>
         <e p="DependencyResolvers" t="Include">
           <e p="DataAccessModule.cs" t="Include" />
         </e>
         <e p="Migrations" t="Include">
-          <e p="20210716200452_InitialIdentityContext.cs" t="Include" />
-          <e p="20210716200452_InitialIdentityContext.Designer.cs" t="Include" />
-          <e p="20210716202800_InitialContext.cs" t="Include" />
-          <e p="20210716202800_InitialContext.Designer.cs" t="Include" />
-          <e p="IdentityContextModelSnapshot.cs" t="Include" />
+          <e p="20210717134852_InitialCreate.cs" t="Include" />
+          <e p="20210717134852_InitialCreate.Designer.cs" t="Include" />
+          <e p="ApplicationDbContextModelSnapshot.cs" t="Include" />
         </e>
         <e p="obj" t="ExcludeRecursive">
           <e p="Debug" t="Include">
@@ -270,12 +274,12 @@
         <e p="bin" t="ExcludeRecursive" />
         <e p="Blog.Entities.csproj" t="IncludeRecursive" />
         <e p="Concrete" t="Include">
+          <e p="Category.cs" t="Include" />
           <e p="Comment.cs" t="Include" />
           <e p="Image.cs" t="Include" />
           <e p="Notification.cs" t="Include" />
           <e p="Post.cs" t="Include" />
           <e p="Tag.cs" t="Include" />
-          <e p="Topic.cs" t="Include" />
           <e p="User.cs" t="Include" />
         </e>
         <e p="DTOs" t="Include" />
@@ -291,11 +295,11 @@
         </e>
       </e>
       <e p="Blog.sln" t="IncludeFlat" />
-      <e p="Blog.WebAPI" t="IncludeRecursive">
+      <e p="Blog.WebUI" t="IncludeRecursive">
         <e p="appsettings.Development.json" t="Include" />
         <e p="appsettings.json" t="Include" />
         <e p="bin" t="ExcludeRecursive" />
-        <e p="Blog.WebAPI.csproj" t="IncludeRecursive" />
+        <e p="Blog.WebUI.csproj" t="IncludeRecursive" />
         <e p="Controllers" t="Include">
           <e p="AccountController.cs" t="Include" />
         </e>
@@ -307,7 +311,7 @@
         <e p="obj" t="ExcludeRecursive">
           <e p="Debug" t="Include">
             <e p="net5.0" t="Include">
-              <e p="Blog.WebAPI.AssemblyInfo.cs" t="Include" />
+              <e p="Blog.WebUI.AssemblyInfo.cs" t="Include" />
             </e>
           </e>
         </e>

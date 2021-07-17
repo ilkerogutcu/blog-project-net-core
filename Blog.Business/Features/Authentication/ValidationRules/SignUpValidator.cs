@@ -16,6 +16,9 @@ namespace Blog.Business.Features.Authentication.ValidationRules
 			RuleFor(x => x.SignUpRequest.FirstName).NotEmpty().WithMessage(Messages.PleaseEnterTheFirstName);
 			RuleFor(x => x.SignUpRequest.LastName).NotEmpty().WithMessage(Messages.PleaseEnterTheLastName);
 			RuleFor(x => x.SignUpRequest.Password).Equal(x => x.SignUpRequest.ConfirmPassword).WithMessage(Messages.PasswordsDontMatch);
+			RuleFor(x => x.SignUpRequest.Username).Matches(@"^[a-zA-Z-']*$").WithMessage(Messages.UsernameIsNotInTheCorrectFormat);
+			RuleFor(x => x.SignUpRequest.Username).NotEmpty().WithMessage(Messages.UsernameCannotBeEmpty);
+			RuleFor(x => x.SignUpRequest.Bio).MaximumLength(500).WithMessage(Messages.FieldMustBeLessThan500Characters);
 		}
 	}
 }

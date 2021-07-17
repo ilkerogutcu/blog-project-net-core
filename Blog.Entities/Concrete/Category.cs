@@ -4,7 +4,7 @@ using Blog.Core.Entities;
 
 namespace Blog.Entities.Concrete
 {
-    public class Topic:IEntity
+    public class Category:IEntity
     {
         public Guid Id { get; set; }
         public User User { get; set; }

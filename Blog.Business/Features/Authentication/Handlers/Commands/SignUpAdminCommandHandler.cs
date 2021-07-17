@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using Blog.Business.Abstract;
 using Blog.Business.Constants;
 using Blog.Business.Features.Authentication.Commands;
@@ -16,6 +17,7 @@ using MediatR;
 using Microsoft.AspNetCore.Identity;
 using System.Threading;
 using System.Threading.Tasks;
+using AutoMapper;
 
 namespace Blog.Business.Features.Authentication.Handlers.Commands
 {
@@ -24,13 +26,14 @@ namespace Blog.Business.Features.Authentication.Handlers.Commands
 	{
 		private readonly RoleManager<IdentityRole> _roleManager;
 		private readonly UserManager<User> _userManager;
-		private IAuthenticationMailService _authenticationMailService;
-
-		public SignUpAdminCommandHandler(IMailService mailService, RoleManager<IdentityRole> roleManager, UserManager<User> userManager, IAuthenticationMailService authenticationMailService)
+		private readonly IAuthenticationMailService _authenticationMailService;
+		private readonly IMapper _mapper;
+		public SignUpAdminCommandHandler(RoleManager<IdentityRole> roleManager, UserManager<User> userManager, IAuthenticationMailService authenticationMailService, IMapper mapper)
 		{
 			_roleManager = roleManager;
 			_userManager = userManager;
 			_authenticationMailService = authenticationMailService;
+			_mapper = mapper;
 		}
 
 		[ValidationAspect(typeof(SignUpValidator))]
@@ -47,13 +50,14 @@ namespace Blog.Business.Features.Authentication.Handlers.Commands
 			{
 				return new ErrorDataResult<SignUpResponse>(Messages.EmailAlreadyExist);
 			}
-			var user = new User
+			var user = _mapper.Map<User>(request.SignUpRequest);
+			user.CreatedDate=DateTime.Now;
+			user.Photo = new Image
 			{
-				UserName = request.SignUpRequest.Username,
-				Email = request.SignUpRequest.Email,
-				FirstName = request.SignUpRequest.FirstName,
-				LastName = request.SignUpRequest.LastName
+				Url = request.SignUpRequest.ImageUrl,
+				CreatedDate = DateTime.Now
 			};
+			user.Status = true;
 			var result = await _userManager.CreateAsync(user, request.SignUpRequest.Password);
 			if (!result.Succeeded)
 			{
