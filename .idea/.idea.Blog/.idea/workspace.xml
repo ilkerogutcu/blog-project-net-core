@@ -6,43 +6,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="700393e1-e67f-4567-844a-381093fa77cd" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Blog.DataAccess/Abstract/ICategoryRepository.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Blog.DataAccess/Abstract/ICommentRepository.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Blog.DataAccess/Abstract/ITagRepository.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Blog.DataAccess/Concrete/EntityFramework/EfCategoryRepository.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Blog.DataAccess/Concrete/EntityFramework/EfCommentRepository.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Blog.DataAccess/Concrete/EntityFramework/EfTagRepository.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Blog.Business/Features/Category/Commands/AddCategoryCommand.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Blog.Business/Features/Category/Handlers/Commands/AddCategoryCommandHandler.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Blog.Business/Features/Category/ValidationRules/CategoryValidator.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Blog.WebUI/Controllers/CategoryController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Blog/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Blog/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Blog/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Blog/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/config/applicationhost.config" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/config/applicationhost.config" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Blog.Business/Blog.Business.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Blog.Business/Blog.Business.csproj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Blog.Business/Constants/Messages.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Blog.Business/Constants/Messages.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Blog.Business/Features/Authentication/Handlers/Commands/SignUpAdminCommandHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Blog.Business/Features/Authentication/Handlers/Commands/SignUpAdminCommandHandler.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Blog.Business/Features/Authentication/ValidationRules/SignUpValidator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Blog.Business/Features/Authentication/ValidationRules/SignUpValidator.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Blog.Business/DependencyResolvers/AutofacBusinessModule.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Blog.Business/DependencyResolvers/AutofacBusinessModule.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Blog.Business/Features/Authentication/Queries/GetUserByUsernameQuery.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Blog.Business/Features/Authentication/Queries/GetUserByUsernameQuery.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Blog.Business/Helpers/AutoMapperHelper.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Blog.Business/Helpers/AutoMapperHelper.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Blog.Core/Entities/DTOs/Authentication/Requests/SignUpRequest.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Blog.Core/Entities/DTOs/Authentication/Requests/SignUpRequest.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Blog.Core/Entities/IEntity.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Blog.Core/Entities/IEntity.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Blog.DataAccess/Concrete/EntityFramework/Contexts/ApplicationDbContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Blog.DataAccess/Concrete/EntityFramework/Contexts/ApplicationDbContext.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Blog.DataAccess/Migrations/20210716200452_InitialIdentityContext.Designer.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Blog.DataAccess/Migrations/20210716200452_InitialIdentityContext.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Blog.DataAccess/Migrations/20210716202800_InitialContext.Designer.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Blog.DataAccess/Migrations/20210716202800_InitialContext.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Blog.DataAccess/Migrations/IdentityContextModelSnapshot.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Blog.Entities/Concrete/Comment.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Blog.Entities/Concrete/Comment.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Blog.Entities/Concrete/Image.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Blog.Entities/Concrete/Image.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Blog.Entities/Concrete/Notification.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Blog.Entities/Concrete/Notification.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Blog.DataAccess/DependencyResolvers/DataAccessModule.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Blog.DataAccess/DependencyResolvers/DataAccessModule.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Blog.DataAccess/Migrations/ApplicationDbContextModelSnapshot.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Blog.DataAccess/Migrations/ApplicationDbContextModelSnapshot.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Blog.Entities/Concrete/Post.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Blog.Entities/Concrete/Post.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Blog.Entities/Concrete/Topic.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Blog.Entities/Concrete/Category.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Blog.WebAPI/Blog.WebAPI.csproj" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Blog.WebAPI/Controllers/AccountController.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Blog.WebAPI/MailTemplates/Send2FAEmailTemplate.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Blog.WebAPI/MailTemplates/SendForgotPasswordEmailTemplate.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Blog.WebAPI/MailTemplates/SendVerificationEmailTemplate.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Blog.WebAPI/Program.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Blog.WebAPI/Properties/launchSettings.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Blog.WebAPI/Startup.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Blog.WebAPI/appsettings.Development.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Blog.WebAPI/appsettings.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Blog.sln" beforeDir="false" afterPath="$PROJECT_DIR$/Blog.sln" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Blog.WebUI/Controllers/AccountController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Blog.WebUI/Controllers/AccountController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Blog.WebUI/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Blog.WebUI/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Blog.WebUI/Startup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Blog.WebUI/Startup.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -70,27 +50,22 @@
       <option value="$PROJECT_DIR$/Blog.Business/Features/Authentication/Handlers/Commands/SignUpUserCommandHandler.cs" />
       <option value="$PROJECT_DIR$/Blog.Business/Features/Authentication/Handlers/Queries/GetUserByIdQueryHandler.cs" />
       <option value="$PROJECT_DIR$/Blog.Business/Features/Authentication/Commands/SignUpAdminCommand.cs" />
-      <option value="$PROJECT_DIR$/Blog.Business/Features/Authentication/Queries/GetUserByUsernameQuery.cs" />
       <option value="$PROJECT_DIR$/Blog.Business/Features/Products/Handlers/Queries/GetAllProductsQueryHandler.cs" />
       <option value="$PROJECT_DIR$/Blog.DataAccess/Concrete/EntityFramework/EfProductRepository.cs" />
       <option value="$PROJECT_DIR$/Blog.Entities/Concrete/Product.cs" />
       <option value="$PROJECT_DIR$/Blog.Entities/Concrete/Like.cs" />
       <option value="$PROJECT_DIR$/Blog.DataAccess/Abstract/IProductRepository.cs" />
       <option value="$PROJECT_DIR$/Blog.DataAccess/Blog.DataAccess.csproj" />
-      <option value="$PROJECT_DIR$/Blog.Business/DependencyResolvers/AutofacBusinessModule.cs" />
       <option value="$PROJECT_DIR$/Blog.DataAccess/Concrete/EntityFramework/Contexts/ProjectDbContext.cs" />
       <option value="$PROJECT_DIR$/Blog.Entities/Concrete/ApplicationUser.cs" />
       <option value="$PROJECT_DIR$/Blog.DataAccess/Concrete/EntityFramework/Contexts/IdentityContext.cs" />
-      <option value="$PROJECT_DIR$/Blog.DataAccess/DependencyResolvers/DataAccessModule.cs" />
       <option value="$PROJECT_DIR$/Blog.DataAccess/Abstract/IPostRepository.cs" />
       <option value="$PROJECT_DIR$/Blog.DataAccess/Concrete/EntityFramework/EfPostRepository.cs" />
       <option value="$PROJECT_DIR$/Blog.Core/Entities/Concrete/BaseEntity.cs" />
       <option value="$PROJECT_DIR$/Blog.Entities/Concrete/User.cs" />
       <option value="$PROJECT_DIR$/Blog.Entities/Concrete/Topic.cs" />
       <option value="$PROJECT_DIR$/Blog.Entities/Concrete/Tag.cs" />
-      <option value="$PROJECT_DIR$/Blog.Entities/Concrete/Category.cs" />
       <option value="$PROJECT_DIR$/Blog.DataAccess/Concrete/EntityFramework/Contexts/ApplicationDbContext.cs" />
-      <option value="$PROJECT_DIR$/Blog.Entities/Concrete/Post.cs" />
       <option value="$PROJECT_DIR$/Blog.DataAccess/Abstract/ICategoryRepository.cs" />
       <option value="$PROJECT_DIR$/Blog.Entities/Concrete/Comment.cs" />
       <option value="$PROJECT_DIR$/Blog.Core/Entities/IEntity.cs" />
@@ -100,11 +75,23 @@
       <option value="$PROJECT_DIR$/Blog.WebUI/Blog.WebUI.csproj" />
       <option value="$PROJECT_DIR$/Blog.Entities/Concrete/Image.cs" />
       <option value="$PROJECT_DIR$/Blog.Core/Entities/DTOs/Authentication/Requests/SignUpRequest.cs" />
-      <option value="$PROJECT_DIR$/Blog.Business/Constants/Messages.cs" />
       <option value="$PROJECT_DIR$/Blog.Business/Features/Authentication/ValidationRules/SignUpValidator.cs" />
-      <option value="$PROJECT_DIR$/Blog.Business/Helpers/AutoMapperHelper.cs" />
       <option value="$PROJECT_DIR$/Blog.WebUI/appsettings.json" />
       <option value="$PROJECT_DIR$/Blog.Business/Features/Authentication/Handlers/Commands/SignUpAdminCommandHandler.cs" />
+      <option value="$PROJECT_DIR$/Blog.Business/Features/Authentication/Queries/GetUserByUsernameQuery.cs" />
+      <option value="$PROJECT_DIR$/Blog.Business/Helpers/AutoMapperHelper.cs" />
+      <option value="$PROJECT_DIR$/Blog.Business/Constants/Messages.cs" />
+      <option value="$PROJECT_DIR$/Blog.Business/Features/Category/ValidationRules/CategoryValidator.cs" />
+      <option value="$PROJECT_DIR$/Blog.Business/Features/Category/Commands/AddCategoryCommand.cs" />
+      <option value="$PROJECT_DIR$/Blog.WebUI/Controllers/AccountController.cs" />
+      <option value="$PROJECT_DIR$/Blog.WebUI/Program.cs" />
+      <option value="$PROJECT_DIR$/Blog.WebUI/Startup.cs" />
+      <option value="$PROJECT_DIR$/Blog.WebUI/Controllers/CategoryController.cs" />
+      <option value="$PROJECT_DIR$/Blog.DataAccess/DependencyResolvers/DataAccessModule.cs" />
+      <option value="$PROJECT_DIR$/Blog.Business/DependencyResolvers/AutofacBusinessModule.cs" />
+      <option value="$PROJECT_DIR$/Blog.Entities/Concrete/Post.cs" />
+      <option value="$PROJECT_DIR$/Blog.Entities/Concrete/Category.cs" />
+      <option value="$PROJECT_DIR$/Blog.Business/Features/Category/Handlers/Commands/AddCategoryCommandHandler.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1vOzNfqviKpLhKQbI5itEKFj8pw" />
@@ -194,7 +181,7 @@
       <updated>1626447885327</updated>
       <workItem from="1626447915219" duration="923000" />
       <workItem from="1626459650238" duration="9009000" />
-      <workItem from="1626527878432" duration="8006000" />
+      <workItem from="1626527878432" duration="14020000" />
     </task>
     <servers />
   </component>
@@ -217,24 +204,5 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Blog.Business/Features/Authentication/Handlers/Commands/SignUpAdminCommandHandler.cs</url>
-          <line>52</line>
-          <properties documentPath="C:\Users\ilker\Desktop\Blog\Blog.Business\Features\Authentication\Handlers\Commands\SignUpAdminCommandHandler.cs" initialLine="52" containingFunctionPresentation="method 'Handle'">
-            <startOffsets>
-              <option value="2116" />
-            </startOffsets>
-            <endOffsets>
-              <option value="2168" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

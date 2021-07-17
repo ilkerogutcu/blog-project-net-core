@@ -9,7 +9,6 @@ namespace Blog.Entities.Concrete
         public Guid Id { get; set; }
         public User User { get; set; }
         public Image Image { get; set; }
-        public Category Category { get; set; }
         public string Title { get; set; }
         public string Content { get; set; }
         public string SeoAuthor { get; set; }
@@ -22,5 +21,6 @@ namespace Blog.Entities.Concrete
         public string LastModifiedBy { get; set; }
         public virtual ICollection<Tag> Tags { get; set; }
         public virtual ICollection<Comment> Comments { get; set; }
+        public virtual ICollection<Category> Categories { get; set; }
     }
 }

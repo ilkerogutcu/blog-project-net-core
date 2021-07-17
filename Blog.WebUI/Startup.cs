@@ -1,29 +1,22 @@
 using Blog.Business.Helpers;
-using Blog.Core.CrossCuttingConcerns.Logging.Serilog.ConfigurationModels;
-using Blog.Core.CrossCuttingConcerns.Logging.Serilog.Loggers;
-using Blog.Core.DataAccess.MongoDb.Configuration;
 using Blog.Core.DependencyResolvers;
 using Blog.Core.Extensions;
-using Blog.Core.Settings;
 using Blog.Core.Utilities.Encryption;
 using Blog.Core.Utilities.IoC;
-using Blog.Core.Utilities.Uri;
 using Blog.DataAccess.Concrete.EntityFramework.Contexts;
 using Blog.DataAccess.DependencyResolvers;
 using Blog.Entities.Concrete;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 
-namespace Blog.WebAPI
+namespace Blog.WebUI
 {
 	public class Startup
 	{

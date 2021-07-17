@@ -4,7 +4,7 @@ using Blog.Business.DependencyResolvers;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Hosting;
 
-namespace Blog.WebAPI
+namespace Blog.WebUI
 {
 	public static class Program
 	{
