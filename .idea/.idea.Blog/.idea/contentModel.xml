@@ -71,10 +71,12 @@
           <e p="Category" t="Include">
             <e p="Commands" t="Include">
               <e p="AddCategoryCommand.cs" t="Include" />
+              <e p="UpdateCategoryCommand.cs" t="Include" />
             </e>
             <e p="Handlers" t="Include">
               <e p="Commands" t="Include">
                 <e p="AddCategoryCommandHandler.cs" t="Include" />
+                <e p="UpdateCategoryCommandHandler.cs" t="Include" />
               </e>
             </e>
             <e p="Queries" t="Include" />
@@ -276,6 +278,8 @@
           <e p="20210717134852_InitialCreate.Designer.cs" t="Include" />
           <e p="20210717210225_UpdatedPost.cs" t="Include" />
           <e p="20210717210225_UpdatedPost.Designer.cs" t="Include" />
+          <e p="20210718122621_CategoryUpdated.cs" t="Include" />
+          <e p="20210718122621_CategoryUpdated.Designer.cs" t="Include" />
           <e p="ApplicationDbContextModelSnapshot.cs" t="Include" />
         </e>
         <e p="obj" t="ExcludeRecursive">

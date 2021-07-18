@@ -41,8 +41,11 @@ namespace Blog.Business.Constants
 		public const string PleaseEnterTheCategoryName = "Please enter the category name.";
 		public const string PleaseEnterTheUserId = "Please enter the user id.";
 		public const string PleaseEnterTheImageUrl = "Please enter the image url";
+		public const string PleaseEnterTheDescription = "Please enter the description";
 		public const string CategorySuccessfullyAdded = "Category successfully added";
 		public const string AddCategoryFailed = "Category added failed";
+		public const string UpdatedSuccessfully = "Updated successfully";
+		public const string UpdateFailed = "Update failed!";
 
 
 	}

@@ -10,6 +10,7 @@ namespace Blog.Business.Features.Category.ValidationRules
         {
             RuleFor(x => x.Name).NotEmpty().WithMessage(Messages.PleaseEnterTheCategoryName);
             RuleFor(x => x.ImageUrl).NotEmpty().WithMessage(Messages.PleaseEnterTheImageUrl);
+            RuleFor(x => x.Description).NotEmpty().WithMessage(Messages.PleaseEnterTheDescription);
         }
     }
 }

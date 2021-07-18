@@ -13,6 +13,7 @@ namespace Blog.Business.Helpers
 			CreateMap<User, UserResponse>().ReverseMap();
 			CreateMap<User, SignUpRequest>().ReverseMap();
 			CreateMap<Category, AddCategoryCommand>().ReverseMap();
+			CreateMap<Category, UpdateCategoryCommand>().ReverseMap();
 		}
 	}
 }

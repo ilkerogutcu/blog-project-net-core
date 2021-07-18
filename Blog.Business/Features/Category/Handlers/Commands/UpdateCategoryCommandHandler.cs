@@ -1,4 +1,5 @@
 using System;
+using System.Security.Claims;
 using System.Threading;
 using System.Threading.Tasks;
 using AutoMapper;
@@ -6,6 +7,7 @@ using Blog.Business.Constants;
 using Blog.Business.Features.Category.Commands;
 using Blog.Business.Features.Category.ValidationRules;
 using Blog.Core.Aspects.Autofac.Logger;
+using Blog.Core.Aspects.Autofac.Transaction;
 using Blog.Core.Aspects.Autofac.Validation;
 using Blog.Core.CrossCuttingConcerns.Logging.Serilog.Loggers;
 using Blog.Core.Utilities.Results;
@@ -17,48 +19,52 @@ using Microsoft.AspNetCore.Identity;
 
 namespace Blog.Business.Features.Category.Handlers.Commands
 {
-    public class AddCategoryCommandHandler : IRequestHandler<AddCategoryCommand, IResult>
+    [TransactionScopeAspectAsync]
+    public class UpdateCategoryCommandHandler : IRequestHandler<UpdateCategoryCommand, IResult>
     {
         private readonly ICategoryRepository _categoryRepository;
-        private readonly IMapper _mapper;
         private readonly UserManager<User> _userManager;
         private readonly IHttpContextAccessor _httpContextAccessor;
 
-        public AddCategoryCommandHandler(ICategoryRepository categoryRepository, IMapper mapper, UserManager<User> userManager, IHttpContextAccessor httpContextAccessor)
+        public UpdateCategoryCommandHandler(ICategoryRepository categoryRepository, UserManager<User> userManager,IHttpContextAccessor httpContextAccessor)
         {
             _categoryRepository = categoryRepository;
-            _mapper = mapper;
             _userManager = userManager;
             _httpContextAccessor = httpContextAccessor;
         }
 
         [ValidationAspect(typeof(CategoryValidator))]
         [LogAspect(typeof(FileLogger))]
-        public async Task<IResult> Handle(AddCategoryCommand request, CancellationToken cancellationToken)
+        public async Task<IResult> Handle(UpdateCategoryCommand request, CancellationToken cancellationToken)
         {
-            var category = _mapper.Map<Entities.Concrete.Category>(request);
-            var user = await _userManager.FindByNameAsync(_httpContextAccessor.HttpContext.User.Identity?.Name);
+            var user = await _userManager.FindByEmailAsync(_httpContextAccessor.HttpContext.User
+                .FindFirst(ClaimTypes.Email)?.Value);
             if (user is null)
             {
                 return new ErrorResult(Messages.UserNotFound);
             }
 
-            category.User = user;
-            category.CreatedDate = DateTime.Now;
-            category.Status = true;
+            var category = await _categoryRepository.GetAsync(x => x.Id == request.Id);
+            if (category is null)
+            {
+                return new ErrorResult(Messages.DataNotFound);
+            }
+
             category.Image = new Image
             {
                 Url = request.ImageUrl,
                 CreatedDate = DateTime.Now
             };
-            await _categoryRepository.AddAsync(category);
+            category.Status = request.Status;
+            category.Name = request.Name;
+            category.Description = request.Description;
+            category.LastModifiedBy = user.UserName;
+            category.LastModifiedDate = DateTime.Now;
+            _categoryRepository.Update(category);
             var result = await _categoryRepository.SaveChangesAsync();
-            if (result > 0)
-            {
-                return new SuccessResult(Messages.CategorySuccessfullyAdded);
-            }
-
-            return new ErrorResult(Messages.AddCategoryFailed);
+            return result > 0
+                ? (IResult) new SuccessResult(Messages.UpdatedSuccessfully)
+                : new ErrorResult(Messages.UpdateFailed);
         }
     }
 }
