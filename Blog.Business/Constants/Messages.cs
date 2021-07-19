@@ -26,7 +26,7 @@ namespace Blog.Business.Constants
 		public const string EmailIsNotConfirmed = "Email is not confirmed!";
 		public const string AuthorizationsDenied = "Authorizations denied!";
 		public const string SignUpSuccessfully = "Sign up successfully. Please confirm your account by visiting this URL: ";
-		public const string DataNotFound = "Token created successfully.";
+		public const string DataNotFound = "Data not found!";
 		public const string UsernameIsNotInTheCorrectFormat = "The username field is not in the correct format.";
 		public const string TokenCreatedSuccessfully = "Token created successfully.";
 		public const string FailedToCreateToken = "Failed to create token!";
@@ -38,6 +38,15 @@ namespace Blog.Business.Constants
 		public const string UpdatedUserSuccessfully = "User updated succesfully.";
 		public const string GetDateRangeError = "End date must be greater than or equal to start date!";
 		public const string FieldMustBeLessThan500Characters = "Field must be less then 500 characters!";
+		public const string PleaseEnterTheCategoryName = "Please enter the category name.";
+		public const string PleaseEnterTheUserId = "Please enter the user id.";
+		public const string PleaseEnterTheImageUrl = "Please enter the image url";
+		public const string PleaseEnterTheDescription = "Please enter the description";
+		public const string CategorySuccessfullyAdded = "Category successfully added";
+		public const string AddCategoryFailed = "Category added failed";
+		public const string UpdatedSuccessfully = "Updated successfully";
+		public const string UpdateFailed = "Update failed!";
+
 
 	}
 }

@@ -68,6 +68,31 @@
               <e p="SignUpValidator.cs" t="Include" />
             </e>
           </e>
+          <e p="Category" t="Include">
+            <e p="Commands" t="Include">
+              <e p="AddCategoryCommand.cs" t="Include" />
+              <e p="UpdateCategoryCommand.cs" t="Include" />
+            </e>
+            <e p="Handlers" t="Include">
+              <e p="Commands" t="Include">
+                <e p="AddCategoryCommandHandler.cs" t="Include" />
+                <e p="UpdateCategoryCommandHandler.cs" t="Include" />
+              </e>
+              <e p="Queries" t="Include">
+                <e p="GetAllCategoriesByStatusQueryHandler.cs" t="Include" />
+                <e p="GetAllCategoriesQueryHandler.cs" t="Include" />
+                <e p="GetCategoryByNameQueryHandler.cs" t="Include" />
+              </e>
+            </e>
+            <e p="Queries" t="Include">
+              <e p="GetAllCategoriesByStatusQuery.cs" t="Include" />
+              <e p="GetAllCategoriesQuery.cs" t="Include" />
+              <e p="GetCategoryByNameQuery.cs" t="Include" />
+            </e>
+            <e p="ValidationRules" t="Include">
+              <e p="CategoryValidator.cs" t="Include" />
+            </e>
+          </e>
         </e>
         <e p="Helpers" t="Include">
           <e p="AuthenticationHelper.cs" t="Include" />
@@ -260,6 +285,10 @@
         <e p="Migrations" t="Include">
           <e p="20210717134852_InitialCreate.cs" t="Include" />
           <e p="20210717134852_InitialCreate.Designer.cs" t="Include" />
+          <e p="20210717210225_UpdatedPost.cs" t="Include" />
+          <e p="20210717210225_UpdatedPost.Designer.cs" t="Include" />
+          <e p="20210718122621_CategoryUpdated.cs" t="Include" />
+          <e p="20210718122621_CategoryUpdated.Designer.cs" t="Include" />
           <e p="ApplicationDbContextModelSnapshot.cs" t="Include" />
         </e>
         <e p="obj" t="ExcludeRecursive">
@@ -282,7 +311,9 @@
           <e p="Tag.cs" t="Include" />
           <e p="User.cs" t="Include" />
         </e>
-        <e p="DTOs" t="Include" />
+        <e p="DTOs" t="Include">
+          <e p="CategoryDto.cs" t="Include" />
+        </e>
         <e p="Enums" t="Include">
           <e p="Roles.cs" t="Include" />
         </e>
@@ -302,6 +333,7 @@
         <e p="Blog.WebUI.csproj" t="IncludeRecursive" />
         <e p="Controllers" t="Include">
           <e p="AccountController.cs" t="Include" />
+          <e p="CategoryController.cs" t="Include" />
         </e>
         <e p="MailTemplates" t="Include">
           <e p="Send2FAEmailTemplate.html" t="Include" />

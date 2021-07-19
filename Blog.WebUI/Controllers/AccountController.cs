@@ -1,13 +1,13 @@
-﻿using Blog.Business.Features.Authentication.Commands;
+﻿using System.Threading.Tasks;
+using Blog.Business.Features.Authentication.Commands;
 using Blog.Business.Features.Authentication.Queries;
 using Blog.Core.Entities.DTOs.Authentication.Responses;
 using Blog.Core.Utilities.Results;
 using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using System.Threading.Tasks;
 
-namespace Blog.WebAPI.Controllers
+namespace Blog.WebUI.Controllers
 {
 	[Route("api/[controller]")]
 	[ApiController]

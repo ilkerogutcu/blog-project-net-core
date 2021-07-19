@@ -6,43 +6,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="700393e1-e67f-4567-844a-381093fa77cd" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Blog.DataAccess/Abstract/ICategoryRepository.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Blog.DataAccess/Abstract/ICommentRepository.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Blog.DataAccess/Abstract/ITagRepository.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Blog.DataAccess/Concrete/EntityFramework/EfCategoryRepository.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Blog.DataAccess/Concrete/EntityFramework/EfCommentRepository.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Blog.DataAccess/Concrete/EntityFramework/EfTagRepository.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Blog.Business/Features/Category/Handlers/Queries/GetAllCategoriesByStatusQueryHandler.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Blog.Business/Features/Category/Queries/GetAllCategoriesByStatusQuery.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Blog/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Blog/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Blog/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Blog/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/config/applicationhost.config" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/config/applicationhost.config" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Blog.Business/Constants/Messages.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Blog.Business/Constants/Messages.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Blog.Business/Features/Authentication/Handlers/Commands/SignUpAdminCommandHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Blog.Business/Features/Authentication/Handlers/Commands/SignUpAdminCommandHandler.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Blog.Business/Features/Authentication/ValidationRules/SignUpValidator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Blog.Business/Features/Authentication/ValidationRules/SignUpValidator.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Blog.Business/Helpers/AutoMapperHelper.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Blog.Business/Helpers/AutoMapperHelper.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Blog.Core/Entities/DTOs/Authentication/Requests/SignUpRequest.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Blog.Core/Entities/DTOs/Authentication/Requests/SignUpRequest.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Blog.Core/Entities/IEntity.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Blog.Core/Entities/IEntity.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Blog.DataAccess/Concrete/EntityFramework/Contexts/ApplicationDbContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Blog.DataAccess/Concrete/EntityFramework/Contexts/ApplicationDbContext.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Blog.DataAccess/Migrations/20210716200452_InitialIdentityContext.Designer.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Blog.DataAccess/Migrations/20210716200452_InitialIdentityContext.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Blog.DataAccess/Migrations/20210716202800_InitialContext.Designer.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Blog.DataAccess/Migrations/20210716202800_InitialContext.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Blog.DataAccess/Migrations/IdentityContextModelSnapshot.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Blog.Entities/Concrete/Comment.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Blog.Entities/Concrete/Comment.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Blog.Entities/Concrete/Image.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Blog.Entities/Concrete/Image.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Blog.Entities/Concrete/Notification.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Blog.Entities/Concrete/Notification.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Blog.Entities/Concrete/Post.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Blog.Entities/Concrete/Post.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Blog.Entities/Concrete/Topic.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Blog.Entities/Concrete/Category.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Blog.WebAPI/Blog.WebAPI.csproj" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Blog.WebAPI/Controllers/AccountController.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Blog.WebAPI/MailTemplates/Send2FAEmailTemplate.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Blog.WebAPI/MailTemplates/SendForgotPasswordEmailTemplate.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Blog.WebAPI/MailTemplates/SendVerificationEmailTemplate.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Blog.WebAPI/Program.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Blog.WebAPI/Properties/launchSettings.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Blog.WebAPI/Startup.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Blog.WebAPI/appsettings.Development.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Blog.WebAPI/appsettings.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Blog.sln" beforeDir="false" afterPath="$PROJECT_DIR$/Blog.sln" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Blog.DataAccess/Abstract/ICategoryRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Blog.DataAccess/Abstract/ICategoryRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Blog.DataAccess/Concrete/EntityFramework/EfCategoryRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Blog.DataAccess/Concrete/EntityFramework/EfCategoryRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Blog.WebUI/Controllers/CategoryController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Blog.WebUI/Controllers/CategoryController.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,50 +31,66 @@
     </file-type-list>
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="mock://C:/Users/ilker/Desktop/Blog/Blog.Business/Helpers/AutoMapperHelper.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/E1B363E2-5403-4E32-8838-4023DDB2E105/2/IdentityDbContext.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Blog.WebUI/appsettings.json" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/BA72EFE7-DBF2-49AD-BD79-C391E9EA1A4B/00/3c8fd4fe/JwtRegisteredClaimNames.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/D7970BCA-7F38-4659-8B39-F768CCA2C7AA/74/0ca3b32f/IdentityUser.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Blog.WebUI/Controllers/CategoryController.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
-      <option value="$PROJECT_DIR$/Blog.Business/Blog.Business.csproj" />
-      <option value="$PROJECT_DIR$/Blog.Business/Features/Authentication/Handlers/Commands/SignUpUserCommandHandler.cs" />
-      <option value="$PROJECT_DIR$/Blog.Business/Features/Authentication/Handlers/Queries/GetUserByIdQueryHandler.cs" />
-      <option value="$PROJECT_DIR$/Blog.Business/Features/Authentication/Commands/SignUpAdminCommand.cs" />
-      <option value="$PROJECT_DIR$/Blog.Business/Features/Authentication/Queries/GetUserByUsernameQuery.cs" />
-      <option value="$PROJECT_DIR$/Blog.Business/Features/Products/Handlers/Queries/GetAllProductsQueryHandler.cs" />
-      <option value="$PROJECT_DIR$/Blog.DataAccess/Concrete/EntityFramework/EfProductRepository.cs" />
-      <option value="$PROJECT_DIR$/Blog.Entities/Concrete/Product.cs" />
-      <option value="$PROJECT_DIR$/Blog.Entities/Concrete/Like.cs" />
-      <option value="$PROJECT_DIR$/Blog.DataAccess/Abstract/IProductRepository.cs" />
       <option value="$PROJECT_DIR$/Blog.DataAccess/Blog.DataAccess.csproj" />
-      <option value="$PROJECT_DIR$/Blog.Business/DependencyResolvers/AutofacBusinessModule.cs" />
       <option value="$PROJECT_DIR$/Blog.DataAccess/Concrete/EntityFramework/Contexts/ProjectDbContext.cs" />
       <option value="$PROJECT_DIR$/Blog.Entities/Concrete/ApplicationUser.cs" />
       <option value="$PROJECT_DIR$/Blog.DataAccess/Concrete/EntityFramework/Contexts/IdentityContext.cs" />
-      <option value="$PROJECT_DIR$/Blog.DataAccess/DependencyResolvers/DataAccessModule.cs" />
       <option value="$PROJECT_DIR$/Blog.DataAccess/Abstract/IPostRepository.cs" />
       <option value="$PROJECT_DIR$/Blog.DataAccess/Concrete/EntityFramework/EfPostRepository.cs" />
       <option value="$PROJECT_DIR$/Blog.Core/Entities/Concrete/BaseEntity.cs" />
       <option value="$PROJECT_DIR$/Blog.Entities/Concrete/User.cs" />
       <option value="$PROJECT_DIR$/Blog.Entities/Concrete/Topic.cs" />
       <option value="$PROJECT_DIR$/Blog.Entities/Concrete/Tag.cs" />
-      <option value="$PROJECT_DIR$/Blog.Entities/Concrete/Category.cs" />
       <option value="$PROJECT_DIR$/Blog.DataAccess/Concrete/EntityFramework/Contexts/ApplicationDbContext.cs" />
-      <option value="$PROJECT_DIR$/Blog.Entities/Concrete/Post.cs" />
-      <option value="$PROJECT_DIR$/Blog.DataAccess/Abstract/ICategoryRepository.cs" />
       <option value="$PROJECT_DIR$/Blog.Entities/Concrete/Comment.cs" />
       <option value="$PROJECT_DIR$/Blog.Core/Entities/IEntity.cs" />
       <option value="$PROJECT_DIR$/Blog.Entities/Concrete/Notification.cs" />
-      <option value="$PROJECT_DIR$/Blog.DataAccess/Concrete/EntityFramework/EfCategoryRepository.cs" />
       <option value="$PROJECT_DIR$/Blog.DataAccess/Concrete/EntityFramework/EfCommentRepository.cs" />
       <option value="$PROJECT_DIR$/Blog.WebUI/Blog.WebUI.csproj" />
       <option value="$PROJECT_DIR$/Blog.Entities/Concrete/Image.cs" />
       <option value="$PROJECT_DIR$/Blog.Core/Entities/DTOs/Authentication/Requests/SignUpRequest.cs" />
-      <option value="$PROJECT_DIR$/Blog.Business/Constants/Messages.cs" />
       <option value="$PROJECT_DIR$/Blog.Business/Features/Authentication/ValidationRules/SignUpValidator.cs" />
-      <option value="$PROJECT_DIR$/Blog.Business/Helpers/AutoMapperHelper.cs" />
-      <option value="$PROJECT_DIR$/Blog.WebUI/appsettings.json" />
       <option value="$PROJECT_DIR$/Blog.Business/Features/Authentication/Handlers/Commands/SignUpAdminCommandHandler.cs" />
+      <option value="$PROJECT_DIR$/Blog.Business/Features/Authentication/Queries/GetUserByUsernameQuery.cs" />
+      <option value="$PROJECT_DIR$/Blog.WebUI/Controllers/AccountController.cs" />
+      <option value="$PROJECT_DIR$/Blog.WebUI/Program.cs" />
+      <option value="$PROJECT_DIR$/Blog.WebUI/Startup.cs" />
+      <option value="$PROJECT_DIR$/Blog.DataAccess/DependencyResolvers/DataAccessModule.cs" />
+      <option value="$PROJECT_DIR$/Blog.Business/DependencyResolvers/AutofacBusinessModule.cs" />
+      <option value="$PROJECT_DIR$/Blog.Entities/Concrete/Post.cs" />
+      <option value="$PROJECT_DIR$/Blog.Business/Features/Category/Commands/AddCategoryCommand.cs" />
+      <option value="$PROJECT_DIR$/Blog.WebUI/appsettings.json" />
+      <option value="$PROJECT_DIR$/Blog.Business/Helpers/AuthenticationHelper.cs" />
+      <option value="$PROJECT_DIR$/Blog.Business/Constants/Messages.cs" />
+      <option value="$PROJECT_DIR$/Blog.Business/Features/Category/ValidationRules/CategoryValidator.cs" />
+      <option value="$PROJECT_DIR$/Blog.Entities/Concrete/Category.cs" />
+      <option value="$PROJECT_DIR$/Blog.Business/Features/Category/Handlers/Commands/UpdateCategoryCommandHandler.cs" />
+      <option value="$PROJECT_DIR$/Blog.Business/Features/Category/Commands/UpdateCategoryCommand.cs" />
+      <option value="$PROJECT_DIR$/Blog.Business/Features/Category/Handlers/Commands/AddCategoryCommandHandler.cs" />
+      <option value="$PROJECT_DIR$/Blog.Core/DataAccess/EntityFramework/EfEntityRepositoryBase.cs" />
+      <option value="$PROJECT_DIR$/Blog.Core/DependencyResolvers/CoreModule.cs" />
+      <option value="$PROJECT_DIR$/Blog.Business/Features/Category/Queries/GetAllCategoriesQuery.cs" />
+      <option value="$PROJECT_DIR$/Blog.Business/Features/Category/Handlers/Queries/GetAllCategoriesQueryHandler.cs" />
+      <option value="$PROJECT_DIR$/Blog.Business/Features/Category/Queries/GetCategoryByNameQuery.cs" />
+      <option value="$PROJECT_DIR$/Blog.Business/Features/Category/Handlers/Queries/GetCategoryByNameQueryHandler.cs" />
+      <option value="$PROJECT_DIR$/Blog.Entities/DTOs/CategoryDto.cs" />
+      <option value="$PROJECT_DIR$/Blog.Business/Helpers/AutoMapperHelper.cs" />
+      <option value="$PROJECT_DIR$/Blog.Business/Features/Category/Handlers/Queries/GetAllActiveCategoriesQueryHandler.cs" />
+      <option value="$PROJECT_DIR$/Blog.Business/Features/Category/Queries/GetAllActiveCategoriesQuery.cs" />
+      <option value="$PROJECT_DIR$/Blog.DataAccess/Abstract/ICategoryRepository.cs" />
+      <option value="$PROJECT_DIR$/Blog.DataAccess/Concrete/EntityFramework/EfCategoryRepository.cs" />
+      <option value="$PROJECT_DIR$/Blog.Business/Features/Category/Queries/GetAllCategoriesByStatusQuery.cs" />
+      <option value="$PROJECT_DIR$/Blog.Business/Features/Category/Handlers/Queries/GetAllCategoriesByStatusQueryHandler.cs" />
+      <option value="$PROJECT_DIR$/Blog.WebUI/Controllers/CategoryController.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1vOzNfqviKpLhKQbI5itEKFj8pw" />
@@ -120,6 +106,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="CodeCleanupOptionsPage" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RunManager" selected=".NET Launch Settings Profile.Blog.WebUI: IIS Express">
@@ -194,7 +181,10 @@
       <updated>1626447885327</updated>
       <workItem from="1626447915219" duration="923000" />
       <workItem from="1626459650238" duration="9009000" />
-      <workItem from="1626527878432" duration="8006000" />
+      <workItem from="1626527878432" duration="14336000" />
+      <workItem from="1626604282877" duration="6670000" />
+      <workItem from="1626698321602" duration="3200000" />
+      <workItem from="1626711819537" duration="6179000" />
     </task>
     <servers />
   </component>
@@ -222,17 +212,17 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Blog.Business/Features/Authentication/Handlers/Commands/SignUpAdminCommandHandler.cs</url>
-          <line>52</line>
-          <properties documentPath="C:\Users\ilker\Desktop\Blog\Blog.Business\Features\Authentication\Handlers\Commands\SignUpAdminCommandHandler.cs" initialLine="52" containingFunctionPresentation="method 'Handle'">
+          <url>file://$PROJECT_DIR$/Blog.DataAccess/Concrete/EntityFramework/EfCategoryRepository.cs</url>
+          <line>40</line>
+          <properties documentPath="C:\Users\ilker\Desktop\Blog\Blog.DataAccess\Concrete\EntityFramework\EfCategoryRepository.cs" initialLine="39" containingFunctionPresentation="method 'GetByNameAsync'">
             <startOffsets>
-              <option value="2116" />
+              <option value="1600" />
             </startOffsets>
             <endOffsets>
-              <option value="2168" />
+              <option value="1653" />
             </endOffsets>
           </properties>
-          <option name="timeStamp" value="2" />
+          <option name="timeStamp" value="11" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

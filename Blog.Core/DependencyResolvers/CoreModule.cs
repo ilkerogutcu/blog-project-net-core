@@ -18,7 +18,6 @@ namespace Blog.Core.DependencyResolvers
 			serviceCollection.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 			serviceCollection.AddSingleton<ICacheManager, MemoryCacheManager>();
 			serviceCollection.AddSingleton<IMailService, MailService>();
-			serviceCollection.AddSingleton<IUriService, UriManager>();
 			serviceCollection.AddSingleton<Stopwatch>();
 			serviceCollection.AddTransient<FileLogger>();
 			serviceCollection.AddTransient<MongoDbLogger>();

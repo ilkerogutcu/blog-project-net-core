@@ -19,7 +19,7 @@ namespace Blog.Business.DependencyResolvers
 		{
 			var assembly = Assembly.GetExecutingAssembly();
 			builder.RegisterType<AuthenticationMailManager>().As<IAuthenticationMailService>().SingleInstance();
-
+			
 			builder.RegisterAssemblyTypes(assembly).AsImplementedInterfaces()
 				.AsClosedTypesOf(typeof(IRequestHandler<,>));
 			builder
