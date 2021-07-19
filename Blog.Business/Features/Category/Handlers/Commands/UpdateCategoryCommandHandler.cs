@@ -2,7 +2,6 @@ using System;
 using System.Security.Claims;
 using System.Threading;
 using System.Threading.Tasks;
-using AutoMapper;
 using Blog.Business.Constants;
 using Blog.Business.Features.Category.Commands;
 using Blog.Business.Features.Category.ValidationRules;

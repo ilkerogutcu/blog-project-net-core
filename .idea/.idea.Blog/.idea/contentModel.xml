@@ -78,8 +78,15 @@
                 <e p="AddCategoryCommandHandler.cs" t="Include" />
                 <e p="UpdateCategoryCommandHandler.cs" t="Include" />
               </e>
+              <e p="Queries" t="Include">
+                <e p="GetAllCategoriesQueryHandler.cs" t="Include" />
+                <e p="GetCategoryByNameQueryHandler.cs" t="Include" />
+              </e>
             </e>
-            <e p="Queries" t="Include" />
+            <e p="Queries" t="Include">
+              <e p="GetAllCategoriesQuery.cs" t="Include" />
+              <e p="GetCategoryByNameQuery.cs" t="Include" />
+            </e>
             <e p="ValidationRules" t="Include">
               <e p="CategoryValidator.cs" t="Include" />
             </e>
@@ -302,7 +309,9 @@
           <e p="Tag.cs" t="Include" />
           <e p="User.cs" t="Include" />
         </e>
-        <e p="DTOs" t="Include" />
+        <e p="DTOs" t="Include">
+          <e p="CategoryDto.cs" t="Include" />
+        </e>
         <e p="Enums" t="Include">
           <e p="Roles.cs" t="Include" />
         </e>
