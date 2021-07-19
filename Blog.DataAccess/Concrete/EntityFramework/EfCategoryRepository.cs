@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -25,6 +24,7 @@ namespace Blog.DataAccess.Concrete.EntityFramework
                 join image in context.Images on category.Image.Id equals image.Id
                 select new CategoryDto
                 {
+                    CategoryName = category.Name,
                     Description = category.Description,
                     Status = category.Status,
                     CreatedBy = user.UserName,
@@ -40,11 +40,12 @@ namespace Blog.DataAccess.Concrete.EntityFramework
         {
             await using var context = new ApplicationDbContext();
             var result = await (from category in context.Categories
-                where string.Equals(category.Name, name, StringComparison.CurrentCultureIgnoreCase)
+                where category.Name.ToLower() == name.ToLower()
                 join user in context.Users on category.User.Id equals user.Id
                 join image in context.Images on category.Image.Id equals image.Id
                 select new CategoryDto
                 {
+                    CategoryName = category.Name,
                     Description = category.Description,
                     Status = category.Status,
                     CreatedBy = user.UserName,

@@ -1,3 +1,4 @@
+using System;
 using System.Threading;
 using System.Threading.Tasks;
 using AutoMapper;
@@ -21,6 +22,10 @@ namespace Blog.Business.Features.Category.Handlers.Queries
 
         public async Task<IDataResult<CategoryDto>> Handle(GetCategoryByNameQuery request, CancellationToken cancellationToken)
         {
+            if (string.IsNullOrEmpty(request.CategoryName))
+            {
+                return new ErrorDataResult<CategoryDto>(Messages.DataNotFound);
+            }
             var result = await _categoryRepository.GetByNameAsync(request.CategoryName);
             if (result is null)
             {

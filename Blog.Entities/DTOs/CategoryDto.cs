@@ -5,6 +5,7 @@ namespace Blog.Entities.DTOs
 {
     public class CategoryDto:IDto
     {
+        public string CategoryName { get; set; }
         public string ImageUrl { get; set; }
         public string Description { get; set; }
         public bool Status { get; set; }

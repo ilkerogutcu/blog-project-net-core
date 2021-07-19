@@ -18,6 +18,7 @@ namespace Blog.Business.Helpers
             CreateMap<Category, CategoryDto>()
                 .ForMember(dest => dest.CreatedBy, opt => opt.MapFrom(src => src.User.UserName))
                 .ForMember(dest => dest.ImageUrl, opt => opt.MapFrom(src => src.Image.Url))
+                .ForMember(dest => dest.CategoryName, opt => opt.MapFrom(src => src.Name))
                 .ReverseMap();
         }
     }
