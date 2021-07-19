@@ -32,7 +32,7 @@ namespace Blog.Business.Features.Category.Handlers.Commands
             _httpContextAccessor = httpContextAccessor;
         }
 
-        [ValidationAspect(typeof(CategoryValidator))]
+        [ValidationAspect(typeof(AddCategoryValidator))]
         [LogAspect(typeof(FileLogger))]
         public async Task<IResult> Handle(AddCategoryCommand request, CancellationToken cancellationToken)
         {
