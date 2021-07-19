@@ -56,5 +56,26 @@ namespace Blog.DataAccess.Concrete.EntityFramework
                 }).FirstOrDefaultAsync();
             return result;
         }
+
+        public async Task<IEnumerable<CategoryDto>> GetAllByStatusAsync(bool status)
+        {
+            await using var context = new ApplicationDbContext();
+            var result = await (from category in context.Categories
+                where category.Status == status
+                join user in context.Users on category.User.Id equals user.Id
+                join image in context.Images on category.Image.Id equals image.Id
+                select new CategoryDto
+                {
+                    CategoryName = category.Name,
+                    Description = category.Description,
+                    Status = category.Status,
+                    CreatedBy = user.UserName,
+                    ImageUrl = image.Url,
+                    CreatedDate = category.CreatedDate,
+                    LastModifiedBy = category.LastModifiedBy,
+                    LastModifiedDate = category.LastModifiedDate
+                }).ToListAsync();
+            return result;
+        }
     }
 }

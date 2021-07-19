@@ -6,11 +6,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="700393e1-e67f-4567-844a-381093fa77cd" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/Blog.Business/Features/Category/Handlers/Queries/GetAllCategoriesByStatusQueryHandler.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Blog.Business/Features/Category/Queries/GetAllCategoriesByStatusQuery.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Blog/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Blog/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Blog/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Blog/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Blog.Business/Features/Category/Handlers/Queries/GetCategoryByNameQueryHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Blog.Business/Features/Category/Handlers/Queries/GetCategoryByNameQueryHandler.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Blog.Business/Helpers/AutoMapperHelper.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Blog.Business/Helpers/AutoMapperHelper.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Blog.DataAccess/Abstract/ICategoryRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Blog.DataAccess/Abstract/ICategoryRepository.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Blog.DataAccess/Concrete/EntityFramework/EfCategoryRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Blog.DataAccess/Concrete/EntityFramework/EfCategoryRepository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Blog.Entities/DTOs/CategoryDto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Blog.Entities/DTOs/CategoryDto.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Blog.WebUI/Controllers/CategoryController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Blog.WebUI/Controllers/CategoryController.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,10 +40,6 @@
   </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
-      <option value="$PROJECT_DIR$/Blog.DataAccess/Concrete/EntityFramework/EfProductRepository.cs" />
-      <option value="$PROJECT_DIR$/Blog.Entities/Concrete/Product.cs" />
-      <option value="$PROJECT_DIR$/Blog.Entities/Concrete/Like.cs" />
-      <option value="$PROJECT_DIR$/Blog.DataAccess/Abstract/IProductRepository.cs" />
       <option value="$PROJECT_DIR$/Blog.DataAccess/Blog.DataAccess.csproj" />
       <option value="$PROJECT_DIR$/Blog.DataAccess/Concrete/EntityFramework/Contexts/ProjectDbContext.cs" />
       <option value="$PROJECT_DIR$/Blog.Entities/Concrete/ApplicationUser.cs" />
@@ -83,12 +81,16 @@
       <option value="$PROJECT_DIR$/Blog.Business/Features/Category/Queries/GetAllCategoriesQuery.cs" />
       <option value="$PROJECT_DIR$/Blog.Business/Features/Category/Handlers/Queries/GetAllCategoriesQueryHandler.cs" />
       <option value="$PROJECT_DIR$/Blog.Business/Features/Category/Queries/GetCategoryByNameQuery.cs" />
-      <option value="$PROJECT_DIR$/Blog.DataAccess/Abstract/ICategoryRepository.cs" />
-      <option value="$PROJECT_DIR$/Blog.WebUI/Controllers/CategoryController.cs" />
       <option value="$PROJECT_DIR$/Blog.Business/Features/Category/Handlers/Queries/GetCategoryByNameQueryHandler.cs" />
       <option value="$PROJECT_DIR$/Blog.Entities/DTOs/CategoryDto.cs" />
-      <option value="$PROJECT_DIR$/Blog.DataAccess/Concrete/EntityFramework/EfCategoryRepository.cs" />
       <option value="$PROJECT_DIR$/Blog.Business/Helpers/AutoMapperHelper.cs" />
+      <option value="$PROJECT_DIR$/Blog.Business/Features/Category/Handlers/Queries/GetAllActiveCategoriesQueryHandler.cs" />
+      <option value="$PROJECT_DIR$/Blog.Business/Features/Category/Queries/GetAllActiveCategoriesQuery.cs" />
+      <option value="$PROJECT_DIR$/Blog.DataAccess/Abstract/ICategoryRepository.cs" />
+      <option value="$PROJECT_DIR$/Blog.DataAccess/Concrete/EntityFramework/EfCategoryRepository.cs" />
+      <option value="$PROJECT_DIR$/Blog.Business/Features/Category/Queries/GetAllCategoriesByStatusQuery.cs" />
+      <option value="$PROJECT_DIR$/Blog.Business/Features/Category/Handlers/Queries/GetAllCategoriesByStatusQueryHandler.cs" />
+      <option value="$PROJECT_DIR$/Blog.WebUI/Controllers/CategoryController.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1vOzNfqviKpLhKQbI5itEKFj8pw" />
@@ -182,7 +184,7 @@
       <workItem from="1626527878432" duration="14336000" />
       <workItem from="1626604282877" duration="6670000" />
       <workItem from="1626698321602" duration="3200000" />
-      <workItem from="1626711819537" duration="5210000" />
+      <workItem from="1626711819537" duration="6179000" />
     </task>
     <servers />
   </component>

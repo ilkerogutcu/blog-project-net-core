@@ -10,6 +10,7 @@ namespace Blog.DataAccess.Abstract
     {
        Task<IEnumerable<CategoryDto>> GetAllAsync();
        Task<CategoryDto> GetByNameAsync(string name);
+       Task<IEnumerable<CategoryDto>> GetAllByStatusAsync(bool status);
 
     }
 }

@@ -65,5 +65,20 @@ namespace Blog.WebUI.Controllers
             var result = await _mediator.Send(query);
             return result.Success ? Ok(result.Data) : BadRequest(result.Message);
         }
+        
+        [Produces("application/json", "text/plain")]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(PaginatedResult<IEnumerable<CategoryDto>>))]
+        [ProducesResponseType(StatusCodes.Status400BadRequest, Type = typeof(string))]
+        [HttpGet("get-by-status")]
+        public async Task<IActionResult> GetByStatus([FromQuery] PaginationFilter paginationFilter,[FromQuery] bool status)
+        {
+            var result = await _mediator.Send(new GetAllCategoriesByStatusQuery
+            {
+                PaginationFilter = paginationFilter,
+                Route = Request.Path.Value,
+                Status = status
+            });
+            return result.Success ? Ok(result) : BadRequest(result.Message);
+        }
     }
 }
