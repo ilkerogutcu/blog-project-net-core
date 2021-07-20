@@ -6,13 +6,27 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="700393e1-e67f-4567-844a-381093fa77cd" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Blog.Business/Features/Category/Handlers/Queries/GetAllCategoriesByStatusQueryHandler.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Blog.Business/Features/Category/Queries/GetAllCategoriesByStatusQuery.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Blog.Business/Features/Post/Commands/AddPostCommand.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Blog.Business/Features/Post/Handlers/AddPostCommandHandler.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Blog.Business/Features/Post/ValidationRules/AddPostValidator.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Blog.Entities/Concrete/SeoDetail.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Blog.Entities/DTOs/PostDto.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Blog.WebUI/Controllers/PostController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Blog/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Blog/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Blog/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Blog/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Blog.DataAccess/Abstract/ICategoryRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Blog.DataAccess/Abstract/ICategoryRepository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Blog.DataAccess/Concrete/EntityFramework/EfCategoryRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Blog.DataAccess/Concrete/EntityFramework/EfCategoryRepository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Blog.WebUI/Controllers/CategoryController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Blog.WebUI/Controllers/CategoryController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Blog.Business/Blog.Business.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Blog.Business/Blog.Business.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Blog.Business/Constants/Messages.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Blog.Business/Constants/Messages.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Blog.Business/Features/Category/Handlers/Commands/AddCategoryCommandHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Blog.Business/Features/Category/Handlers/Commands/AddCategoryCommandHandler.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Blog.Business/Features/Post/ValidationRules/PostValidator.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Blog.Business/Helpers/AutoMapperHelper.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Blog.Business/Helpers/AutoMapperHelper.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Blog.Core/DataAccess/EntityFramework/EfEntityRepositoryBase.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Blog.Core/DataAccess/EntityFramework/EfEntityRepositoryBase.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Blog.DataAccess/Abstract/IPostRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Blog.DataAccess/Abstract/IPostRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Blog.DataAccess/Concrete/EntityFramework/Contexts/ApplicationDbContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Blog.DataAccess/Concrete/EntityFramework/Contexts/ApplicationDbContext.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Blog.DataAccess/Concrete/EntityFramework/EfPostRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Blog.DataAccess/Concrete/EntityFramework/EfPostRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Blog.DataAccess/DependencyResolvers/DataAccessModule.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Blog.DataAccess/DependencyResolvers/DataAccessModule.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Blog.DataAccess/Migrations/ApplicationDbContextModelSnapshot.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Blog.DataAccess/Migrations/ApplicationDbContextModelSnapshot.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Blog.Entities/Concrete/Post.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Blog.Entities/Concrete/Post.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Blog.WebUI/appsettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/Blog.WebUI/appsettings.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,7 +45,6 @@
     </file-type-list>
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="mock://C:/Users/ilker/Desktop/Blog/Blog.Business/Helpers/AutoMapperHelper.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/E1B363E2-5403-4E32-8838-4023DDB2E105/2/IdentityDbContext.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Blog.WebUI/appsettings.json" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/BA72EFE7-DBF2-49AD-BD79-C391E9EA1A4B/00/3c8fd4fe/JwtRegisteredClaimNames.cs" root0="SKIP_HIGHLIGHTING" />
@@ -40,18 +53,6 @@
   </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
-      <option value="$PROJECT_DIR$/Blog.DataAccess/Blog.DataAccess.csproj" />
-      <option value="$PROJECT_DIR$/Blog.DataAccess/Concrete/EntityFramework/Contexts/ProjectDbContext.cs" />
-      <option value="$PROJECT_DIR$/Blog.Entities/Concrete/ApplicationUser.cs" />
-      <option value="$PROJECT_DIR$/Blog.DataAccess/Concrete/EntityFramework/Contexts/IdentityContext.cs" />
-      <option value="$PROJECT_DIR$/Blog.DataAccess/Abstract/IPostRepository.cs" />
-      <option value="$PROJECT_DIR$/Blog.DataAccess/Concrete/EntityFramework/EfPostRepository.cs" />
-      <option value="$PROJECT_DIR$/Blog.Core/Entities/Concrete/BaseEntity.cs" />
-      <option value="$PROJECT_DIR$/Blog.Entities/Concrete/User.cs" />
-      <option value="$PROJECT_DIR$/Blog.Entities/Concrete/Topic.cs" />
-      <option value="$PROJECT_DIR$/Blog.Entities/Concrete/Tag.cs" />
-      <option value="$PROJECT_DIR$/Blog.DataAccess/Concrete/EntityFramework/Contexts/ApplicationDbContext.cs" />
-      <option value="$PROJECT_DIR$/Blog.Entities/Concrete/Comment.cs" />
       <option value="$PROJECT_DIR$/Blog.Core/Entities/IEntity.cs" />
       <option value="$PROJECT_DIR$/Blog.Entities/Concrete/Notification.cs" />
       <option value="$PROJECT_DIR$/Blog.DataAccess/Concrete/EntityFramework/EfCommentRepository.cs" />
@@ -64,26 +65,17 @@
       <option value="$PROJECT_DIR$/Blog.WebUI/Controllers/AccountController.cs" />
       <option value="$PROJECT_DIR$/Blog.WebUI/Program.cs" />
       <option value="$PROJECT_DIR$/Blog.WebUI/Startup.cs" />
-      <option value="$PROJECT_DIR$/Blog.DataAccess/DependencyResolvers/DataAccessModule.cs" />
       <option value="$PROJECT_DIR$/Blog.Business/DependencyResolvers/AutofacBusinessModule.cs" />
-      <option value="$PROJECT_DIR$/Blog.Entities/Concrete/Post.cs" />
       <option value="$PROJECT_DIR$/Blog.Business/Features/Category/Commands/AddCategoryCommand.cs" />
-      <option value="$PROJECT_DIR$/Blog.WebUI/appsettings.json" />
       <option value="$PROJECT_DIR$/Blog.Business/Helpers/AuthenticationHelper.cs" />
-      <option value="$PROJECT_DIR$/Blog.Business/Constants/Messages.cs" />
-      <option value="$PROJECT_DIR$/Blog.Business/Features/Category/ValidationRules/CategoryValidator.cs" />
       <option value="$PROJECT_DIR$/Blog.Entities/Concrete/Category.cs" />
-      <option value="$PROJECT_DIR$/Blog.Business/Features/Category/Handlers/Commands/UpdateCategoryCommandHandler.cs" />
       <option value="$PROJECT_DIR$/Blog.Business/Features/Category/Commands/UpdateCategoryCommand.cs" />
-      <option value="$PROJECT_DIR$/Blog.Business/Features/Category/Handlers/Commands/AddCategoryCommandHandler.cs" />
-      <option value="$PROJECT_DIR$/Blog.Core/DataAccess/EntityFramework/EfEntityRepositoryBase.cs" />
       <option value="$PROJECT_DIR$/Blog.Core/DependencyResolvers/CoreModule.cs" />
       <option value="$PROJECT_DIR$/Blog.Business/Features/Category/Queries/GetAllCategoriesQuery.cs" />
       <option value="$PROJECT_DIR$/Blog.Business/Features/Category/Handlers/Queries/GetAllCategoriesQueryHandler.cs" />
       <option value="$PROJECT_DIR$/Blog.Business/Features/Category/Queries/GetCategoryByNameQuery.cs" />
       <option value="$PROJECT_DIR$/Blog.Business/Features/Category/Handlers/Queries/GetCategoryByNameQueryHandler.cs" />
       <option value="$PROJECT_DIR$/Blog.Entities/DTOs/CategoryDto.cs" />
-      <option value="$PROJECT_DIR$/Blog.Business/Helpers/AutoMapperHelper.cs" />
       <option value="$PROJECT_DIR$/Blog.Business/Features/Category/Handlers/Queries/GetAllActiveCategoriesQueryHandler.cs" />
       <option value="$PROJECT_DIR$/Blog.Business/Features/Category/Queries/GetAllActiveCategoriesQuery.cs" />
       <option value="$PROJECT_DIR$/Blog.DataAccess/Abstract/ICategoryRepository.cs" />
@@ -91,6 +83,27 @@
       <option value="$PROJECT_DIR$/Blog.Business/Features/Category/Queries/GetAllCategoriesByStatusQuery.cs" />
       <option value="$PROJECT_DIR$/Blog.Business/Features/Category/Handlers/Queries/GetAllCategoriesByStatusQueryHandler.cs" />
       <option value="$PROJECT_DIR$/Blog.WebUI/Controllers/CategoryController.cs" />
+      <option value="$PROJECT_DIR$/Blog.Business/Features/Category/ValidationRules/CategoryValidator.cs" />
+      <option value="$PROJECT_DIR$/Blog.Business/Features/Category/Handlers/Commands/UpdateCategoryCommandHandler.cs" />
+      <option value="$PROJECT_DIR$/Blog.Entities/Concrete/Post.cs" />
+      <option value="$PROJECT_DIR$/Blog.Entities/Concrete/SeoDetail.cs" />
+      <option value="$PROJECT_DIR$/Blog.DataAccess/Concrete/EntityFramework/Contexts/ApplicationDbContext.cs" />
+      <option value="$PROJECT_DIR$/Blog.Entities/DTOs/PostResponse.cs" />
+      <option value="$PROJECT_DIR$/Blog.Entities/DTOs/PostRequest.cs" />
+      <option value="$PROJECT_DIR$/Blog.Entities/DTOs/PostDto.cs" />
+      <option value="$PROJECT_DIR$/Blog.Business/Features/Post/ValidationRules/PostValidator.cs" />
+      <option value="$PROJECT_DIR$/Blog.Business/Features/Post/ValidationRules/AddPostValidator.cs" />
+      <option value="$PROJECT_DIR$/Blog.Business/Helpers/AutoMapperHelper.cs" />
+      <option value="$PROJECT_DIR$/Blog.Core/DataAccess/EntityFramework/EfEntityRepositoryBase.cs" />
+      <option value="$PROJECT_DIR$/Blog.DataAccess/Concrete/EntityFramework/EfPostRepository.cs" />
+      <option value="$PROJECT_DIR$/Blog.DataAccess/Abstract/IPostRepository.cs" />
+      <option value="$PROJECT_DIR$/Blog.Business/Features/Post/Commands/AddPostCommand.cs" />
+      <option value="$PROJECT_DIR$/Blog.Business/Constants/Messages.cs" />
+      <option value="$PROJECT_DIR$/Blog.WebUI/Controllers/PostController.cs" />
+      <option value="$PROJECT_DIR$/Blog.DataAccess/DependencyResolvers/DataAccessModule.cs" />
+      <option value="$PROJECT_DIR$/Blog.WebUI/appsettings.json" />
+      <option value="$PROJECT_DIR$/Blog.Business/Features/Category/Handlers/Commands/AddCategoryCommandHandler.cs" />
+      <option value="$PROJECT_DIR$/Blog.Business/Features/Post/Handlers/AddPostCommandHandler.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1vOzNfqviKpLhKQbI5itEKFj8pw" />
@@ -185,7 +198,16 @@
       <workItem from="1626604282877" duration="6670000" />
       <workItem from="1626698321602" duration="3200000" />
       <workItem from="1626711819537" duration="6179000" />
+      <workItem from="1626787490426" duration="1675000" />
     </task>
+    <task id="LOCAL-00001" summary="fix: Category validator fixed">
+      <created>1626724440747</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1626724440747</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -207,6 +229,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+    <MESSAGE value="fix: Category validator fixed" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix: Category validator fixed" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -223,6 +247,32 @@
             </endOffsets>
           </properties>
           <option name="timeStamp" value="11" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Blog.Business/Features/Post/Handlers/AddPostCommandHandler.cs</url>
+          <line>43</line>
+          <properties documentPath="C:\Users\ilker\Desktop\Blog\Blog.Business\Features\Post\Handlers\AddPostCommandHandler.cs" initialLine="42" containingFunctionPresentation="method 'Handle'">
+            <startOffsets>
+              <option value="1687" />
+            </startOffsets>
+            <endOffsets>
+              <option value="1743" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="12" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Blog.Business/Features/Category/Handlers/Commands/AddCategoryCommandHandler.cs</url>
+          <line>39</line>
+          <properties documentPath="C:\Users\ilker\Desktop\Blog\Blog.Business\Features\Category\Handlers\Commands\AddCategoryCommandHandler.cs" initialLine="38" containingFunctionPresentation="method 'Handle'">
+            <startOffsets>
+              <option value="1568" />
+            </startOffsets>
+            <endOffsets>
+              <option value="1632" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="13" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

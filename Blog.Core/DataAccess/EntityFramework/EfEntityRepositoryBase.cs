@@ -127,7 +127,7 @@ namespace Blog.Core.DataAccess.EntityFramework
 			return result;
 		}
 
-		public async Task<TEntity> AddAsync(TEntity entity)
+		public virtual async Task<TEntity> AddAsync(TEntity entity)
 		{
 			var result = await Context.AddAsync(entity);
 			return result.Entity;

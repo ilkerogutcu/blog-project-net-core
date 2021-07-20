@@ -93,6 +93,18 @@
               <e p="CategoryValidator.cs" t="Include" />
             </e>
           </e>
+          <e p="Post" t="Include">
+            <e p="Commands" t="Include">
+              <e p="AddPostCommand.cs" t="Include" />
+            </e>
+            <e p="Handlers" t="Include">
+              <e p="AddPostCommandHandler.cs" t="Include" />
+            </e>
+            <e p="Queries" t="Include" />
+            <e p="ValidationRules" t="Include">
+              <e p="AddPostValidator.cs" t="Include" />
+            </e>
+          </e>
         </e>
         <e p="Helpers" t="Include">
           <e p="AuthenticationHelper.cs" t="Include" />
@@ -289,6 +301,8 @@
           <e p="20210717210225_UpdatedPost.Designer.cs" t="Include" />
           <e p="20210718122621_CategoryUpdated.cs" t="Include" />
           <e p="20210718122621_CategoryUpdated.Designer.cs" t="Include" />
+          <e p="20210719200144_CreateSeoTable.cs" t="Include" />
+          <e p="20210719200144_CreateSeoTable.Designer.cs" t="Include" />
           <e p="ApplicationDbContextModelSnapshot.cs" t="Include" />
         </e>
         <e p="obj" t="ExcludeRecursive">
@@ -308,11 +322,13 @@
           <e p="Image.cs" t="Include" />
           <e p="Notification.cs" t="Include" />
           <e p="Post.cs" t="Include" />
+          <e p="SeoDetail.cs" t="Include" />
           <e p="Tag.cs" t="Include" />
           <e p="User.cs" t="Include" />
         </e>
         <e p="DTOs" t="Include">
           <e p="CategoryDto.cs" t="Include" />
+          <e p="PostDto.cs" t="Include" />
         </e>
         <e p="Enums" t="Include">
           <e p="Roles.cs" t="Include" />
@@ -334,6 +350,7 @@
         <e p="Controllers" t="Include">
           <e p="AccountController.cs" t="Include" />
           <e p="CategoryController.cs" t="Include" />
+          <e p="PostController.cs" t="Include" />
         </e>
         <e p="MailTemplates" t="Include">
           <e p="Send2FAEmailTemplate.html" t="Include" />

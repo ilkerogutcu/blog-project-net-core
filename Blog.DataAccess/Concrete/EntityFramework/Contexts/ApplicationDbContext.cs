@@ -14,7 +14,9 @@ namespace Blog.DataAccess.Concrete.EntityFramework.Contexts
 				.UseSqlServer("Server=DESKTOP-9JI7HVR;Database=blog;Trusted_Connection=True;");
 		}
 		public DbSet<Notification> Notifications { get; set; }
-		public DbSet<Post> Posts { get; set; }	
+		public DbSet<SeoDetail> SeoDetails { get; set; }	
+
+		public DbSet<Post> Posts { get; set; }
 		public DbSet<Image> Images { get; set; }
 		public DbSet<Comment> Comments { get; set; }
 		public DbSet<Tag> Tags { get; set; }	

@@ -26,4 +26,8 @@
       <Compile Remove="Concrete\AuthenticationManager.cs" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Folder Include="Features\Post\Queries" />
+    </ItemGroup>
+
 </Project>

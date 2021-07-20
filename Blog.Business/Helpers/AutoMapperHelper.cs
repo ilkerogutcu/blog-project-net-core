@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Blog.Business.Features.Category.Commands;
+using Blog.Business.Features.Post.Commands;
 using Blog.Core.Entities.DTOs.Authentication.Requests;
 using Blog.Core.Entities.DTOs.Authentication.Responses;
 using Blog.Entities.Concrete;
@@ -19,6 +20,9 @@ namespace Blog.Business.Helpers
                 .ForMember(dest => dest.CreatedBy, opt => opt.MapFrom(src => src.User.UserName))
                 .ForMember(dest => dest.ImageUrl, opt => opt.MapFrom(src => src.Image.Url))
                 .ForMember(dest => dest.CategoryName, opt => opt.MapFrom(src => src.Name))
+                .ReverseMap();
+            CreateMap<Post, AddPostCommand>()
+                .ForMember(dest => dest.ImageUrl, opt => opt.MapFrom(src => src.Image.Url))
                 .ReverseMap();
         }
     }

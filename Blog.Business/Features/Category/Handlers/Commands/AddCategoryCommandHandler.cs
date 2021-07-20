@@ -1,4 +1,5 @@
 using System;
+using System.Security.Claims;
 using System.Threading;
 using System.Threading.Tasks;
 using AutoMapper;
@@ -37,7 +38,7 @@ namespace Blog.Business.Features.Category.Handlers.Commands
         public async Task<IResult> Handle(AddCategoryCommand request, CancellationToken cancellationToken)
         {
             var category = _mapper.Map<Entities.Concrete.Category>(request);
-            var user = await _userManager.FindByNameAsync(_httpContextAccessor.HttpContext.User.Identity?.Name);
+            var user = await _userManager.FindByEmailAsync(_httpContextAccessor.HttpContext.User.FindFirst(ClaimTypes.Email)?.Value);
             if (user is null)
             {
                 return new ErrorResult(Messages.UserNotFound);
