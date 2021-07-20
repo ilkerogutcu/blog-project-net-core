@@ -24,6 +24,10 @@ namespace Blog.Business.Helpers
             CreateMap<Post, AddPostCommand>()
                 .ForMember(dest => dest.ImageUrl, opt => opt.MapFrom(src => src.Image.Url))
                 .ReverseMap();
+            CreateMap<Post, UpdatePostCommand>()
+                .ForMember(dest => dest.ImageUrl, opt => opt.MapFrom(src => src.Image.Url))
+                .ForMember(dest => dest.PostId, opt => opt.MapFrom(src => src.Id))
+                .ReverseMap();
         }
     }
 }

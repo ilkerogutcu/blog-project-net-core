@@ -96,13 +96,15 @@
           <e p="Post" t="Include">
             <e p="Commands" t="Include">
               <e p="AddPostCommand.cs" t="Include" />
+              <e p="UpdatePostCommand.cs" t="Include" />
             </e>
             <e p="Handlers" t="Include">
               <e p="AddPostCommandHandler.cs" t="Include" />
+              <e p="UpdatePostCommandHandler.cs" t="Include" />
             </e>
             <e p="Queries" t="Include" />
             <e p="ValidationRules" t="Include">
-              <e p="AddPostValidator.cs" t="Include" />
+              <e p="PostValidator.cs" t="Include" />
             </e>
           </e>
         </e>
