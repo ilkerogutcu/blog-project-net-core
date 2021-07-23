@@ -18,7 +18,7 @@ namespace Blog.Core.DataAccess.EntityFramework
 			Context = context;
 		}
 
-		private TContext Context { get; }
+		protected TContext Context { get; }
 
 		public TEntity Add(TEntity entity)
 		{

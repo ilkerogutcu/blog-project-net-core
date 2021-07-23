@@ -7,6 +7,7 @@ using AutoMapper;
 using Blog.Business.Constants;
 using Blog.Business.Features.Post.Commands;
 using Blog.Business.Features.Post.ValidationRules;
+using Blog.Core.Aspects.Autofac.Exception;
 using Blog.Core.Aspects.Autofac.Logger;
 using Blog.Core.Aspects.Autofac.Validation;
 using Blog.Core.CrossCuttingConcerns.Logging.Serilog.Loggers;
@@ -42,54 +43,61 @@ namespace Blog.Business.Features.Post.Handlers
 
         [ValidationAspect(typeof(UpdatePostValidator))]
         [LogAspect(typeof(FileLogger))]
+        [ExceptionLogAspect(typeof(FileLogger))]
         public async Task<IResult> Handle(UpdatePostCommand request, CancellationToken cancellationToken)
         {
-            var post = await _postRepository.GetAsync(x => x.Id == request.PostId);
-            if (post is null)
+            try
             {
-                return new ErrorResult(Messages.DataNotFound);
-            }
+                var post = await _postRepository.GetWithTags(x => x.Id == request.PostId);
+                if (post is null)
+                {
+                    return new ErrorResult(Messages.DataNotFound);
+                }
 
-            var user = await _userManager.FindByEmailAsync(_httpContextAccessor.HttpContext.User
-                .FindFirst(ClaimTypes.Email)?.Value);
-            if (user is null)
-            {
-                return new ErrorResult(Messages.UserNotFound);
-            }
+                var user = await _userManager.FindByEmailAsync(_httpContextAccessor.HttpContext.User
+                    .FindFirst(ClaimTypes.Email)?.Value);
+                if (user is null)
+                {
+                    return new ErrorResult(Messages.UserNotFound);
+                }
 
-            var category = await _categoryRepository.GetAsync(x => x.Name == request.CategoryName);
-            if (category is null)
-            {
-                return new ErrorResult(Messages.DataNotFound);
-            }
+                var category = await _categoryRepository.GetAsync(x => x.Name == request.CategoryName);
+                if (category is null)
+                {
+                    return new ErrorResult(Messages.DataNotFound);
+                }
 
-            post.Content = request.Content;
-            post.Title = request.Title;
-            post.Image = new Image
-            {
-                Url = request.ImageUrl,
-                CreatedDate = DateTime.Now
-            };
-            post.Categories = new List<Entities.Concrete.Category> {category};
-            post.Tags = new List<Tag>();
-            post.SeoDetail = request.SeoDetail;
-            post.Status = request.Status;
-            post.LastModifiedBy = user.UserName;
-            post.LastModifiedDate = DateTime.Now;
-            foreach (var tagName in request.Tags)
-            {
-                var tag = await _tagRepository.GetAsync(x => x.Name == tagName);
-                post.Tags.Add(tag);
-            }
+                post.Content = request.Content;
+                post.Title = request.Title;
+                post.Image = new Image
+                {
+                    Url = request.ImageUrl
+                };
+                post.Category = category;
+                post.SeoDetail = request.SeoDetail;
+                post.Status = request.Status;
+                post.LastModifiedBy = user.UserName;
+                post.LastModifiedDate = DateTime.Now;
+            
+                post.Tags.Clear();
+                foreach (var tagName in request.Tags)
+                {
+                    var tag = await _tagRepository.GetAsync(x => x.Name == tagName);
+                    post.Tags.Add(tag);
+                }
+                _postRepository.Update(post);
+                var result = await _postRepository.SaveChangesAsync();
+                if (result > 0)
+                {
+                    return new SuccessResult(Messages.UpdatedSuccessfully);
+                }
 
-            _postRepository.Update(post);
-            var result = await _postRepository.SaveChangesAsync();
-            if (result > 0)
-            {
-                return new SuccessResult(Messages.UpdatedSuccessfully);
+                return new ErrorResult(Messages.UpdateFailed);
             }
-
-            return new ErrorResult(Messages.AddFailed);
+            catch (Exception e)
+            {
+                return new ErrorResult(Messages.UpdateFailed);
+            }
         }
     }
 }

@@ -128,6 +128,9 @@
               <e p="CacheAspect.cs" t="Include" />
               <e p="CacheRemoveAspect.cs" t="Include" />
             </e>
+            <e p="Exception" t="Include">
+              <e p="ExceptionLogAspect.cs" t="Include" />
+            </e>
             <e p="Logger" t="Include">
               <e p="LogAspect.cs" t="Include" />
             </e>
@@ -297,14 +300,8 @@
           <e p="DataAccessModule.cs" t="Include" />
         </e>
         <e p="Migrations" t="Include">
-          <e p="20210717134852_InitialCreate.cs" t="Include" />
-          <e p="20210717134852_InitialCreate.Designer.cs" t="Include" />
-          <e p="20210717210225_UpdatedPost.cs" t="Include" />
-          <e p="20210717210225_UpdatedPost.Designer.cs" t="Include" />
-          <e p="20210718122621_CategoryUpdated.cs" t="Include" />
-          <e p="20210718122621_CategoryUpdated.Designer.cs" t="Include" />
-          <e p="20210719200144_CreateSeoTable.cs" t="Include" />
-          <e p="20210719200144_CreateSeoTable.Designer.cs" t="Include" />
+          <e p="20210723195040_GeneralImprovements.cs" t="Include" />
+          <e p="20210723195040_GeneralImprovements.Designer.cs" t="Include" />
           <e p="ApplicationDbContextModelSnapshot.cs" t="Include" />
         </e>
         <e p="obj" t="ExcludeRecursive">

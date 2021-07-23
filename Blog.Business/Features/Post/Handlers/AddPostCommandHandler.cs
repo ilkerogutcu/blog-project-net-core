@@ -59,7 +59,7 @@ namespace Blog.Business.Features.Post.Handlers
                 return new ErrorResult(Messages.DataNotFound);
             }
 
-            post.Categories = new List<Entities.Concrete.Category> {category};
+            post.Category = category;
             post.Tags = new List<Tag>();
             post.CreatedDate = DateTime.Now;
             post.Status = true;

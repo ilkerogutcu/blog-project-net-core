@@ -16,7 +16,7 @@ namespace Blog.Business.Features.Post.ValidationRules
         }
     }
     
-    public class UpdatePostValidator : AbstractValidator<AddPostCommand>
+    public class UpdatePostValidator : AbstractValidator<UpdatePostCommand>
     {
         public UpdatePostValidator()
         {

@@ -1,3 +1,6 @@
+using System;
+using System.Linq;
+using System.Linq.Expressions;
 using System.Threading.Tasks;
 using Blog.Core.DataAccess;
 using Blog.Entities.Concrete;
@@ -7,5 +10,6 @@ namespace Blog.DataAccess.Abstract
 {
     public interface IPostRepository : IEntityRepository<Post>
     {
+        Task<Post> GetWithTags(Expression<Func<Post, bool>> expression);
     }
 }

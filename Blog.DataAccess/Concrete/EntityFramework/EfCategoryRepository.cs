@@ -12,16 +12,11 @@ namespace Blog.DataAccess.Concrete.EntityFramework
 {
     public class EfCategoryRepository : EfEntityRepositoryBase<Category, ApplicationDbContext>, ICategoryRepository
     {
-        public EfCategoryRepository(ApplicationDbContext context) : base(context)
-        {
-        }
-
         public async Task<IEnumerable<CategoryDto>> GetAllAsync()
         {
-            await using var context = new ApplicationDbContext();
-            var result = await (from category in context.Categories
-                join user in context.Users on category.User.Id equals user.Id
-                join image in context.Images on category.Image.Id equals image.Id
+            var result = await (from category in Context.Categories
+                join user in Context.Users on category.User.Id equals user.Id
+                join image in Context.Images on category.Image.Id equals image.Id
                 select new CategoryDto
                 {
                     CategoryName = category.Name,
@@ -38,11 +33,10 @@ namespace Blog.DataAccess.Concrete.EntityFramework
 
         public async Task<CategoryDto> GetByNameAsync(string name)
         {
-            await using var context = new ApplicationDbContext();
-            var result = await (from category in context.Categories
+            var result = await (from category in Context.Categories
                 where category.Name.ToLower() == name.ToLower()
-                join user in context.Users on category.User.Id equals user.Id
-                join image in context.Images on category.Image.Id equals image.Id
+                join user in Context.Users on category.User.Id equals user.Id
+                join image in Context.Images on category.Image.Id equals image.Id
                 select new CategoryDto
                 {
                     CategoryName = category.Name,
@@ -59,11 +53,10 @@ namespace Blog.DataAccess.Concrete.EntityFramework
 
         public async Task<IEnumerable<CategoryDto>> GetAllByStatusAsync(bool status)
         {
-            await using var context = new ApplicationDbContext();
-            var result = await (from category in context.Categories
+            var result = await (from category in Context.Categories
                 where category.Status == status
-                join user in context.Users on category.User.Id equals user.Id
-                join image in context.Images on category.Image.Id equals image.Id
+                join user in Context.Users on category.User.Id equals user.Id
+                join image in Context.Images on category.Image.Id equals image.Id
                 select new CategoryDto
                 {
                     CategoryName = category.Name,
@@ -76,6 +69,10 @@ namespace Blog.DataAccess.Concrete.EntityFramework
                     LastModifiedDate = category.LastModifiedDate
                 }).ToListAsync();
             return result;
+        }
+
+        public EfCategoryRepository(ApplicationDbContext context) : base(context)
+        {
         }
     }
 }
