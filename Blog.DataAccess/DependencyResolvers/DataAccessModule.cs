@@ -12,6 +12,8 @@ namespace Blog.DataAccess.DependencyResolvers
 		{
 			serviceCollection.AddDbContext<ApplicationDbContext>();
 			serviceCollection.AddSingleton<ICategoryRepository, EfCategoryRepository>();
+			serviceCollection.AddSingleton<IPostRepository, EfPostRepository>();
+			serviceCollection.AddSingleton<ITagRepository, EfTagRepository>();
 		}
 	}
 }

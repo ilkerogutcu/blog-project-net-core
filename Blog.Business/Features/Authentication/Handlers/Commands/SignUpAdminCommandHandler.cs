@@ -9,7 +9,6 @@ using Blog.Core.Aspects.Autofac.Transaction;
 using Blog.Core.Aspects.Autofac.Validation;
 using Blog.Core.CrossCuttingConcerns.Logging.Serilog.Loggers;
 using Blog.Core.Entities.DTOs.Authentication.Responses;
-using Blog.Core.Utilities.Mail;
 using Blog.Core.Utilities.Results;
 using Blog.Entities.Concrete;
 using Blog.Entities.Enums;
@@ -18,9 +17,13 @@ using Microsoft.AspNetCore.Identity;
 using System.Threading;
 using System.Threading.Tasks;
 using AutoMapper;
+using Blog.Core.Aspects.Autofac.Exception;
 
 namespace Blog.Business.Features.Authentication.Handlers.Commands
 {
+	/// <summary>
+	/// Sign up admin
+	/// </summary>
 	[TransactionScopeAspectAsync]
 	public class SignUpAdminCommandHandler : IRequestHandler<SignUpAdminCommand, IDataResult<SignUpResponse>>
 	{
@@ -38,6 +41,7 @@ namespace Blog.Business.Features.Authentication.Handlers.Commands
 
 		[ValidationAspect(typeof(SignUpValidator))]
 		[LogAspect(typeof(FileLogger))]
+		[ExceptionLogAspect(typeof(FileLogger))]
 		public async Task<IDataResult<SignUpResponse>> Handle(SignUpAdminCommand request, CancellationToken cancellationToken)
 		{
 			var isUserAlreadyExist = await _userManager.FindByNameAsync(request.SignUpRequest.Username);
@@ -55,7 +59,6 @@ namespace Blog.Business.Features.Authentication.Handlers.Commands
 			user.Photo = new Image
 			{
 				Url = request.SignUpRequest.ImageUrl,
-				CreatedDate = DateTime.Now
 			};
 			user.Status = true;
 			var result = await _userManager.CreateAsync(user, request.SignUpRequest.Password);

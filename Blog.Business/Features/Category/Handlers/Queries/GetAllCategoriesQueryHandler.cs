@@ -5,6 +5,8 @@ using System.Threading.Tasks;
 using Blog.Business.Constants;
 using Blog.Business.Features.Category.Queries;
 using Blog.Business.Helpers;
+using Blog.Core.Aspects.Autofac.Exception;
+using Blog.Core.CrossCuttingConcerns.Logging.Serilog.Loggers;
 using Blog.Core.Utilities.Results;
 using Blog.Core.Utilities.Uri;
 using Blog.DataAccess.Abstract;
@@ -13,6 +15,9 @@ using MediatR;
 
 namespace Blog.Business.Features.Category.Handlers.Queries
 {
+    /// <summary>
+    /// Get all categories
+    /// </summary>
     public class GetAllCategoriesQueryHandler : IRequestHandler<GetAllCategoriesQuery, IDataResult<IEnumerable<CategoryDto>>>
     {
         private readonly ICategoryRepository _categoryRepository;
@@ -23,13 +28,14 @@ namespace Blog.Business.Features.Category.Handlers.Queries
             _categoryRepository = categoryRepository;
             _uriService = uriService;
         }
-
+        
+        [ExceptionLogAspect(typeof(FileLogger))]
         public async Task<IDataResult<IEnumerable<CategoryDto>>> Handle(GetAllCategoriesQuery request, CancellationToken cancellationToken)
         {
             var result = (await _categoryRepository.GetAllAsync()).ToList();
 
             return !result.Any()
-                ? (IDataResult<IEnumerable<CategoryDto>>) new ErrorDataResult<List<CategoryDto>>(Messages.DataNotFound)
+                ? new ErrorDataResult<List<CategoryDto>>(Messages.DataNotFound)
                 : PaginationHelper.CreatePaginatedResponse(result, request.PaginationFilter, result.Count, _uriService, request.Route);
         }
     }

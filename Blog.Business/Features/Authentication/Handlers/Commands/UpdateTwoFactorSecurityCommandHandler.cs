@@ -8,9 +8,13 @@ using MediatR;
 using Microsoft.AspNetCore.Identity;
 using System.Threading;
 using System.Threading.Tasks;
+using Blog.Core.Aspects.Autofac.Exception;
 
 namespace Blog.Business.Features.Authentication.Handlers.Commands
 {
+	/// <summary>
+	/// Update two factor security
+	/// </summary>
 	public class UpdateTwoFactorSecurityCommandHandler : IRequestHandler<UpdateTwoFactorSecurityCommand, IResult>
 	{
 		private readonly UserManager<User> _userManager;
@@ -21,9 +25,10 @@ namespace Blog.Business.Features.Authentication.Handlers.Commands
 		}
 
 		[LogAspect(typeof(FileLogger))]
+		[ExceptionLogAspect(typeof(FileLogger))]
 		public async Task<IResult> Handle(UpdateTwoFactorSecurityCommand request, CancellationToken cancellationToken)
 		{
-			var user = await _userManager.FindByIdAsync(request.userId);
+			var user = await _userManager.FindByIdAsync(request.UserId);
 			if (user is null)
 			{
 				return new ErrorResult(Messages.UserNotFound);

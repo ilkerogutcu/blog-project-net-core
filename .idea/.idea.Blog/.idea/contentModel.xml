@@ -93,6 +93,31 @@
               <e p="CategoryValidator.cs" t="Include" />
             </e>
           </e>
+          <e p="Post" t="Include">
+            <e p="Commands" t="Include">
+              <e p="AddPostCommand.cs" t="Include" />
+              <e p="UpdatePostCommand.cs" t="Include" />
+            </e>
+            <e p="Handlers" t="Include">
+              <e p="Commands" t="Include">
+                <e p="AddPostCommandHandler.cs" t="Include" />
+                <e p="UpdatePostCommandHandler.cs" t="Include" />
+              </e>
+              <e p="Queries" t="Include">
+                <e p="GetAllActivePostsQueryHandler.cs" t="Include" />
+                <e p="GetAllNotActivePostsQueryHandler.cs" t="Include" />
+                <e p="GetAllPostsQueryHandler.cs" t="Include" />
+              </e>
+            </e>
+            <e p="Queries" t="Include">
+              <e p="GetAllActivePostsQuery.cs" t="Include" />
+              <e p="GetAllNotActivePostsQuery.cs" t="Include" />
+              <e p="GetAllPostsQuery.cs" t="Include" />
+            </e>
+            <e p="ValidationRules" t="Include">
+              <e p="PostValidator.cs" t="Include" />
+            </e>
+          </e>
         </e>
         <e p="Helpers" t="Include">
           <e p="AuthenticationHelper.cs" t="Include" />
@@ -113,6 +138,9 @@
             <e p="Caching" t="Include">
               <e p="CacheAspect.cs" t="Include" />
               <e p="CacheRemoveAspect.cs" t="Include" />
+            </e>
+            <e p="Exception" t="Include">
+              <e p="ExceptionLogAspect.cs" t="Include" />
             </e>
             <e p="Logger" t="Include">
               <e p="LogAspect.cs" t="Include" />
@@ -283,12 +311,8 @@
           <e p="DataAccessModule.cs" t="Include" />
         </e>
         <e p="Migrations" t="Include">
-          <e p="20210717134852_InitialCreate.cs" t="Include" />
-          <e p="20210717134852_InitialCreate.Designer.cs" t="Include" />
-          <e p="20210717210225_UpdatedPost.cs" t="Include" />
-          <e p="20210717210225_UpdatedPost.Designer.cs" t="Include" />
-          <e p="20210718122621_CategoryUpdated.cs" t="Include" />
-          <e p="20210718122621_CategoryUpdated.Designer.cs" t="Include" />
+          <e p="20210723195040_GeneralImprovements.cs" t="Include" />
+          <e p="20210723195040_GeneralImprovements.Designer.cs" t="Include" />
           <e p="ApplicationDbContextModelSnapshot.cs" t="Include" />
         </e>
         <e p="obj" t="ExcludeRecursive">
@@ -308,11 +332,13 @@
           <e p="Image.cs" t="Include" />
           <e p="Notification.cs" t="Include" />
           <e p="Post.cs" t="Include" />
+          <e p="SeoDetail.cs" t="Include" />
           <e p="Tag.cs" t="Include" />
           <e p="User.cs" t="Include" />
         </e>
         <e p="DTOs" t="Include">
           <e p="CategoryDto.cs" t="Include" />
+          <e p="PostDto.cs" t="Include" />
         </e>
         <e p="Enums" t="Include">
           <e p="Roles.cs" t="Include" />
@@ -334,6 +360,7 @@
         <e p="Controllers" t="Include">
           <e p="AccountController.cs" t="Include" />
           <e p="CategoryController.cs" t="Include" />
+          <e p="PostController.cs" t="Include" />
         </e>
         <e p="MailTemplates" t="Include">
           <e p="Send2FAEmailTemplate.html" t="Include" />

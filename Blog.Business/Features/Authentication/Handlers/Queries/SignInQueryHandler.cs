@@ -1,4 +1,5 @@
-﻿using Blog.Business.Abstract;
+﻿using System;
+using Blog.Business.Abstract;
 using Blog.Business.Constants;
 using Blog.Business.Features.Authentication.Queries;
 using Blog.Business.Helpers;
@@ -16,6 +17,7 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using Blog.Core.Aspects.Autofac.Exception;
 
 namespace Blog.Business.Features.Authentication.Handlers.Queries
 {
@@ -37,6 +39,7 @@ namespace Blog.Business.Features.Authentication.Handlers.Queries
 			_authenticationMailService = authenticationMailService;
 		}
 
+		[ExceptionLogAspect(typeof(FileLogger))]
 		[LogAspect(typeof(FileLogger))]
 		public async Task<IDataResult<SignInResponse>> Handle(SignInQuery request, CancellationToken cancellationToken)
 		{
@@ -50,20 +53,25 @@ namespace Blog.Business.Features.Authentication.Handlers.Queries
 			{
 				return new ErrorDataResult<SignInResponse>(Messages.EmailIsNotConfirmed);
 			}
+			await _signInManager.SignOutAsync();
 			var result = await _signInManager.PasswordSignInAsync(user.UserName, request.Password,
-				false, false);
+				false, true);
 			if (result.RequiresTwoFactor)
 			{
 				var code = await _userManager.GenerateTwoFactorTokenAsync(user, "Email");
 				await _authenticationMailService.SendTwoFactorCodeEmail(user, code);
 				return new SuccessDataResult<SignInResponse>(Messages.Sent2FaCodeEmailSuccessfully);
 			}
+			if (result.IsLockedOut)
+			{
+				return new ErrorDataResult<SignInResponse>(Messages.YourAccountIsLockedOut);
+			}
 
 			if (!result.Succeeded)
 			{
 				return new ErrorDataResult<SignInResponse>(Messages.SignInFailed);
 			}
-
+			
 			var token = await AuthenticationHelper.GenerateJwtToken(user, _configuration, _userManager);
 			var userRoles = await _userManager.GetRolesAsync(user).ConfigureAwait(false);
 			return new SuccessDataResult<SignInResponse>(new SignInResponse

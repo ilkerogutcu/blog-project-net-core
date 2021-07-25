@@ -15,6 +15,5 @@ namespace Blog.Entities.Concrete
         public DateTime CreatedDate { get; set; }
         public DateTime? LastModifiedDate { get; set; }
         public string LastModifiedBy { get; set; }
-        public virtual ICollection<Post> Posts { get; set; }
     }
 }

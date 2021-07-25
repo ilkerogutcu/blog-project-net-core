@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Blog.DataAccess.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20210718122621_CategoryUpdated")]
-    partial class CategoryUpdated
+    [Migration("20210723195040_GeneralImprovements")]
+    partial class GeneralImprovements
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -87,12 +87,19 @@ namespace Blog.DataAccess.Migrations
                         .HasColumnType("datetime2")
                         .HasColumnName("created_date");
 
+                    b.Property<Guid?>("PostId")
+                        .HasColumnType("uniqueidentifier")
+                        .HasColumnName("post_id");
+
                     b.Property<bool>("Status")
                         .HasColumnType("bit")
                         .HasColumnName("status");
 
                     b.HasKey("Id")
                         .HasName("pk_comments");
+
+                    b.HasIndex("PostId")
+                        .HasDatabaseName("ix_comments_post_id");
 
                     b.ToTable("comments");
                 });
@@ -150,6 +157,10 @@ namespace Blog.DataAccess.Migrations
                         .HasColumnType("uniqueidentifier")
                         .HasColumnName("id");
 
+                    b.Property<Guid?>("CategoryId")
+                        .HasColumnType("uniqueidentifier")
+                        .HasColumnName("category_id");
+
                     b.Property<string>("Content")
                         .HasColumnType("nvarchar(max)")
                         .HasColumnName("content");
@@ -170,17 +181,9 @@ namespace Blog.DataAccess.Migrations
                         .HasColumnType("datetime2")
                         .HasColumnName("last_modified_date");
 
-                    b.Property<string>("SeoAuthor")
-                        .HasColumnType("nvarchar(max)")
-                        .HasColumnName("seo_author");
-
-                    b.Property<string>("SeoDescription")
-                        .HasColumnType("nvarchar(max)")
-                        .HasColumnName("seo_description");
-
-                    b.Property<string>("SeoTags")
-                        .HasColumnType("nvarchar(max)")
-                        .HasColumnName("seo_tags");
+                    b.Property<Guid?>("SeoDetailId")
+                        .HasColumnType("uniqueidentifier")
+                        .HasColumnName("seo_detail_id");
 
                     b.Property<bool>("Status")
                         .HasColumnType("bit")
@@ -201,13 +204,44 @@ namespace Blog.DataAccess.Migrations
                     b.HasKey("Id")
                         .HasName("pk_posts");
 
+                    b.HasIndex("CategoryId")
+                        .HasDatabaseName("ix_posts_category_id");
+
                     b.HasIndex("ImageId")
                         .HasDatabaseName("ix_posts_image_id");
+
+                    b.HasIndex("SeoDetailId")
+                        .HasDatabaseName("ix_posts_seo_detail_id");
 
                     b.HasIndex("UserId")
                         .HasDatabaseName("ix_posts_user_id");
 
                     b.ToTable("posts");
+                });
+
+            modelBuilder.Entity("Blog.Entities.Concrete.SeoDetail", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier")
+                        .HasColumnName("id");
+
+                    b.Property<string>("SeoAuthor")
+                        .HasColumnType("nvarchar(max)")
+                        .HasColumnName("seo_author");
+
+                    b.Property<string>("SeoDescription")
+                        .HasColumnType("nvarchar(max)")
+                        .HasColumnName("seo_description");
+
+                    b.Property<string>("SeoTags")
+                        .HasColumnType("nvarchar(max)")
+                        .HasColumnName("seo_tags");
+
+                    b.HasKey("Id")
+                        .HasName("pk_seo_details");
+
+                    b.ToTable("seo_details");
                 });
 
             modelBuilder.Entity("Blog.Entities.Concrete.Tag", b =>
@@ -369,44 +403,6 @@ namespace Blog.DataAccess.Migrations
                         .HasDatabaseName("ix_asp_net_users_photo_id");
 
                     b.ToTable("AspNetUsers");
-                });
-
-            modelBuilder.Entity("CategoryPost", b =>
-                {
-                    b.Property<Guid>("CategoriesId")
-                        .HasColumnType("uniqueidentifier")
-                        .HasColumnName("categories_id");
-
-                    b.Property<Guid>("PostsId")
-                        .HasColumnType("uniqueidentifier")
-                        .HasColumnName("posts_id");
-
-                    b.HasKey("CategoriesId", "PostsId")
-                        .HasName("pk_category_post");
-
-                    b.HasIndex("PostsId")
-                        .HasDatabaseName("ix_category_post_posts_id");
-
-                    b.ToTable("category_post");
-                });
-
-            modelBuilder.Entity("CommentPost", b =>
-                {
-                    b.Property<Guid>("CommentsId")
-                        .HasColumnType("uniqueidentifier")
-                        .HasColumnName("comments_id");
-
-                    b.Property<Guid>("PostsId")
-                        .HasColumnType("uniqueidentifier")
-                        .HasColumnName("posts_id");
-
-                    b.HasKey("CommentsId", "PostsId")
-                        .HasName("pk_comment_post");
-
-                    b.HasIndex("PostsId")
-                        .HasDatabaseName("ix_comment_post_posts_id");
-
-                    b.ToTable("comment_post");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -627,19 +623,41 @@ namespace Blog.DataAccess.Migrations
                     b.Navigation("User");
                 });
 
+            modelBuilder.Entity("Blog.Entities.Concrete.Comment", b =>
+                {
+                    b.HasOne("Blog.Entities.Concrete.Post", null)
+                        .WithMany("Comments")
+                        .HasForeignKey("PostId")
+                        .HasConstraintName("fk_comments_posts_post_id");
+                });
+
             modelBuilder.Entity("Blog.Entities.Concrete.Post", b =>
                 {
+                    b.HasOne("Blog.Entities.Concrete.Category", "Category")
+                        .WithMany()
+                        .HasForeignKey("CategoryId")
+                        .HasConstraintName("fk_posts_categories_category_id");
+
                     b.HasOne("Blog.Entities.Concrete.Image", "Image")
                         .WithMany()
                         .HasForeignKey("ImageId")
                         .HasConstraintName("fk_posts_images_image_id");
+
+                    b.HasOne("Blog.Entities.Concrete.SeoDetail", "SeoDetail")
+                        .WithMany()
+                        .HasForeignKey("SeoDetailId")
+                        .HasConstraintName("fk_posts_seo_details_seo_detail_id");
 
                     b.HasOne("Blog.Entities.Concrete.User", "User")
                         .WithMany()
                         .HasForeignKey("UserId")
                         .HasConstraintName("fk_posts_users_user_id");
 
+                    b.Navigation("Category");
+
                     b.Navigation("Image");
+
+                    b.Navigation("SeoDetail");
 
                     b.Navigation("User");
                 });
@@ -662,40 +680,6 @@ namespace Blog.DataAccess.Migrations
                         .HasConstraintName("fk_asp_net_users_images_photo_id");
 
                     b.Navigation("Photo");
-                });
-
-            modelBuilder.Entity("CategoryPost", b =>
-                {
-                    b.HasOne("Blog.Entities.Concrete.Category", null)
-                        .WithMany()
-                        .HasForeignKey("CategoriesId")
-                        .HasConstraintName("fk_category_post_categories_categories_id")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("Blog.Entities.Concrete.Post", null)
-                        .WithMany()
-                        .HasForeignKey("PostsId")
-                        .HasConstraintName("fk_category_post_posts_posts_id")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("CommentPost", b =>
-                {
-                    b.HasOne("Blog.Entities.Concrete.Comment", null)
-                        .WithMany()
-                        .HasForeignKey("CommentsId")
-                        .HasConstraintName("fk_comment_post_comments_comments_id")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("Blog.Entities.Concrete.Post", null)
-                        .WithMany()
-                        .HasForeignKey("PostsId")
-                        .HasConstraintName("fk_comment_post_posts_posts_id")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -787,6 +771,11 @@ namespace Blog.DataAccess.Migrations
                         .HasConstraintName("fk_post_tag_tags_tags_id")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("Blog.Entities.Concrete.Post", b =>
+                {
+                    b.Navigation("Comments");
                 });
 #pragma warning restore 612, 618
         }

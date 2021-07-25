@@ -7,6 +7,9 @@ namespace Blog.Business.Features.Authentication.Commands
 {
 	public class SignUpAdminCommand : IRequest<IDataResult<SignUpResponse>>
 	{
+		/// <summary>
+		/// Sign up request
+		/// </summary>
 		public SignUpRequest SignUpRequest { get; set; }
 	}
 }

@@ -21,6 +21,7 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using Blog.Core.Aspects.Autofac.Exception;
 
 namespace Blog.Business.Features.Authentication.Handlers.Commands
 {
@@ -28,6 +29,7 @@ namespace Blog.Business.Features.Authentication.Handlers.Commands
 	///     Sign up for user
 	/// </summary>
 	[TransactionScopeAspectAsync]
+	[ExceptionLogAspect(typeof(FileLogger))]
 	public class SignUpUserCommandHandler : IRequestHandler<SignUpUserCommand, IDataResult<SignUpResponse>>
 	{
 		private readonly IConfiguration _config;
@@ -57,10 +59,15 @@ namespace Blog.Business.Features.Authentication.Handlers.Commands
 		{
 			var isUserAlreadyExist = await _userManager.FindByNameAsync(request.SignUpRequest.Username);
 			if (isUserAlreadyExist is not null)
+			{
 				return new ErrorDataResult<SignUpResponse>(Messages.UsernameAlreadyExist);
+			}
 
 			var isEmailAlreadyExist = await _userManager.FindByEmailAsync(request.SignUpRequest.Username);
-			if (isEmailAlreadyExist is not null) return new ErrorDataResult<SignUpResponse>(Messages.EmailAlreadyExist);
+			if (isEmailAlreadyExist is not null)
+			{
+				return new ErrorDataResult<SignUpResponse>(Messages.EmailAlreadyExist);
+			}
 
 			var user = new User
 			{
@@ -71,11 +78,15 @@ namespace Blog.Business.Features.Authentication.Handlers.Commands
 			};
 			var result = await _userManager.CreateAsync(user, request.SignUpRequest.Password);
 			if (!result.Succeeded)
+			{
 				return new ErrorDataResult<SignUpResponse>(Messages.SignUpFailed +
-														   $":{result.Errors.ToList()[0].Description}");
+				                                           $":{result.Errors.ToList()[0].Description}");
+			}
 
 			if (!await _roleManager.RoleExistsAsync(Roles.User.ToString()))
+			{
 				await _roleManager.CreateAsync(new IdentityRole(Roles.User.ToString()));
+			}
 
 			await _userManager.AddToRoleAsync(user, Roles.User.ToString());
 			var verificationUri = await SendVerificationEmail(user);

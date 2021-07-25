@@ -10,6 +10,7 @@ using Microsoft.AspNetCore.WebUtilities;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using Blog.Core.Aspects.Autofac.Exception;
 
 namespace Blog.Business.Features.Authentication.Handlers.Commands
 {
@@ -32,6 +33,7 @@ namespace Blog.Business.Features.Authentication.Handlers.Commands
 		/// <param name="cancellationToken"></param>
 		/// <returns></returns>
 		[LogAspect(typeof(FileLogger))]
+		[ExceptionLogAspect(typeof(FileLogger))]
 		public async Task<IResult> Handle(ConfirmEmailCommand request, CancellationToken cancellationToken)
 		{
 			var user = await _userManager.FindByIdAsync(request.UserId);

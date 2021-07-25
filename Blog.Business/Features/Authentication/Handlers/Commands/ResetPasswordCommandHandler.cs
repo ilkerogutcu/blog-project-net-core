@@ -12,6 +12,7 @@ using Microsoft.AspNetCore.WebUtilities;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using Blog.Core.Aspects.Autofac.Exception;
 
 namespace Blog.Business.Features.Authentication.Handlers.Commands
 {
@@ -35,12 +36,16 @@ namespace Blog.Business.Features.Authentication.Handlers.Commands
 		/// <returns></returns>
 		[ValidationAspect(typeof(ResetPasswordValidator))]
 		[LogAspect(typeof(FileLogger))]
+		[ExceptionLogAspect(typeof(FileLogger))]
 		public async Task<IResult> Handle(ResetPasswordCommand request, CancellationToken cancellationToken)
 		{
 			var user = await _userManager.FindByNameAsync(request.Username);
-			if (user is null) return new ErrorResult(Messages.UserNotFound);
-			request.ResetPasswordToken =
-				Encoding.UTF8.GetString(WebEncoders.Base64UrlDecode(request.ResetPasswordToken));
+			if (user is null)
+			{
+				return new ErrorResult(Messages.UserNotFound);
+			}
+
+			request.ResetPasswordToken = Encoding.UTF8.GetString(WebEncoders.Base64UrlDecode(request.ResetPasswordToken));
 			var result = await _userManager.ResetPasswordAsync(user, request.ResetPasswordToken, request.Password);
 			return result.Succeeded
 				? new SuccessResult(Messages.PasswordHasBeenResetSuccessfully)

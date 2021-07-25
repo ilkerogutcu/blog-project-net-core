@@ -6,6 +6,7 @@ using Blog.Core.Utilities.Interceptors;
 using Castle.DynamicProxy;
 using MediatR;
 using System.Reflection;
+using FluentValidation;
 using Module = Autofac.Module;
 
 namespace Blog.Business.DependencyResolvers
@@ -22,6 +23,9 @@ namespace Blog.Business.DependencyResolvers
 			
 			builder.RegisterAssemblyTypes(assembly).AsImplementedInterfaces()
 				.AsClosedTypesOf(typeof(IRequestHandler<,>));
+			
+			builder.RegisterAssemblyTypes(assembly).AsImplementedInterfaces()
+				.AsClosedTypesOf(typeof(IValidator<>));
 			builder
 				.RegisterType<Mediator>()
 				.As<IMediator>()
@@ -35,7 +39,7 @@ namespace Blog.Business.DependencyResolvers
 				.EnableInterfaceInterceptors(new ProxyGenerationOptions
 				{
 					Selector = new AspectInterceptorSelector()
-				}).SingleInstance();
+				}).SingleInstance().InstancePerDependency();
 		}
 	}
 }
