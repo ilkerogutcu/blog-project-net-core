@@ -15,25 +15,21 @@ using MediatR;
 
 namespace Blog.Business.Features.Category.Handlers.Queries
 {
-    /// <summary>
-    /// Get all categories by status 
-    /// </summary>
-    public class GetAllCategoriesByStatusQueryHandler : IRequestHandler<GetAllCategoriesByStatusQuery, IDataResult<IEnumerable<CategoryDto>>>
+    public class GetAllNotActiveCategoriesQueryHandler : IRequestHandler<GetAllNotActiveCategoriesQuery, IDataResult<IEnumerable<CategoryDto>>>
     {
         private readonly ICategoryRepository _categoryRepository;
         private readonly IUriService _uriService;
-
         
-        public GetAllCategoriesByStatusQueryHandler(ICategoryRepository categoryRepository, IUriService uriService)
+        public GetAllNotActiveCategoriesQueryHandler(ICategoryRepository categoryRepository, IUriService uriService)
         {
             _categoryRepository = categoryRepository;
             _uriService = uriService;
         }
         
         [ExceptionLogAspect(typeof(FileLogger))]
-        public async Task<IDataResult<IEnumerable<CategoryDto>>> Handle(GetAllCategoriesByStatusQuery request, CancellationToken cancellationToken)
+        public async Task<IDataResult<IEnumerable<CategoryDto>>> Handle(GetAllNotActiveCategoriesQuery request, CancellationToken cancellationToken)
         {
-            var result = (await _categoryRepository.GetAllByStatusAsync(request.Status)).ToList();
+            var result = (await _categoryRepository.GetAllByStatusAsync(false)).ToList();
 
             return !result.Any()
                 ?  new ErrorDataResult<List<CategoryDto>>(Messages.DataNotFound)

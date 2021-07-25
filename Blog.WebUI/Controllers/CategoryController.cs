@@ -69,14 +69,27 @@ namespace Blog.WebUI.Controllers
         [Produces("application/json", "text/plain")]
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(PaginatedResult<IEnumerable<CategoryDto>>))]
         [ProducesResponseType(StatusCodes.Status400BadRequest, Type = typeof(string))]
-        [HttpGet("get-by-status")]
-        public async Task<IActionResult> GetByStatus([FromQuery] PaginationFilter paginationFilter,[FromQuery] bool status)
+        [HttpGet("get-all-active")]
+        public async Task<IActionResult> GetAllActive([FromQuery] PaginationFilter paginationFilter)
         {
-            var result = await _mediator.Send(new GetAllCategoriesByStatusQuery
+            var result = await _mediator.Send(new GetAllActiveCategoriesQuery
             {
                 PaginationFilter = paginationFilter,
                 Route = Request.Path.Value,
-                Status = status
+            });
+            return result.Success ? Ok(result) : BadRequest(result.Message);
+        }
+        
+        [Produces("application/json", "text/plain")]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(PaginatedResult<IEnumerable<CategoryDto>>))]
+        [ProducesResponseType(StatusCodes.Status400BadRequest, Type = typeof(string))]
+        [HttpGet("get-all-not-active")]
+        public async Task<IActionResult> GetAllNotActive([FromQuery] PaginationFilter paginationFilter)
+        {
+            var result = await _mediator.Send(new GetAllNotActiveCategoriesQuery()
+            {
+                PaginationFilter = paginationFilter,
+                Route = Request.Path.Value,
             });
             return result.Success ? Ok(result) : BadRequest(result.Message);
         }
