@@ -39,7 +39,6 @@ namespace Blog.Business.Constants
 		public const string GetDateRangeError = "End date must be greater than or equal to start date!";
 		public const string FieldMustBeLessThan500Characters = "Field must be less then 500 characters!";
 		public const string PleaseEnterTheCategoryName = "Please enter the category name.";
-		public const string PleaseEnterTheUserId = "Please enter the user id.";
 		public const string PleaseEnterTheImageUrl = "Please enter the image url";
 		public const string PleaseEnterTheDescription = "Please enter the description";
 		public const string CategorySuccessfullyAdded = "Category successfully added";
@@ -49,6 +48,7 @@ namespace Blog.Business.Constants
 		public const string PleaseEnterTheValue = "Please enter the value";
 		public const string DataAddedSuccessfully = "Data successfully added";
 		public const string AddFailed = "Error occurred while inserting data!";
+		public const string YourAccountIsLockedOut = "Your account is locked out. Please wait for 10 minutes and try again";
 
 
 	}

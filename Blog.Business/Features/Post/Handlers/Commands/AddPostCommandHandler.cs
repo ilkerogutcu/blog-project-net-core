@@ -18,7 +18,7 @@ using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 
-namespace Blog.Business.Features.Post.Handlers
+namespace Blog.Business.Features.Post.Handlers.Commands
 {
     [TransactionScopeAspectAsync]
     public class AddPostCommandHandler : IRequestHandler<AddPostCommand, IResult>

@@ -10,6 +10,7 @@ using Microsoft.AspNetCore.Identity;
 using System;
 using System.Threading;
 using System.Threading.Tasks;
+using Blog.Core.Aspects.Autofac.Exception;
 
 namespace Blog.Business.Features.Authentication.Handlers.Commands
 {
@@ -28,6 +29,7 @@ namespace Blog.Business.Features.Authentication.Handlers.Commands
 		}
 
 		[LogAspect(typeof(FileLogger))]
+		[ExceptionLogAspect(typeof(FileLogger))]
 		public async Task<IResult> Handle(ForgotPasswordCommand request, CancellationToken cancellationToken)
 		{
 			try

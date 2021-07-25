@@ -36,8 +36,13 @@ namespace Blog.Business.Constants
 		{
 			var host = Dns.GetHostEntry(Dns.GetHostName());
 			foreach (var ip in host.AddressList)
+			{
 				if (ip.AddressFamily == AddressFamily.InterNetwork)
+				{
 					return ip.ToString();
+				}
+			}
+
 			return string.Empty;
 		}
 	}

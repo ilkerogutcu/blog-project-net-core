@@ -9,9 +9,13 @@ using MediatR;
 using Microsoft.AspNetCore.Identity;
 using System.Threading;
 using System.Threading.Tasks;
+using Blog.Core.Aspects.Autofac.Exception;
 
 namespace Blog.Business.Features.Authentication.Handlers.Commands
 {
+	/// <summary>
+	/// Send email for confirmation token
+	/// </summary>
 	public class SendEmailConfirmationTokenCommandHandler : IRequestHandler<SendEmailConfirmationTokenCommand, IResult>
 	{
 		private readonly UserManager<User> _userManager;
@@ -24,6 +28,7 @@ namespace Blog.Business.Features.Authentication.Handlers.Commands
 		}
 
 		[LogAspect(typeof(FileLogger))]
+		[ExceptionLogAspect(typeof(FileLogger))]
 		public async Task<IResult> Handle(SendEmailConfirmationTokenCommand request, CancellationToken cancellationToken)
 		{
 			var user = await _userManager.FindByNameAsync(request.Username);

@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Blog.Business.Constants;
 using Blog.Business.Features.Category.Commands;
 using Blog.Business.Features.Category.ValidationRules;
+using Blog.Core.Aspects.Autofac.Exception;
 using Blog.Core.Aspects.Autofac.Logger;
 using Blog.Core.Aspects.Autofac.Transaction;
 using Blog.Core.Aspects.Autofac.Validation;
@@ -18,6 +19,9 @@ using Microsoft.AspNetCore.Identity;
 
 namespace Blog.Business.Features.Category.Handlers.Commands
 {
+    /// <summary>
+    /// Update category
+    /// </summary>
     [TransactionScopeAspectAsync]
     public class UpdateCategoryCommandHandler : IRequestHandler<UpdateCategoryCommand, IResult>
     {
@@ -34,6 +38,7 @@ namespace Blog.Business.Features.Category.Handlers.Commands
 
         [ValidationAspect(typeof(UpdateCategoryValidator))]
         [LogAspect(typeof(FileLogger))]
+        [ExceptionLogAspect(typeof(FileLogger))]
         public async Task<IResult> Handle(UpdateCategoryCommand request, CancellationToken cancellationToken)
         {
             var user = await _userManager.FindByEmailAsync(_httpContextAccessor.HttpContext.User
@@ -52,13 +57,13 @@ namespace Blog.Business.Features.Category.Handlers.Commands
             category.Image = new Image
             {
                 Url = request.ImageUrl,
-                CreatedDate = DateTime.Now
             };
             category.Status = request.Status;
             category.Name = request.Name;
             category.Description = request.Description;
             category.LastModifiedBy = user.UserName;
             category.LastModifiedDate = DateTime.Now;
+            
             _categoryRepository.Update(category);
             var result = await _categoryRepository.SaveChangesAsync();
             return result > 0

@@ -9,6 +9,9 @@ namespace Blog.Business.Features.Authentication.Queries
 	/// </summary>
 	public class GetUserByEmailQuery : IRequest<IDataResult<UserResponse>>
 	{
+		/// <summary>
+		/// User email
+		/// </summary>
 		public string Email { get; set; }
 	}
 }

@@ -19,7 +19,6 @@ namespace Blog.Entities.DTOs
         public bool Status { get; set; }
         public DateTime? LastModifiedDate { get; set; }
         public string LastModifiedBy { get; set; }
-        public List<Comment> Comments { get; set; }
-        public List<Tag> Tags { get; set; }
+        public List<string> Tags { get; set; }
     }
 }

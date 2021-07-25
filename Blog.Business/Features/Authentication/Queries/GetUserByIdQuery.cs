@@ -9,6 +9,9 @@ namespace Blog.Business.Features.Authentication.Queries
 	/// </summary>
 	public class GetUserByIdQuery : IRequest<IDataResult<UserResponse>>
 	{
+		/// <summary>
+		/// User id
+		/// </summary>
 		public string Id { get; set; }
 	}
 }

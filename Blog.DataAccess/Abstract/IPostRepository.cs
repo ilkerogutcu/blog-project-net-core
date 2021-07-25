@@ -1,5 +1,5 @@
 using System;
-using System.Linq;
+using System.Collections.Generic;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
 using Blog.Core.DataAccess;
@@ -11,5 +11,7 @@ namespace Blog.DataAccess.Abstract
     public interface IPostRepository : IEntityRepository<Post>
     {
         Task<Post> GetWithTags(Expression<Func<Post, bool>> expression);
+        Task<IEnumerable<PostDto>> GetAllWithTags();
+        Task<IEnumerable<PostDto>> GetAllByStatusWithTags(bool status);
     }
 }

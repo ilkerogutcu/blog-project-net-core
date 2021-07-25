@@ -5,7 +5,13 @@ namespace Blog.Business.Features.Authentication.Commands
 {
 	public class UpdateTwoFactorSecurityCommand : IRequest<IResult>
 	{
-		public string userId { get; set; }
+		/// <summary>
+		/// User id
+		/// </summary>
+		public string UserId { get; set; }
+		/// <summary>
+		/// Enable two factor security; true or false
+		/// </summary>
 		public bool IsEnable { get; set; }
 	}
 }
