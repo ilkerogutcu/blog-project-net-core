@@ -79,14 +79,16 @@
                 <e p="UpdateCategoryCommandHandler.cs" t="Include" />
               </e>
               <e p="Queries" t="Include">
-                <e p="GetAllCategoriesByStatusQueryHandler.cs" t="Include" />
+                <e p="GetAllActiveCategoriesQueryHandler.cs" t="Include" />
                 <e p="GetAllCategoriesQueryHandler.cs" t="Include" />
+                <e p="GetAllNotActiveCategoriesQueryHandler.cs" t="Include" />
                 <e p="GetCategoryByNameQueryHandler.cs" t="Include" />
               </e>
             </e>
             <e p="Queries" t="Include">
-              <e p="GetAllCategoriesByStatusQuery.cs" t="Include" />
+              <e p="GetAllActiveCategoriesQuery.cs" t="Include" />
               <e p="GetAllCategoriesQuery.cs" t="Include" />
+              <e p="GetAllNotActiveCategoriesQuery.cs" t="Include" />
               <e p="GetCategoryByNameQuery.cs" t="Include" />
             </e>
             <e p="ValidationRules" t="Include">
@@ -117,6 +119,15 @@
             <e p="ValidationRules" t="Include">
               <e p="PostValidator.cs" t="Include" />
             </e>
+          </e>
+          <e p="Tag" t="Include">
+            <e p="Commands" t="Include">
+              <e p="CreateTagCommand.cs" t="Include" />
+            </e>
+            <e p="Handlers" t="Include">
+              <e p="CreateTagCommandHandler.cs" t="Include" />
+            </e>
+            <e p="Queries" t="Include" />
           </e>
         </e>
         <e p="Helpers" t="Include">
@@ -361,6 +372,7 @@
           <e p="AccountController.cs" t="Include" />
           <e p="CategoryController.cs" t="Include" />
           <e p="PostController.cs" t="Include" />
+          <e p="TagController.cs" t="Include" />
         </e>
         <e p="MailTemplates" t="Include">
           <e p="Send2FAEmailTemplate.html" t="Include" />
