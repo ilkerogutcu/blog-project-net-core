@@ -51,7 +51,12 @@ namespace Blog.Business.Features.Authentication.Handlers.Queries
 				return new ErrorDataResult<SignInResponse>(Messages.EmailIsNotConfirmed);
 			}
 			var result = await _signInManager.PasswordSignInAsync(user.UserName, request.Password,
-				false, false);
+				false, true);
+			if (result.IsLockedOut)
+			{
+				return new ErrorDataResult<SignInResponse>(Messages.YourAccountIsLockedOut);
+			}
+			
 			if (result.RequiresTwoFactor)
 			{
 				var code = await _userManager.GenerateTwoFactorTokenAsync(user, "Email");

@@ -29,7 +29,7 @@ namespace Blog.Business.Features.Category.Handlers.Queries
             var result = (await _categoryRepository.GetAllAsync()).ToList();
 
             return !result.Any()
-                ? (IDataResult<IEnumerable<CategoryDto>>) new ErrorDataResult<List<CategoryDto>>(Messages.DataNotFound)
+                ?  new ErrorDataResult<List<CategoryDto>>(Messages.DataNotFound)
                 : PaginationHelper.CreatePaginatedResponse(result, request.PaginationFilter, result.Count, _uriService, request.Route);
         }
     }

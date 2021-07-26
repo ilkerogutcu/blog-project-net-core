@@ -99,10 +99,20 @@
               <e p="UpdatePostCommand.cs" t="Include" />
             </e>
             <e p="Handlers" t="Include">
-              <e p="AddPostCommandHandler.cs" t="Include" />
-              <e p="UpdatePostCommandHandler.cs" t="Include" />
+              <e p="Commands" t="Include">
+                <e p="AddPostCommandHandler.cs" t="Include" />
+                <e p="UpdatePostCommandHandler.cs" t="Include" />
+              </e>
+              <e p="Queries" t="Include">
+                <e p="GetAllActivePostsQueryHandler.cs" t="Include" />
+                <e p="GetAllNotActivePostsQueryHandler.cs" t="Include" />
+                <e p="GetAllPostsQueryHandler.cs" t="Include" />
+              </e>
             </e>
-            <e p="Queries" t="Include" />
+            <e p="Queries" t="Include">
+              <e p="GetAllActivePostsQuery.cs" t="Include" />
+              <e p="GetAllNotActivePostsQuery.cs" t="Include" />
+            </e>
             <e p="ValidationRules" t="Include">
               <e p="PostValidator.cs" t="Include" />
             </e>

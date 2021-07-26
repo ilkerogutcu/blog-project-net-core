@@ -18,7 +18,7 @@ using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 
-namespace Blog.Business.Features.Post.Handlers
+namespace Blog.Business.Features.Post.Handlers.Commands
 {
     [TransactionScopeAspectAsync]
     public class AddPostCommandHandler : IRequestHandler<AddPostCommand, IResult>
@@ -64,7 +64,7 @@ namespace Blog.Business.Features.Post.Handlers
             post.CreatedDate = DateTime.Now;
             post.Status = true;
             post.User = user;
-            foreach (var tagName in request.Tags)
+            foreach (var tagName in request.TagNames)
             {
                 var tag = await _tagRepository.GetAsync(x => x.Name == tagName);
                 post.Tags.Add(tag);

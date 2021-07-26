@@ -49,8 +49,7 @@ namespace Blog.Business.Features.Category.Handlers.Commands
             category.Status = true;
             category.Image = new Image
             {
-                Url = request.ImageUrl,
-                CreatedDate = DateTime.Now
+                Url = request.ImageUrl
             };
             await _categoryRepository.AddAsync(category);
             var result = await _categoryRepository.SaveChangesAsync();

@@ -57,10 +57,15 @@ namespace Blog.Business.Features.Authentication.Handlers.Commands
 		{
 			var isUserAlreadyExist = await _userManager.FindByNameAsync(request.SignUpRequest.Username);
 			if (isUserAlreadyExist is not null)
+			{
 				return new ErrorDataResult<SignUpResponse>(Messages.UsernameAlreadyExist);
+			}
 
 			var isEmailAlreadyExist = await _userManager.FindByEmailAsync(request.SignUpRequest.Username);
-			if (isEmailAlreadyExist is not null) return new ErrorDataResult<SignUpResponse>(Messages.EmailAlreadyExist);
+			if (isEmailAlreadyExist is not null)
+			{
+				return new ErrorDataResult<SignUpResponse>(Messages.EmailAlreadyExist);
+			}
 
 			var user = new User
 			{
@@ -71,11 +76,15 @@ namespace Blog.Business.Features.Authentication.Handlers.Commands
 			};
 			var result = await _userManager.CreateAsync(user, request.SignUpRequest.Password);
 			if (!result.Succeeded)
+			{
 				return new ErrorDataResult<SignUpResponse>(Messages.SignUpFailed +
-														   $":{result.Errors.ToList()[0].Description}");
+				                                           $":{result.Errors.ToList()[0].Description}");
+			}
 
 			if (!await _roleManager.RoleExistsAsync(Roles.User.ToString()))
+			{
 				await _roleManager.CreateAsync(new IdentityRole(Roles.User.ToString()));
+			}
 
 			await _userManager.AddToRoleAsync(user, Roles.User.ToString());
 			var verificationUri = await SendVerificationEmail(user);
@@ -99,8 +108,7 @@ namespace Blog.Business.Features.Authentication.Handlers.Commands
 			verificationToken = WebEncoders.Base64UrlEncode(Encoding.UTF8.GetBytes(verificationToken));
 
 			// Generate endpoint url for verification url
-			var endPointUrl =
-				new Uri(string.Concat($"{_config.GetSection("BaseUrl").Value}", "api/account/confirm-email/"));
+			var endPointUrl = new Uri(string.Concat($"{_config.GetSection("BaseUrl").Value}", "api/account/confirm-email/"));
 			var verificationUrl = QueryHelpers.AddQueryString(endPointUrl.ToString(), "userId", user.Id);
 
 			// Edit forgot password email template for reset password link

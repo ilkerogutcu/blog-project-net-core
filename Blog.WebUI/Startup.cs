@@ -1,3 +1,4 @@
+using System;
 using Blog.Business.Helpers;
 using Blog.Core.DependencyResolvers;
 using Blog.Core.Extensions;
@@ -30,7 +31,11 @@ namespace Blog.WebUI
 		// This method gets called by the runtime. Use this method to add services to the container.
 		public void ConfigureServices(IServiceCollection services)
 		{
+			
 			services.AddControllers();
+			services.AddControllers().AddNewtonsoftJson(options =>
+				options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore
+			);
 			services.AddSwaggerGen(swagger =>
 			{
 				//This is to generate the Default UI of Swagger Documentation  
@@ -79,6 +84,9 @@ namespace Blog.WebUI
 				options.User.RequireUniqueEmail = true;
 				options.Password.RequiredLength = 8;
 				options.SignIn.RequireConfirmedEmail = true;
+				options.Lockout.AllowedForNewUsers = true;
+				options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(10);
+				options.Lockout.MaxFailedAccessAttempts = 5; 
 			});
 
 			services.AddAuthentication(options =>

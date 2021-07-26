@@ -15,6 +15,6 @@ namespace Blog.Business.Features.Post.Commands
         public bool Status { get; set; }
         public string ImageUrl { get; set; }
         public SeoDetail SeoDetail { get; set; }
-        public List<string> Tags { get; set; } 
+        public List<string> TagNames { get; set; } 
     }
 }

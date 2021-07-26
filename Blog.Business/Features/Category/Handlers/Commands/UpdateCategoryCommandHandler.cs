@@ -51,8 +51,7 @@ namespace Blog.Business.Features.Category.Handlers.Commands
 
             category.Image = new Image
             {
-                Url = request.ImageUrl,
-                CreatedDate = DateTime.Now
+                Url = request.ImageUrl
             };
             category.Status = request.Status;
             category.Name = request.Name;

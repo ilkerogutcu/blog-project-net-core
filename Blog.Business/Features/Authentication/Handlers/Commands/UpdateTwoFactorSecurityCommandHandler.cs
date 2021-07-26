@@ -23,7 +23,7 @@ namespace Blog.Business.Features.Authentication.Handlers.Commands
 		[LogAspect(typeof(FileLogger))]
 		public async Task<IResult> Handle(UpdateTwoFactorSecurityCommand request, CancellationToken cancellationToken)
 		{
-			var user = await _userManager.FindByIdAsync(request.userId);
+			var user = await _userManager.FindByIdAsync(request.UserId);
 			if (user is null)
 			{
 				return new ErrorResult(Messages.UserNotFound);

@@ -1,9 +1,7 @@
 using System;
-using System.Collections.Generic;
 using System.Security.Claims;
 using System.Threading;
 using System.Threading.Tasks;
-using AutoMapper;
 using Blog.Business.Constants;
 using Blog.Business.Features.Post.Commands;
 using Blog.Business.Features.Post.ValidationRules;
@@ -18,22 +16,20 @@ using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 
-namespace Blog.Business.Features.Post.Handlers
+namespace Blog.Business.Features.Post.Handlers.Commands
 {
     public class UpdatePostCommandHandler : IRequestHandler<UpdatePostCommand, IResult>
     {
-        private readonly IMapper _mapper;
         private readonly UserManager<User> _userManager;
         private readonly IHttpContextAccessor _httpContextAccessor;
         private readonly IPostRepository _postRepository;
         private readonly ICategoryRepository _categoryRepository;
         private readonly ITagRepository _tagRepository;
 
-        public UpdatePostCommandHandler(IMapper mapper, UserManager<User> userManager,
+        public UpdatePostCommandHandler(UserManager<User> userManager,
             IHttpContextAccessor httpContextAccessor,
             IPostRepository postRepository, ICategoryRepository categoryRepository, ITagRepository tagRepository)
         {
-            _mapper = mapper;
             _userManager = userManager;
             _httpContextAccessor = httpContextAccessor;
             _postRepository = postRepository;
@@ -77,14 +73,14 @@ namespace Blog.Business.Features.Post.Handlers
                 post.SeoDetail = request.SeoDetail;
                 post.Status = request.Status;
                 post.LastModifiedBy = user.UserName;
-                post.LastModifiedDate = DateTime.Now;
             
                 post.Tags.Clear();
-                foreach (var tagName in request.Tags)
+                foreach (var tagName in request.TagNames)
                 {
                     var tag = await _tagRepository.GetAsync(x => x.Name == tagName);
                     post.Tags.Add(tag);
                 }
+                post.LastModifiedDate = DateTime.Now;
                 _postRepository.Update(post);
                 var result = await _postRepository.SaveChangesAsync();
                 if (result > 0)
