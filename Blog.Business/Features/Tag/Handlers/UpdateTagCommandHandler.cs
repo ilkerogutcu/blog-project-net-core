@@ -2,7 +2,6 @@ using System;
 using System.Security.Claims;
 using System.Threading;
 using System.Threading.Tasks;
-using AutoMapper;
 using Blog.Business.Constants;
 using Blog.Business.Features.Tag.Commands;
 using Blog.Business.Features.Tag.ValidationRules;
@@ -18,45 +17,45 @@ using Microsoft.AspNetCore.Identity;
 
 namespace Blog.Business.Features.Tag.Handlers
 {
-    /// <summary>
-    /// Create a tag
-    /// </summary>
-    public class CreateTagCommandHandler : IRequestHandler<CreateTagCommand, IResult>
+    public class UpdateTagCommandHandler : IRequestHandler<UpdateTagCommand, IResult>
     {
-        private readonly IMapper _mapper;
         private readonly UserManager<User> _userManager;
         private readonly IHttpContextAccessor _httpContextAccessor;
         private readonly ITagRepository _tagRepository;
 
-        public CreateTagCommandHandler(IMapper mapper, UserManager<User> userManager, IHttpContextAccessor httpContextAccessor, ITagRepository tagRepository)
+        public UpdateTagCommandHandler(UserManager<User> userManager, IHttpContextAccessor httpContextAccessor, ITagRepository tagRepository)
         {
-            _mapper = mapper;
             _userManager = userManager;
             _httpContextAccessor = httpContextAccessor;
             _tagRepository = tagRepository;
         }
 
-        [ValidationAspect(typeof(CreateTagValidator))]
+        [ValidationAspect(typeof(UpdateTagValidator))]
         [ExceptionLogAspect(typeof(FileLogger))]
-        public async Task<IResult> Handle(CreateTagCommand request, CancellationToken cancellationToken)
+        public async Task<IResult> Handle(UpdateTagCommand request, CancellationToken cancellationToken)
         {
-            var tag = _mapper.Map<Entities.Concrete.Tag>(request);
+            var tag = await _tagRepository.GetAsync(x => x.Id == request.TagId);
+            if (tag is null)
+            {
+                return new ErrorResult(Messages.DataNotFound);
+            }
             var user = await _userManager.FindByEmailAsync(_httpContextAccessor.HttpContext.User.FindFirst(ClaimTypes.Email)?.Value);
             if (user is null)
             {
                 return new ErrorResult(Messages.UserNotFound);
             }
 
-            tag.User = user;
-            tag.CreatedDate=DateTime.Now;
-            await _tagRepository.AddAsync(tag);
+            tag.Name = request.Name;
+            tag.LastModifiedBy = user.UserName;
+            tag.LastModifiedDate=DateTime.Now;
+            _tagRepository.Update(tag);
             var result = await _tagRepository.SaveChangesAsync();
             if (result > 0)
             {
-                return new SuccessResult(Messages.DataAddedSuccessfully);
+                return new SuccessResult(Messages.UpdatedSuccessfully);
             }
 
-            return new ErrorResult(Messages.AddFailed);
+            return new ErrorResult(Messages.UpdateFailed);
         }
     }
 }

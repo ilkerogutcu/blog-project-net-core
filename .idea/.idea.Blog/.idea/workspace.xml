@@ -6,16 +6,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="700393e1-e67f-4567-844a-381093fa77cd" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Blog.Business/Features/Tag/Commands/CreateTagCommand.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Blog.Business/Features/Tag/Handlers/CreateTagCommandHandler.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Blog.WebUI/Controllers/TagController.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Blog.Business/Features/Tag/Commands/UpdateTagCommand.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Blog.Business/Features/Tag/Handlers/UpdateTagCommandHandler.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Blog.Business/Features/Tag/ValidationRules/TagValidator.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Blog/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Blog/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Blog/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Blog/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Blog.Business/Blog.Business.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Blog.Business/Blog.Business.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Blog.Business/DependencyResolvers/AutofacBusinessModule.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Blog.Business/DependencyResolvers/AutofacBusinessModule.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Blog.Business/Features/Post/Commands/AddPostCommand.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Blog.Business/Features/Post/Commands/AddPostCommand.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Blog.Business/Features/Post/Handlers/Commands/AddPostCommandHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Blog.Business/Features/Post/Handlers/Commands/AddPostCommandHandler.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Blog.Business/Helpers/AutoMapperHelper.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Blog.Business/Helpers/AutoMapperHelper.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Blog.Business/Constants/Messages.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Blog.Business/Constants/Messages.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Blog.Business/Features/Tag/Handlers/CreateTagCommandHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Blog.Business/Features/Tag/Handlers/CreateTagCommandHandler.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,43 +32,15 @@
     </file-type-list>
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="mock://C:/Users/ilker/Desktop/Blog/Blog.Business/Features/Post/Handlers/Commands/AddPostCommandHandler.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/ilker/Desktop/Blog/Blog.DataAccess/Abstract/IPostRepository.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Blog.WebUI/appsettings.json" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/ilker/Desktop/Blog/Blog.Business/Features/Category/Handlers/Commands/AddCategoryCommandHandler.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/ilker/Desktop/Blog/Blog.Business/Helpers/AutoMapperHelper.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Blog.WebUI/Controllers/CategoryController.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/D7970BCA-7F38-4659-8B39-F768CCA2C7AA/74/0ca3b32f/IdentityUser.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/ilker/Desktop/Blog/Blog.Business/Features/Category/Handlers/Commands/AddCategoryCommandHandler.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/ilker/Desktop/Blog/Blog.Business/Constants/Utilities.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/E1B363E2-5403-4E32-8838-4023DDB2E105/2/IdentityDbContext.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/BA72EFE7-DBF2-49AD-BD79-C391E9EA1A4B/00/3c8fd4fe/JwtRegisteredClaimNames.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/ilker/Desktop/Blog/Blog.Business/Features/Authentication/Handlers/Queries/SignInQueryHandler.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/ilker/Desktop/Blog/Blog.WebUI/Startup.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/ilker/Desktop/Blog/Blog.Business/Features/Authentication/Handlers/Commands/SignUpUserCommandHandler.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/ilker/Desktop/Blog/Blog.Business/Features/Post/Handlers/Commands/AddPostCommandHandler.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/ilker/Desktop/Blog/Blog.Business/Constants/Utilities.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/ilker/Desktop/Blog/Blog.Business/DependencyResolvers/AutofacBusinessModule.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/ilker/Desktop/Blog/Blog.Business/Features/Post/Commands/AddPostCommand.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/ilker/Desktop/Blog/Blog.WebUI/Controllers/CategoryController.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/ilker/Desktop/Blog/Blog.DataAccess/Concrete/EntityFramework/EfPostRepository.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/ilker/Desktop/Blog/Blog.Business/Features/Authentication/Handlers/Commands/UpdateTwoFactorSecurityCommandHandler.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/ilker/Desktop/Blog/Blog.Business/Features/Post/Handlers/Commands/AddPostCommandHandler.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/ilker/Desktop/Blog/Blog.Business/DependencyResolvers/AutofacBusinessModule.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/ilker/Desktop/Blog/Blog.Entities/DTOs/PostDto.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/ilker/Desktop/Blog/Blog.Business/Constants/Messages.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/ilker/Desktop/Blog/Blog.WebUI/Controllers/PostController.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
-      <option value="$PROJECT_DIR$/Blog.Core/Aspects/Autofac/Exception/ExceptionLogAspect.cs" />
-      <option value="$PROJECT_DIR$/Blog.Core/Utilities/Interceptors/AspectInterceptorSelector.cs" />
-      <option value="$PROJECT_DIR$/Blog.Core/Utilities/Interceptors/MethodInterception.cs" />
       <option value="$PROJECT_DIR$/Blog.Core/Utilities/Interceptors/MethodInterceptionBaseAttribute.cs" />
       <option value="$PROJECT_DIR$/Blog.Business/obj/Debug/net5.0/Blog.Business.AssemblyInfo.cs" />
       <option value="$PROJECT_DIR$/Blog.Core/CrossCuttingConcerns/Logging/Serilog/Loggers/FileLogger.cs" />
       <option value="$PROJECT_DIR$/Blog.Business/Features/Authentication/Handlers/Queries/SignInQueryHandler.cs" />
-      <option value="$PROJECT_DIR$/Blog.Business/Constants/Messages.cs" />
       <option value="$PROJECT_DIR$/Blog.Business/Constants/Utilities.cs" />
       <option value="$PROJECT_DIR$/Blog.Business/Features/Authentication/Commands/SignUpAdminCommand.cs" />
       <option value="$PROJECT_DIR$/Blog.Business/Features/Authentication/Commands/SignUpUserCommand.cs" />
@@ -112,8 +82,12 @@
       <option value="$PROJECT_DIR$/Blog.Business/Features/Post/Handlers/Commands/AddPostCommandHandler.cs" />
       <option value="$PROJECT_DIR$/Blog.Business/Features/Tag/Commands/CreateTagCommand.cs" />
       <option value="$PROJECT_DIR$/Blog.Business/Helpers/AutoMapperHelper.cs" />
-      <option value="$PROJECT_DIR$/Blog.Business/Features/Tag/Handlers/CreateTagCommandHandler.cs" />
       <option value="$PROJECT_DIR$/Blog.WebUI/Controllers/TagController.cs" />
+      <option value="$PROJECT_DIR$/Blog.Business/Features/Tag/Handlers/CreateTagCommandHandler.cs" />
+      <option value="$PROJECT_DIR$/Blog.Business/Features/Tag/ValidationRules/TagValidator.cs" />
+      <option value="$PROJECT_DIR$/Blog.Business/Features/Tag/Commands/UpdateTagCommand.cs" />
+      <option value="$PROJECT_DIR$/Blog.Business/Constants/Messages.cs" />
+      <option value="$PROJECT_DIR$/Blog.Business/Features/Tag/Handlers/UpdateTagCommandHandler.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1vOzNfqviKpLhKQbI5itEKFj8pw" />
@@ -251,14 +225,7 @@
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/Blog.Core/Aspects/Autofac/Exception/ExceptionLogAspect.cs</url>
           <line>37</line>
-          <properties documentPath="C:\Users\ilker\Desktop\Blog\Blog.Core\Aspects\Autofac\Exception\ExceptionLogAspect.cs" initialLine="37" containingFunctionPresentation="method 'OnException'">
-            <startOffsets>
-              <option value="1346" />
-            </startOffsets>
-            <endOffsets>
-              <option value="1424" />
-            </endOffsets>
-          </properties>
+          <properties documentPath="C:\Users\ilker\Desktop\Blog\Blog.Core\Aspects\Autofac\Exception\ExceptionLogAspect.cs" initialLine="37" containingFunctionPresentation="method 'OnException'" />
           <option name="timeStamp" value="1" />
         </line-breakpoint>
       </breakpoints>

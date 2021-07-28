@@ -8,7 +8,7 @@ namespace Blog.WebUI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class TagController: ControllerBase
+    public class TagController : ControllerBase
     {
         private readonly IMediator _mediator;
 
@@ -16,12 +16,22 @@ namespace Blog.WebUI.Controllers
         {
             _mediator = mediator;
         }
-        
+
         [Produces("application/json", "text/plain")]
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(string))]
         [ProducesResponseType(StatusCodes.Status400BadRequest, Type = typeof(string))]
         [HttpPost]
         public async Task<IActionResult> Create(CreateTagCommand command)
+        {
+            var result = await _mediator.Send(command);
+            return result.Success ? Ok(result.Message) : BadRequest(result.Message);
+        }
+
+        [Produces("application/json", "text/plain")]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(string))]
+        [ProducesResponseType(StatusCodes.Status400BadRequest, Type = typeof(string))]
+        [HttpPut]
+        public async Task<IActionResult> Update(UpdateTagCommand command)
         {
             var result = await _mediator.Send(command);
             return result.Success ? Ok(result.Message) : BadRequest(result.Message);
