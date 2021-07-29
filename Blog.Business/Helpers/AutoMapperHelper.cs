@@ -34,6 +34,19 @@ namespace Blog.Business.Helpers
                 .ForMember(dest => dest.ImageUrl, opt => opt.MapFrom(src => src.Image.Url))
                 .ForMember(dest => dest.CategoryName, opt => opt.MapFrom(src => src.Category.Name))
                 .ReverseMap();
+            CreateMap<Tag, TagDto>()
+                .ForMember(dest => dest.CreatedBy, opt => opt.MapFrom(src => src.User.UserName))
+                .ReverseMap();
+            CreateMap<Tag, TagDto>()
+                .ForMember(dest => dest.CreatedBy, opt => opt.MapFrom(src => src.User.UserName))
+                .ReverseMap();
+            CreateMap<Tag, TagWithPostsDto>()
+                .ForMember(dest => dest.CreatedBy, opt => opt.MapFrom(src => src.User.UserName))
+                .ForMember(dest => dest.TagId, opt => opt.MapFrom(src => src.Id))
+                .ForMember(dest => dest.Posts, opt => opt.MapFrom(src => src.Posts))
+
+
+                .ReverseMap();
         }
     }
 }

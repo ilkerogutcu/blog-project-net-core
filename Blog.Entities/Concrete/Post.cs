@@ -6,7 +6,7 @@ namespace Blog.Entities.Concrete
 {
     public class Post:IEntity
     {
-        public Guid Id { get; set; }
+        public Guid Id { get; init; }
         public User User { get; set; }
         public Image Image { get; set; }
         public SeoDetail SeoDetail { get; set; }

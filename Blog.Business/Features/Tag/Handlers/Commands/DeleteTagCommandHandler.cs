@@ -9,7 +9,7 @@ using Blog.Core.Utilities.Results;
 using Blog.DataAccess.Abstract;
 using MediatR;
 
-namespace Blog.Business.Features.Tag.Handlers
+namespace Blog.Business.Features.Tag.Handlers.Commands
 {
     /// <summary>
     ///  Delete tag
@@ -27,10 +27,15 @@ namespace Blog.Business.Features.Tag.Handlers
         [ExceptionLogAspect(typeof(FileLogger))]
         public async Task<IResult> Handle(DeleteTagCommand request, CancellationToken cancellationToken)
         {
-            var tag = await _tagRepository.GetAsync(x => x.Id == request.TagId);
+            var tag = await _tagRepository.GetTagWithPostsAsync(x => x.Id == request.TagId);
             if (tag is null)
             {
                 return new ErrorResult(Messages.DataNotFound);
+            }
+
+            if (tag.Posts.Count>0)
+            {
+                return new ErrorResult(Messages.DataCannotBeDeletedBecauseItHasAnotherData);
             }
 
             _tagRepository.Delete(tag);

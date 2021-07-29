@@ -15,7 +15,7 @@ using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 
-namespace Blog.Business.Features.Tag.Handlers
+namespace Blog.Business.Features.Tag.Handlers.Commands
 {
     public class UpdateTagCommandHandler : IRequestHandler<UpdateTagCommand, IResult>
     {

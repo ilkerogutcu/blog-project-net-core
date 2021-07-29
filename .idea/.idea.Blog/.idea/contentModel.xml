@@ -127,9 +127,19 @@
               <e p="UpdateTagCommand.cs" t="Include" />
             </e>
             <e p="Handlers" t="Include">
-              <e p="CreateTagCommandHandler.cs" t="Include" />
-              <e p="DeleteTagCommandHandler.cs" t="Include" />
-              <e p="UpdateTagCommandHandler.cs" t="Include" />
+              <e p="Commands" t="Include">
+                <e p="CreateTagCommandHandler.cs" t="Include" />
+                <e p="DeleteTagCommandHandler.cs" t="Include" />
+                <e p="UpdateTagCommandHandler.cs" t="Include" />
+              </e>
+              <e p="Queries" t="Include">
+                <e p="GetAllTagsQueryHandler.cs" t="Include" />
+                <e p="GetTagWithPostsQueryHandler.cs" t="Include" />
+              </e>
+            </e>
+            <e p="Queries" t="Include">
+              <e p="GetAllTagsQuery.cs" t="Include" />
+              <e p="GetTagByNameWithPostsQuery.cs" t="Include" />
             </e>
             <e p="ValidationRules" t="Include">
               <e p="TagValidator.cs" t="Include" />
@@ -356,6 +366,8 @@
         <e p="DTOs" t="Include">
           <e p="CategoryDto.cs" t="Include" />
           <e p="PostDto.cs" t="Include" />
+          <e p="TagDto.cs" t="Include" />
+          <e p="TagWithPostsDto.cs" t="Include" />
         </e>
         <e p="Enums" t="Include">
           <e p="Roles.cs" t="Include" />
