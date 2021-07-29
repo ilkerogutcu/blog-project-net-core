@@ -36,5 +36,15 @@ namespace Blog.WebUI.Controllers
             var result = await _mediator.Send(command);
             return result.Success ? Ok(result.Message) : BadRequest(result.Message);
         }
+        
+        [Produces("application/json", "text/plain")]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(string))]
+        [ProducesResponseType(StatusCodes.Status400BadRequest, Type = typeof(string))]
+        [HttpDelete]
+        public async Task<IActionResult> Delete(DeleteTagCommand command)
+        {
+            var result = await _mediator.Send(command);
+            return result.Success ? Ok(result.Message) : BadRequest(result.Message);
+        }
     }
 }

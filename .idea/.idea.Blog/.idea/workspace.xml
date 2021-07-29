@@ -6,14 +6,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="700393e1-e67f-4567-844a-381093fa77cd" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Blog.Business/Features/Tag/Commands/UpdateTagCommand.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Blog.Business/Features/Tag/Handlers/UpdateTagCommandHandler.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Blog.Business/Features/Tag/ValidationRules/TagValidator.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Blog.Business/Features/Tag/Commands/DeleteTagCommand.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Blog.Business/Features/Tag/Handlers/DeleteTagCommandHandler.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Blog/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Blog/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Blog/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Blog/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Blog.Business/Blog.Business.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Blog.Business/Blog.Business.csproj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Blog.Business/Constants/Messages.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Blog.Business/Constants/Messages.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Blog.Business/Features/Tag/Handlers/CreateTagCommandHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Blog.Business/Features/Tag/Handlers/CreateTagCommandHandler.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Blog.Business/Features/Tag/Handlers/UpdateTagCommandHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Blog.Business/Features/Tag/Handlers/UpdateTagCommandHandler.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Blog.WebUI/Controllers/TagController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Blog.WebUI/Controllers/TagController.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,12 +32,12 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Blog.WebUI/appsettings.json" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/3834795B-F41B-4E62-8161-509ECA0F5822/61/fb60fd55/IRequestHandler`2.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Blog.WebUI/Controllers/CategoryController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/C90C4F8D-DCAC-4FEC-B03E-D2292DCE52AC/A/DbContext.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
-      <option value="$PROJECT_DIR$/Blog.Core/Utilities/Interceptors/MethodInterceptionBaseAttribute.cs" />
-      <option value="$PROJECT_DIR$/Blog.Business/obj/Debug/net5.0/Blog.Business.AssemblyInfo.cs" />
       <option value="$PROJECT_DIR$/Blog.Core/CrossCuttingConcerns/Logging/Serilog/Loggers/FileLogger.cs" />
       <option value="$PROJECT_DIR$/Blog.Business/Features/Authentication/Handlers/Queries/SignInQueryHandler.cs" />
       <option value="$PROJECT_DIR$/Blog.Business/Constants/Utilities.cs" />
@@ -82,12 +81,14 @@
       <option value="$PROJECT_DIR$/Blog.Business/Features/Post/Handlers/Commands/AddPostCommandHandler.cs" />
       <option value="$PROJECT_DIR$/Blog.Business/Features/Tag/Commands/CreateTagCommand.cs" />
       <option value="$PROJECT_DIR$/Blog.Business/Helpers/AutoMapperHelper.cs" />
-      <option value="$PROJECT_DIR$/Blog.WebUI/Controllers/TagController.cs" />
-      <option value="$PROJECT_DIR$/Blog.Business/Features/Tag/Handlers/CreateTagCommandHandler.cs" />
       <option value="$PROJECT_DIR$/Blog.Business/Features/Tag/ValidationRules/TagValidator.cs" />
-      <option value="$PROJECT_DIR$/Blog.Business/Features/Tag/Commands/UpdateTagCommand.cs" />
-      <option value="$PROJECT_DIR$/Blog.Business/Constants/Messages.cs" />
       <option value="$PROJECT_DIR$/Blog.Business/Features/Tag/Handlers/UpdateTagCommandHandler.cs" />
+      <option value="$PROJECT_DIR$/Blog.Business/Features/Tag/Commands/UpdateTagCommand.cs" />
+      <option value="$PROJECT_DIR$/Blog.Business/Features/Tag/Commands/DeleteTagCommand.cs" />
+      <option value="$PROJECT_DIR$/Blog.Business/Features/Tag/Handlers/CreateTagCommandHandler.cs" />
+      <option value="$PROJECT_DIR$/Blog.Business/Constants/Messages.cs" />
+      <option value="$PROJECT_DIR$/Blog.Business/Features/Tag/Handlers/DeleteTagCommandHandler.cs" />
+      <option value="$PROJECT_DIR$/Blog.WebUI/Controllers/TagController.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1vOzNfqviKpLhKQbI5itEKFj8pw" />
@@ -186,6 +187,7 @@
       <workItem from="1626818241965" duration="297000" />
       <workItem from="1627131471972" duration="6240000" />
       <workItem from="1627215291395" duration="7491000" />
+      <workItem from="1627551666065" duration="1782000" />
     </task>
     <task id="LOCAL-00001" summary="fix: Category validator fixed">
       <created>1626724440747</created>

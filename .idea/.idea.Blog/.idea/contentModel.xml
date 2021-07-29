@@ -123,10 +123,12 @@
           <e p="Tag" t="Include">
             <e p="Commands" t="Include">
               <e p="CreateTagCommand.cs" t="Include" />
+              <e p="DeleteTagCommand.cs" t="Include" />
               <e p="UpdateTagCommand.cs" t="Include" />
             </e>
             <e p="Handlers" t="Include">
               <e p="CreateTagCommandHandler.cs" t="Include" />
+              <e p="DeleteTagCommandHandler.cs" t="Include" />
               <e p="UpdateTagCommandHandler.cs" t="Include" />
             </e>
             <e p="ValidationRules" t="Include">
