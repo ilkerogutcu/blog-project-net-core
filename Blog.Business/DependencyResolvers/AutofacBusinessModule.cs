@@ -30,6 +30,7 @@ namespace Blog.Business.DependencyResolvers
 				.RegisterType<Mediator>()
 				.As<IMediator>()
 				.InstancePerLifetimeScope();
+			
 			builder.Register<ServiceFactory>(context =>
 			{
 				var c = context.Resolve<IComponentContext>();
@@ -39,7 +40,7 @@ namespace Blog.Business.DependencyResolvers
 				.EnableInterfaceInterceptors(new ProxyGenerationOptions
 				{
 					Selector = new AspectInterceptorSelector()
-				}).SingleInstance().InstancePerDependency();
+				}).SingleInstance();
 		}
 	}
 }

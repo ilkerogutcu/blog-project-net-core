@@ -6,7 +6,7 @@ namespace Blog.Entities.Concrete
 {
     public class Notification:IEntity
     {
-        public Guid Id { get; set; }
+        public Guid Id { get; init; }
         public string Message { get; set; }
         public bool Seen { get; set; }
         public DateTime CreatedDate { get; set; }

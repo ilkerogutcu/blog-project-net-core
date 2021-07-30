@@ -79,14 +79,16 @@
                 <e p="UpdateCategoryCommandHandler.cs" t="Include" />
               </e>
               <e p="Queries" t="Include">
-                <e p="GetAllCategoriesByStatusQueryHandler.cs" t="Include" />
+                <e p="GetAllActiveCategoriesQueryHandler.cs" t="Include" />
                 <e p="GetAllCategoriesQueryHandler.cs" t="Include" />
+                <e p="GetAllNotActiveCategoriesQueryHandler.cs" t="Include" />
                 <e p="GetCategoryByNameQueryHandler.cs" t="Include" />
               </e>
             </e>
             <e p="Queries" t="Include">
-              <e p="GetAllCategoriesByStatusQuery.cs" t="Include" />
+              <e p="GetAllActiveCategoriesQuery.cs" t="Include" />
               <e p="GetAllCategoriesQuery.cs" t="Include" />
+              <e p="GetAllNotActiveCategoriesQuery.cs" t="Include" />
               <e p="GetCategoryByNameQuery.cs" t="Include" />
             </e>
             <e p="ValidationRules" t="Include">
@@ -116,6 +118,31 @@
             </e>
             <e p="ValidationRules" t="Include">
               <e p="PostValidator.cs" t="Include" />
+            </e>
+          </e>
+          <e p="Tag" t="Include">
+            <e p="Commands" t="Include">
+              <e p="CreateTagCommand.cs" t="Include" />
+              <e p="DeleteTagCommand.cs" t="Include" />
+              <e p="UpdateTagCommand.cs" t="Include" />
+            </e>
+            <e p="Handlers" t="Include">
+              <e p="Commands" t="Include">
+                <e p="CreateTagCommandHandler.cs" t="Include" />
+                <e p="DeleteTagCommandHandler.cs" t="Include" />
+                <e p="UpdateTagCommandHandler.cs" t="Include" />
+              </e>
+              <e p="Queries" t="Include">
+                <e p="GetAllTagsQueryHandler.cs" t="Include" />
+                <e p="GetTagWithPostsQueryHandler.cs" t="Include" />
+              </e>
+            </e>
+            <e p="Queries" t="Include">
+              <e p="GetAllTagsQuery.cs" t="Include" />
+              <e p="GetTagByNameWithPostsQuery.cs" t="Include" />
+            </e>
+            <e p="ValidationRules" t="Include">
+              <e p="TagValidator.cs" t="Include" />
             </e>
           </e>
         </e>
@@ -339,6 +366,8 @@
         <e p="DTOs" t="Include">
           <e p="CategoryDto.cs" t="Include" />
           <e p="PostDto.cs" t="Include" />
+          <e p="TagDto.cs" t="Include" />
+          <e p="TagWithPostsDto.cs" t="Include" />
         </e>
         <e p="Enums" t="Include">
           <e p="Roles.cs" t="Include" />
@@ -361,6 +390,7 @@
           <e p="AccountController.cs" t="Include" />
           <e p="CategoryController.cs" t="Include" />
           <e p="PostController.cs" t="Include" />
+          <e p="TagController.cs" t="Include" />
         </e>
         <e p="MailTemplates" t="Include">
           <e p="Send2FAEmailTemplate.html" t="Include" />

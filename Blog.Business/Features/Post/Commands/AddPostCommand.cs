@@ -38,6 +38,6 @@ namespace Blog.Business.Features.Post.Commands
         /// <summary>
         ///     Tags
         /// </summary>
-        public List<string> Tags { get; set; }
+        public List<string> TagNames { get; set; }
     }
 }

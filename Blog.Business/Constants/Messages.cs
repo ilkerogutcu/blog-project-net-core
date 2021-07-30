@@ -38,6 +38,7 @@ namespace Blog.Business.Constants
 		public const string UpdatedUserSuccessfully = "User updated succesfully.";
 		public const string GetDateRangeError = "End date must be greater than or equal to start date!";
 		public const string FieldMustBeLessThan500Characters = "Field must be less then 500 characters!";
+		public const string FieldMustBeLessThan70Characters = "Field must be less then 70 characters!";
 		public const string PleaseEnterTheCategoryName = "Please enter the category name.";
 		public const string PleaseEnterTheImageUrl = "Please enter the image url";
 		public const string PleaseEnterTheDescription = "Please enter the description";
@@ -45,10 +46,12 @@ namespace Blog.Business.Constants
 		public const string AddCategoryFailed = "Category added failed";
 		public const string UpdatedSuccessfully = "Updated successfully";
 		public const string UpdateFailed = "Update failed!";
+		public const string DeleteFailed = "Delete failed!";
 		public const string PleaseEnterTheValue = "Please enter the value";
 		public const string DataAddedSuccessfully = "Data successfully added";
 		public const string AddFailed = "Error occurred while inserting data!";
 		public const string YourAccountIsLockedOut = "Your account is locked out. Please wait for 10 minutes and try again";
+		public const string DataCannotBeDeletedBecauseItHasAnotherData = "Data cannot be deleted because it has another data.";
 
 
 	}

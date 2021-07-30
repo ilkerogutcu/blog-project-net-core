@@ -60,11 +60,11 @@ namespace Blog.Business.Features.Post.Handlers.Commands
             }
 
             post.Category = category;
-            post.Tags = new List<Tag>();
+            post.Tags = new List<Entities.Concrete.Tag>();
             post.CreatedDate = DateTime.Now;
             post.Status = true;
             post.User = user;
-            foreach (var tagName in request.Tags)
+            foreach (var tagName in request.TagNames)
             {
                 var tag = await _tagRepository.GetAsync(x => x.Name == tagName);
                 post.Tags.Add(tag);

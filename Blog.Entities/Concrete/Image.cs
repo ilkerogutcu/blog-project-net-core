@@ -5,7 +5,7 @@ namespace Blog.Entities.Concrete
 {
     public class Image:IEntity
     {
-        public Guid Id { get; set; }
+        public Guid Id { get; init; }
         public string Url { get; set; }
         public DateTime CreatedDate { get; set; }=DateTime.Now;
     }

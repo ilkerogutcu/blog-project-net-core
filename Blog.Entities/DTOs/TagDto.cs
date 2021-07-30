@@ -1,17 +1,15 @@
 using System;
-using System.Collections.Generic;
 using Blog.Core.Entities;
 
-namespace Blog.Entities.Concrete
+namespace Blog.Entities.DTOs
 {
-    public class Tag:IEntity
+    public class TagDto:IDto
     {
-        public Guid Id { get; init; }
-        public User User { get; set; }
+        public Guid Id { get; set; }
         public string Name { get; set; }
+        public string CreatedBy { get; set; }
         public DateTime CreatedDate { get; set; }
         public DateTime? LastModifiedDate { get; set; }
         public string LastModifiedBy { get; set; }
-        public virtual ICollection<Post> Posts { get; set; }
     }
 }
