@@ -24,7 +24,20 @@ namespace Blog.DataAccess.Concrete.EntityFramework
 
         public async Task<Tag> GetTagWithPostsAsync(Expression<Func<Tag, bool>> expression)
         {
-            return await Context.Tags.Include(x => x.Posts).AsTracking().FirstOrDefaultAsync(expression);
+            return await Context.Tags
+                .Include(x => x.Posts).ThenInclude(x=>x.Category)
+                .Include(x => x.Posts).ThenInclude(x=>x.Tags)
+                .Include(x => x.Posts).ThenInclude(x=>x.Image)
+                .Include(x => x.Posts).ThenInclude(x=>x.SeoDetail)
+                .Include(x=>x.User).AsTracking().FirstOrDefaultAsync(expression);
+        }
+
+
+        public async Task<List<Tag>> GetAllAsync(Expression<Func<Tag, bool>> expression = null)
+        {
+            return expression == null
+                ? await Context.Tags.Include(x => x.User).AsTracking().ToListAsync()
+                : await Context.Tags.Include(x => x.User).AsTracking().Where(expression).ToListAsync();
         }
     }
 }

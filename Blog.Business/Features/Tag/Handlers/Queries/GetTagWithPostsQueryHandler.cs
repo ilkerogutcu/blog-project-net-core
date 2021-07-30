@@ -34,9 +34,17 @@ namespace Blog.Business.Features.Tag.Handlers.Queries
             {
                 return new ErrorDataResult<TagWithPostsDto>(Messages.DataNotFound);
             }
-
+            
             var result = _mapper.Map<TagWithPostsDto>(tag);
-
+            
+            for (int i = 0; i < result.Posts.Count; i++)
+            {
+                result.Posts[i].Tags.Clear();
+                foreach (var postTags in tag.Posts.ToList()[i].Tags)
+                {
+                    result.Posts[i].Tags.Add(postTags.Name);
+                }
+            }
             return new SuccessDataResult<TagWithPostsDto>(result);
         }
     }

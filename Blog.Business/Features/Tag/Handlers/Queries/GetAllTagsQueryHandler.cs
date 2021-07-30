@@ -29,7 +29,7 @@ namespace Blog.Business.Features.Tag.Handlers.Queries
 
         public async Task<IDataResult<IEnumerable<TagDto>>> Handle(GetAllTagsQuery request, CancellationToken cancellationToken)
         {
-            var tags = await _tagRepository.GetListAsync();
+            var tags = await _tagRepository.GetAllAsync();
             var result = _mapper.Map<List<TagDto>>(tags);
             return !result.Any()
                 ?  new ErrorDataResult<List<TagDto>>(Messages.DataNotFound)

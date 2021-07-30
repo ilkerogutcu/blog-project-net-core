@@ -11,6 +11,7 @@ namespace Blog.DataAccess.Abstract
     {
         Task<List<Tag>> GetAllTagsWithPostsAsync();
         Task<Tag> GetTagWithPostsAsync(Expression<Func<Tag, bool>> expression);
+        Task<List<Tag>> GetAllAsync(Expression<Func<Tag, bool>> expression=null);
 
     }
 }

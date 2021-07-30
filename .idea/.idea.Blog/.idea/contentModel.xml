@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ContentModelStore">
-    <e p="C:\Users\olcsa\AppData\Local\JetBrains\Rider2020.3\extResources" t="IncludeRecursive" />
-    <e p="C:\Users\olcsa\AppData\Local\JetBrains\Rider2020.3\resharper-host\Local\Transient\Rider\v203\SolutionCaches\_Blog.981662410.00" t="ExcludeRecursive" />
-    <e p="C:\Users\olcsa\AppData\Roaming\JetBrains\Rider2020.3\consoles\db" t="IncludeRecursive" />
-    <e p="C:\Users\olcsa\AppData\Roaming\JetBrains\Rider2020.3\extensions" t="IncludeRecursive" />
-    <e p="D:\blog-project-net-core" t="IncludeFlat">
+    <e p="C:\Users\ilker\AppData\Local\JetBrains\Rider2020.3\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\ilker\AppData\Local\JetBrains\Rider2020.3\resharper-host\Local\Transient\Rider\v203\SolutionCaches\_Blog.-1740466634.00" t="ExcludeRecursive" />
+    <e p="C:\Users\ilker\AppData\Roaming\JetBrains\Rider2020.3\consoles\db" t="IncludeRecursive" />
+    <e p="C:\Users\ilker\AppData\Roaming\JetBrains\Rider2020.3\extensions" t="IncludeRecursive" />
+    <e p="C:\Users\ilker\Desktop\Blog" t="IncludeFlat">
       <e p="Blog.Business" t="IncludeRecursive">
         <e p="Abstract" t="Include">
           <e p="IAuthenticationMailService.cs" t="Include" />
