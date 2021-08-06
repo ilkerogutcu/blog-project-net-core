@@ -2,7 +2,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-using AutoMapper;
 using Blog.Business.Constants;
 using Blog.Business.Features.Post.Queries;
 using Blog.Business.Helpers;
@@ -20,7 +19,7 @@ namespace Blog.Business.Features.Post.Handlers.Queries
     {
         private readonly IPostRepository _postRepository;
         private readonly IUriService _uriService;
-        
+
         public GetAllPostsQueryHandler(IPostRepository postRepository, IUriService uriService)
         {
             _postRepository = postRepository;
@@ -28,12 +27,14 @@ namespace Blog.Business.Features.Post.Handlers.Queries
         }
 
         [ExceptionLogAspect(typeof(FileLogger))]
-        public async Task<IDataResult<IEnumerable<PostDto>>> Handle(GetAllPostsQuery request, CancellationToken cancellationToken)
+        public async Task<IDataResult<IEnumerable<PostDto>>> Handle(GetAllPostsQuery request,
+            CancellationToken cancellationToken)
         {
             var result = (await _postRepository.GetAllWithTags()).ToList();
             return !result.Any()
                 ? new ErrorDataResult<List<PostDto>>(Messages.DataNotFound)
-                : PaginationHelper.CreatePaginatedResponse(result, request.PaginationFilter, result.Count, _uriService, request.Route);
+                : PaginationHelper.CreatePaginatedResponse(result, request.PaginationFilter, result.Count,
+                    _uriService, request.Route);
         }
     }
 }

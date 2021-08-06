@@ -1,14 +1,16 @@
 using Blog.Core.Utilities.Results;
+using Blog.Entities.DTOs;
 using MediatR;
+using Microsoft.AspNetCore.Http;
 
 namespace Blog.Business.Features.Category.Commands
 {
-    public class AddCategoryCommand : IRequest<IResult>
+    public class AddCategoryCommand : IRequest<IDataResult<CategoryDto>>
     {
         /// <summary>
         ///     Image url
         /// </summary>
-        public string ImageUrl { get; set; }
+        public IFormFile File { get; set; }
 
         /// <summary>
         ///     Category name

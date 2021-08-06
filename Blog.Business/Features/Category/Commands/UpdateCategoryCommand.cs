@@ -1,10 +1,11 @@
 using System;
 using Blog.Core.Utilities.Results;
+using Blog.Entities.DTOs;
 using MediatR;
 
 namespace Blog.Business.Features.Category.Commands
 {
-    public class UpdateCategoryCommand : IRequest<IResult>
+    public class UpdateCategoryCommand : IRequest<IDataResult<CategoryDto>>
     {
         /// <summary>
         ///     Category id

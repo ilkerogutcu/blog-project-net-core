@@ -21,12 +21,10 @@ namespace Blog.Business.Features.Category.Handlers.Queries
     public class GetAllCategoriesQueryHandler : IRequestHandler<GetAllCategoriesQuery, IDataResult<IEnumerable<CategoryDto>>>
     {
         private readonly ICategoryRepository _categoryRepository;
-        private readonly IUriService _uriService;
 
-        public GetAllCategoriesQueryHandler(ICategoryRepository categoryRepository, IUriService uriService)
+        public GetAllCategoriesQueryHandler(ICategoryRepository categoryRepository)
         {
             _categoryRepository = categoryRepository;
-            _uriService = uriService;
         }
         
         [ExceptionLogAspect(typeof(FileLogger))]
@@ -36,7 +34,7 @@ namespace Blog.Business.Features.Category.Handlers.Queries
 
             return !result.Any()
                 ? new ErrorDataResult<List<CategoryDto>>(Messages.DataNotFound)
-                : PaginationHelper.CreatePaginatedResponse(result, request.PaginationFilter, result.Count, _uriService, request.Route);
+                : new SuccessDataResult<IEnumerable<CategoryDto>>(result);
         }
     }
 }

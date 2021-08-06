@@ -8,7 +8,5 @@ namespace Blog.Business.Features.Category.Queries
 {
     public class GetAllNotActiveCategoriesQuery : IRequest<IDataResult<IEnumerable<CategoryDto>>>
     {
-        public PaginationFilter PaginationFilter { get; set; }
-        public string Route { get; set; }
     }
 }

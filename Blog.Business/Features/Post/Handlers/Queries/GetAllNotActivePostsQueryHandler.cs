@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using Blog.Business.BusinessAspects.Autofac;
 using Blog.Business.Constants;
 using Blog.Business.Features.Post.Queries;
 using Blog.Business.Helpers;
@@ -11,6 +12,7 @@ using Blog.Core.Utilities.Results;
 using Blog.Core.Utilities.Uri;
 using Blog.DataAccess.Abstract;
 using Blog.Entities.DTOs;
+using Blog.Entities.Enums;
 using MediatR;
 
 namespace Blog.Business.Features.Post.Handlers.Queries
@@ -27,6 +29,7 @@ namespace Blog.Business.Features.Post.Handlers.Queries
         }
         
         [ExceptionLogAspect(typeof(FileLogger))]
+        [SecuredOperation(Roles.Admin)]
         public async Task<IDataResult<IEnumerable<PostDto>>> Handle(GetAllNotActivePostsQuery request, CancellationToken cancellationToken)
         {
             var result = (await _postRepository.GetAllByStatusWithTags(false)).ToList();

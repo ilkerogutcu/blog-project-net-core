@@ -6,19 +6,81 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="700393e1-e67f-4567-844a-381093fa77cd" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Blog/.idea/.name" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Blog/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Blog/.idea/contentModel.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Blog.Business/Abstract/ICloudinaryService.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Blog.Business/Concrete/CloudinaryManager.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Blog.Business/Constants/Status.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Blog.Business/Features/Post/Queries/GetAllPostsByStatusQuery.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Blog.Core/Extensions/ControllerExtensions.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Blog.Core/Settings/CloudinarySettings.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Blog.Entities/DTOs/PhotoForCreationDto.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Blog.WebUI/Areas/Admin/Models/AddCategoryAjaxViewModel.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Blog.WebUI/Areas/Admin/Views/Category/Index.cshtml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Blog.WebUI/Areas/Admin/Views/Category/_AddCategoryPartial.cshtml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Blog.WebUI/Areas/Admin/Views/Shared/_LayoutCssPartial.cshtml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Blog.WebUI/Areas/Admin/Views/Shared/_LayoutFooterPartial.cshtml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Blog.WebUI/Areas/Admin/Views/Shared/_LayoutSidebarNavPartial.cshtml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Blog.WebUI/Views/Shared/_Layout.cshtml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Blog.WebUI/wwwroot/assets/demo/chart-area-demo.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Blog.WebUI/wwwroot/assets/demo/chart-bar-demo.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Blog.WebUI/wwwroot/assets/demo/chart-pie-demo.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Blog.WebUI/wwwroot/assets/demo/datatables-demo.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Blog.WebUI/wwwroot/assets/img/error-404-monochrome.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Blog.WebUI/wwwroot/css/site.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Blog.WebUI/wwwroot/css/styles.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Blog.WebUI/wwwroot/js/categoryIndex.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Blog.WebUI/wwwroot/js/scripts.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/global.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Blog/.idea/contentModel.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Blog/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Blog/.idea/indexLayout.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Blog/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Blog/.idea/riderModule.iml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Blog/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Blog/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Blog.Business/Features/Tag/Handlers/Queries/GetAllTagsQueryHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Blog.Business/Features/Tag/Handlers/Queries/GetAllTagsQueryHandler.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Blog.Business/Features/Tag/Handlers/Queries/GetTagWithPostsQueryHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Blog.Business/Features/Tag/Handlers/Queries/GetTagWithPostsQueryHandler.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Blog.Business/Helpers/AutoMapperHelper.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Blog.Business/Helpers/AutoMapperHelper.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Blog.DataAccess/Abstract/ITagRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Blog.DataAccess/Abstract/ITagRepository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Blog.DataAccess/Concrete/EntityFramework/EfTagRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Blog.DataAccess/Concrete/EntityFramework/EfTagRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/config/applicationhost.config" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/config/applicationhost.config" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Blog.Business/Blog.Business.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Blog.Business/Blog.Business.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Blog.Business/Constants/Messages.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Blog.Business/Constants/Messages.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Blog.Business/DependencyResolvers/AutofacBusinessModule.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Blog.Business/DependencyResolvers/AutofacBusinessModule.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Blog.Business/Features/Authentication/Handlers/Queries/GetUserByEmailQueryHandler.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Blog.Business/Features/Authentication/Handlers/Queries/GetUserByIdQueryHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Blog.Business/Features/Authentication/Handlers/Queries/GetUserByIdQueryHandler.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Blog.Business/Features/Authentication/Queries/GetUserByEmailQuery.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Blog.Business/Features/Authentication/Queries/GetUserByIdQuery.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Blog.Business/Features/Authentication/Queries/GetUserByIdQuery.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Blog.Business/Features/Category/Commands/AddCategoryCommand.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Blog.Business/Features/Category/Commands/AddCategoryCommand.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Blog.Business/Features/Category/Commands/UpdateCategoryCommand.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Blog.Business/Features/Category/Commands/UpdateCategoryCommand.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Blog.Business/Features/Category/Handlers/Commands/AddCategoryCommandHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Blog.Business/Features/Category/Handlers/Commands/AddCategoryCommandHandler.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Blog.Business/Features/Category/Handlers/Commands/UpdateCategoryCommandHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Blog.Business/Features/Category/Handlers/Commands/UpdateCategoryCommandHandler.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Blog.Business/Features/Category/Handlers/Queries/GetAllActiveCategoriesQueryHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Blog.Business/Features/Category/Handlers/Queries/GetAllActiveCategoriesQueryHandler.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Blog.Business/Features/Category/Handlers/Queries/GetAllCategoriesQueryHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Blog.Business/Features/Category/Handlers/Queries/GetAllCategoriesQueryHandler.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Blog.Business/Features/Category/Handlers/Queries/GetAllNotActiveCategoriesQueryHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Blog.Business/Features/Category/Handlers/Queries/GetAllNotActiveCategoriesQueryHandler.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Blog.Business/Features/Category/Queries/GetAllCategoriesQuery.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Blog.Business/Features/Category/Queries/GetAllCategoriesQuery.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Blog.Business/Features/Category/Queries/GetAllNotActiveCategoriesQuery.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Blog.Business/Features/Category/Queries/GetAllNotActiveCategoriesQuery.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Blog.Business/Features/Category/ValidationRules/CategoryValidator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Blog.Business/Features/Category/ValidationRules/CategoryValidator.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Blog.Business/Features/Post/Handlers/Queries/GetAllNotActivePostsQueryHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Blog.Business/Features/Post/Handlers/Queries/GetAllNotActivePostsQueryHandler.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Blog.Business/Features/Post/Handlers/Queries/GetAllPostsQueryHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Blog.Business/Features/Post/Handlers/Queries/GetAllPostsQueryHandler.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Blog.Core/Blog.Core.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Blog.Core/Blog.Core.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Blog.Core/DependencyResolvers/CoreModule.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Blog.Core/DependencyResolvers/CoreModule.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Blog.DataAccess/Concrete/EntityFramework/Contexts/ApplicationDbContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Blog.DataAccess/Concrete/EntityFramework/Contexts/ApplicationDbContext.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Blog.DataAccess/Migrations/20210723195040_GeneralImprovements.Designer.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Blog.DataAccess/Migrations/20210723195040_GeneralImprovements.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Blog.DataAccess/Migrations/ApplicationDbContextModelSnapshot.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Blog.DataAccess/Migrations/ApplicationDbContextModelSnapshot.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Blog.Entities/Concrete/Image.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Blog.Entities/Concrete/Image.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Blog.WebUI/Blog.WebUI.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Blog.WebUI/Blog.WebUI.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Blog.WebUI/Controllers/AccountController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Blog.WebUI/Controllers/AccountController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Blog.WebUI/Controllers/CategoryController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Blog.WebUI/Areas/Admin/Controllers/CategoryController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Blog.WebUI/Controllers/PostController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Blog.WebUI/Controllers/PostController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Blog.WebUI/Controllers/TagController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Blog.WebUI/Controllers/TagController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Blog.WebUI/Startup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Blog.WebUI/Startup.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Blog.WebUI/appsettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/Blog.WebUI/appsettings.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -32,63 +94,64 @@
     </file-type-list>
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/Blog.WebUI/Controllers/CategoryController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Blog.WebUI/Startup.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Blog.WebUI/Views/_ViewStart.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Blog.WebUI/appsettings.json" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/3834795B-F41B-4E62-8161-509ECA0F5822/61/fb60fd55/IRequestHandler`2.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Blog.WebUI/Views/Home/Index.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
-      <option value="$PROJECT_DIR$/Blog.Business/Features/Post/Handlers/Commands/UpdatePostCommandHandler.cs" />
       <option value="$PROJECT_DIR$/Blog.Business/Features/Post/Queries/GetAllPostsQuery.cs" />
-      <option value="$PROJECT_DIR$/Blog.WebUI/Startup.cs" />
-      <option value="$PROJECT_DIR$/Blog.Entities/DTOs/PostDto.cs" />
-      <option value="$PROJECT_DIR$/Blog.Business/Features/Category/Handlers/Queries/GetAllCategoriesByStatusQueryHandler.cs" />
-      <option value="$PROJECT_DIR$/Blog.Business/Features/Category/Handlers/Queries/GetAllCategoriesQueryHandler.cs" />
-      <option value="$PROJECT_DIR$/Blog.Business/Features/Post/Queries/GetAllActivePostsQuery.cs" />
-      <option value="$PROJECT_DIR$/Blog.DataAccess/Abstract/IPostRepository.cs" />
-      <option value="$PROJECT_DIR$/Blog.DataAccess/Concrete/EntityFramework/EfPostRepository.cs" />
-      <option value="$PROJECT_DIR$/Blog.Business/Features/Post/Handlers/Queries/GetAllActivePostsQueryHandler.cs" />
-      <option value="$PROJECT_DIR$/Blog.Business/Features/Post/Queries/GetAllNotActivePostsQuery.cs" />
-      <option value="$PROJECT_DIR$/Blog.Business/Features/Post/Handlers/Queries/GetAllPostsQueryHandler.cs" />
-      <option value="$PROJECT_DIR$/Blog.Business/Features/Post/Handlers/Queries/GetAllNotActivePostsQueryHandler.cs" />
+      <option value="$PROJECT_DIR$/Blog.Business/Features/Authentication/Queries/GetUserByIdQuery.cs" />
+      <option value="$PROJECT_DIR$/Blog.Business/Features/Authentication/Handlers/Queries/GetUserByIdQueryHandler.cs" />
+      <option value="$PROJECT_DIR$/Blog.Business/Features/Authentication/Handlers/Commands/SignUpAdminCommandHandler.cs" />
+      <option value="$PROJECT_DIR$/Blog.WebUI/Controllers/AccountController.cs" />
+      <option value="$PROJECT_DIR$/Blog.Entities/Enums/Status.cs" />
+      <option value="$PROJECT_DIR$/Blog.Business/Constants/Status.cs" />
       <option value="$PROJECT_DIR$/Blog.WebUI/Controllers/PostController.cs" />
-      <option value="$PROJECT_DIR$/Blog.Business/DependencyResolvers/AutofacBusinessModule.cs" />
-      <option value="$PROJECT_DIR$/Blog.Business/Features/Post/Commands/AddPostCommand.cs" />
-      <option value="$PROJECT_DIR$/Blog.Business/Features/Post/Handlers/Commands/AddPostCommandHandler.cs" />
-      <option value="$PROJECT_DIR$/Blog.Business/Features/Tag/Commands/CreateTagCommand.cs" />
-      <option value="$PROJECT_DIR$/Blog.Business/Features/Tag/ValidationRules/TagValidator.cs" />
-      <option value="$PROJECT_DIR$/Blog.Business/Features/Tag/Handlers/UpdateTagCommandHandler.cs" />
-      <option value="$PROJECT_DIR$/Blog.Business/Features/Tag/Commands/UpdateTagCommand.cs" />
-      <option value="$PROJECT_DIR$/Blog.Business/Features/Tag/Commands/DeleteTagCommand.cs" />
-      <option value="$PROJECT_DIR$/Blog.Business/Features/Tag/Handlers/CreateTagCommandHandler.cs" />
-      <option value="$PROJECT_DIR$/Blog.Business/Features/Tag/Handlers/DeleteTagCommandHandler.cs" />
-      <option value="$PROJECT_DIR$/Blog.Business/Features/Tag/Handlers/Commands/CreateTagCommandHandler.cs" />
-      <option value="$PROJECT_DIR$/Blog.Business/Features/Tag/Handlers/Commands/UpdateTagCommandHandler.cs" />
-      <option value="$PROJECT_DIR$/Blog.Entities/DTOs/TagDto.cs" />
-      <option value="$PROJECT_DIR$/Blog.Business/Features/Tag/Queries/GetAllTagsQuery.cs" />
-      <option value="$PROJECT_DIR$/Blog.WebUI/Controllers/CategoryController.cs" />
-      <option value="$PROJECT_DIR$/Blog.Entities/VMs/TagWithPostsVM.cs" />
-      <option value="$PROJECT_DIR$/Blog.Entities/Concrete/Post.cs" />
-      <option value="$PROJECT_DIR$/Blog.Entities/Concrete/Category.cs" />
-      <option value="$PROJECT_DIR$/Blog.Entities/Concrete/Comment.cs" />
-      <option value="$PROJECT_DIR$/Blog.Entities/Concrete/Image.cs" />
-      <option value="$PROJECT_DIR$/Blog.Entities/Concrete/Notification.cs" />
-      <option value="$PROJECT_DIR$/Blog.Entities/Concrete/SeoDetail.cs" />
-      <option value="$PROJECT_DIR$/Blog.Entities/Concrete/Tag.cs" />
-      <option value="$PROJECT_DIR$/Blog.Entities/VMs/TagWithPostsViewModel.cs" />
-      <option value="$PROJECT_DIR$/Blog.Business/Features/Tag/Queries/GetAllTagsWithPostsQuery.cs" />
+      <option value="$PROJECT_DIR$/Blog.Business/Features/Post/Handlers/Queries/GetAllNotActivePostsQueryHandler.cs" />
       <option value="$PROJECT_DIR$/Blog.WebUI/Controllers/TagController.cs" />
-      <option value="$PROJECT_DIR$/Blog.Business/Constants/Messages.cs" />
-      <option value="$PROJECT_DIR$/Blog.Business/Features/Tag/Handlers/Commands/DeleteTagCommandHandler.cs" />
-      <option value="$PROJECT_DIR$/Blog.Business/Features/Tag/Handlers/Queries/GetAllTagsWithPostsQueryHandler.cs" />
-      <option value="$PROJECT_DIR$/Blog.Business/Features/Tag/Queries/GetTagWithPostsQuery.cs" />
-      <option value="$PROJECT_DIR$/Blog.Business/Features/Tag/Queries/GetTagByNameWithPostsQuery.cs" />
-      <option value="$PROJECT_DIR$/Blog.DataAccess/Abstract/ITagRepository.cs" />
-      <option value="$PROJECT_DIR$/Blog.Business/Features/Tag/Handlers/Queries/GetAllTagsQueryHandler.cs" />
-      <option value="$PROJECT_DIR$/Blog.DataAccess/Concrete/EntityFramework/EfTagRepository.cs" />
-      <option value="$PROJECT_DIR$/Blog.Entities/DTOs/TagWithPostsDto.cs" />
-      <option value="$PROJECT_DIR$/Blog.Business/Features/Tag/Handlers/Queries/GetTagWithPostsQueryHandler.cs" />
-      <option value="$PROJECT_DIR$/Blog.Business/Helpers/AutoMapperHelper.cs" />
+      <option value="$PROJECT_DIR$/Blog.Business/Features/Category/Queries/GetAllCategoriesQuery.cs" />
+      <option value="$PROJECT_DIR$/Blog.Business/Features/Category/Handlers/Queries/GetAllCategoriesQueryHandler.cs" />
+      <option value="$PROJECT_DIR$/Blog.Business/Features/Category/Queries/GetAllNotActiveCategoriesQuery.cs" />
+      <option value="$PROJECT_DIR$/Blog.Business/Features/Category/Handlers/Queries/GetAllNotActiveCategoriesQueryHandler.cs" />
+      <option value="$PROJECT_DIR$/Blog.Business/Features/Category/Handlers/Queries/GetAllActiveCategoriesQueryHandler.cs" />
+      <option value="$PROJECT_DIR$/Blog.WebUI/appsettings.json" />
+      <option value="$PROJECT_DIR$/Blog.Core/Settings/CloudinarySettings.cs" />
+      <option value="$PROJECT_DIR$/Blog.Entities/DTOs/PhotoForCreationDto.cs" />
+      <option value="$PROJECT_DIR$/Blog.Entities/DTOs/PhotoForReturnDto.cs" />
+      <option value="$PROJECT_DIR$/Blog.Entities/Concrete/Image.cs" />
+      <option value="$PROJECT_DIR$/Blog.Business/Helpers/UploadImageHelper.cs" />
+      <option value="$PROJECT_DIR$/Blog.Business/Abstract/ICloudinaryService.cs" />
+      <option value="$PROJECT_DIR$/Blog.Business/DependencyResolvers/AutofacBusinessModule.cs" />
+      <option value="$PROJECT_DIR$/Blog.Business/Concrete/CloudinaryManager.cs" />
+      <option value="$PROJECT_DIR$/Blog.Core/DependencyResolvers/CoreModule.cs" />
+      <option value="$PROJECT_DIR$/Blog.WebUI/Areas/Admin/Views/Shared/_LayoutFooterPartial.cshtml" />
+      <option value="$PROJECT_DIR$/Blog.WebUI/Areas/Admin/Views/Category/_CategoryAddPartial.cshtml" />
+      <option value="$PROJECT_DIR$/Blog.WebUI/Startup.cs" />
+      <option value="$PROJECT_DIR$/Blog.WebUI/Models/AddCategoryAjaxViewModel.cs" />
+      <option value="$PROJECT_DIR$/Blog.Core/Extensions/ControllerExtensions.cs" />
+      <option value="$PROJECT_DIR$/Blog.Business/Features/Category/ValidationRules/CategoryValidator.cs" />
+      <option value="$PROJECT_DIR$/Blog.Business/Features/Category/Handlers/Commands/UpdateCategoryCommandHandler.cs" />
+      <option value="$PROJECT_DIR$/Blog.Business/Features/Category/Commands/UpdateCategoryCommand.cs" />
+      <option value="$PROJECT_DIR$/Blog.Business/Features/Category/Handlers/Commands/AddCategoryCommandHandler.cs" />
+      <option value="$PROJECT_DIR$/Blog.Business/Features/Category/Commands/AddCategoryCommand.cs" />
+      <option value="$PROJECT_DIR$/Blog.DataAccess/Concrete/EntityFramework/EfCategoryRepository.cs" />
+      <option value="$PROJECT_DIR$/Blog.Entities/Concrete/Category.cs" />
+      <option value="$PROJECT_DIR$/Blog.Entities/DTOs/CategoryDto.cs" />
+      <option value="$PROJECT_DIR$/Blog.DataAccess/Concrete/EntityFramework/Contexts/ApplicationDbContext.cs" />
+      <option value="$PROJECT_DIR$/Blog.WebUI/Areas/Admin/Views/Shared/_LayoutJsPartial.cshtml" />
+      <option value="$PROJECT_DIR$/Blog.WebUI/Areas/Admin/Views/Shared/_LayoutCssPartial.cshtml" />
+      <option value="$PROJECT_DIR$/Blog.WebUI/Areas/Admin/Views/Category/Index.cshtml" />
+      <option value="$PROJECT_DIR$/Blog.WebUI/Areas/Admin/Controllers/HomeController.cs" />
+      <option value="$PROJECT_DIR$/Blog.WebUI/Areas/Admin/Views/Shared/_Layout.cshtml" />
+      <option value="$PROJECT_DIR$/Blog.WebUI/Areas/Admin/Views/Home/Index.cshtml" />
+      <option value="$PROJECT_DIR$/Blog.WebUI/Areas/Admin/Views/Shared/_LayoutSidebarNavPartial.cshtml" />
+      <option value="$PROJECT_DIR$/Blog.WebUI/Views/Home/Index.cshtml" />
+      <option value="$PROJECT_DIR$/Blog.WebUI/Areas/Admin/Models/AddCategoryAjaxViewModel.cs" />
+      <option value="$PROJECT_DIR$/Blog.WebUI/wwwroot/js/categoryIndex.js" />
+      <option value="$PROJECT_DIR$/Blog.WebUI/Areas/Admin/Controllers/CategoryController.cs" />
+      <option value="$PROJECT_DIR$/Blog.WebUI/Areas/Admin/Views/Category/_AddCategoryPartial.cshtml" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1vOzNfqviKpLhKQbI5itEKFj8pw" />
@@ -104,7 +167,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="CodeCleanupOptionsPage" />
+    <property name="settings.editor.selected.configurable" value="editor.preferences.smartKeys_rider" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RunManager" selected=".NET Launch Settings Profile.Blog.WebUI: IIS Express">
@@ -190,6 +253,17 @@
       <workItem from="1627551666065" duration="12908000" />
       <workItem from="1627588152872" duration="4523000" />
       <workItem from="1627632001593" duration="490000" />
+      <workItem from="1627652392576" duration="6390000" />
+      <workItem from="1627672188738" duration="6540000" />
+      <workItem from="1627751739736" duration="2543000" />
+      <workItem from="1627761752482" duration="8950000" />
+      <workItem from="1627813885945" duration="33659000" />
+      <workItem from="1627894953725" duration="11614000" />
+      <workItem from="1627931287878" duration="419000" />
+      <workItem from="1627931753616" duration="7284000" />
+      <workItem from="1628195354452" duration="2597000" />
+      <workItem from="1628281472121" duration="323000" />
+      <workItem from="1628282250752" duration="285000" />
     </task>
     <task id="LOCAL-00001" summary="fix: Category validator fixed">
       <created>1626724440747</created>
@@ -222,30 +296,5 @@
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
     <MESSAGE value="fix: Category validator fixed" />
     <option name="LAST_COMMIT_MESSAGE" value="fix: Category validator fixed" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Blog.Core/Aspects/Autofac/Exception/ExceptionLogAspect.cs</url>
-          <line>37</line>
-          <properties documentPath="C:\Users\ilker\Desktop\Blog\Blog.Core\Aspects\Autofac\Exception\ExceptionLogAspect.cs" initialLine="37" containingFunctionPresentation="method 'OnException'" />
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Blog.Business/Features/Tag/Handlers/Queries/GetAllTagsQueryHandler.cs</url>
-          <line>32</line>
-          <properties documentPath="C:\Users\ilker\Desktop\Blog\Blog.Business\Features\Tag\Handlers\Queries\GetAllTagsQueryHandler.cs" initialLine="32" containingFunctionPresentation="method 'Handle'">
-            <startOffsets>
-              <option value="1138" />
-            </startOffsets>
-            <endOffsets>
-              <option value="1183" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

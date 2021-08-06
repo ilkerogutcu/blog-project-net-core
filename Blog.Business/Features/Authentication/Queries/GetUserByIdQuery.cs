@@ -1,4 +1,5 @@
-﻿using Blog.Core.Entities.DTOs.Authentication.Responses;
+﻿using System;
+using Blog.Core.Entities.DTOs.Authentication.Responses;
 using Blog.Core.Utilities.Results;
 using MediatR;
 
@@ -12,6 +13,6 @@ namespace Blog.Business.Features.Authentication.Queries
 		/// <summary>
 		/// User id
 		/// </summary>
-		public string Id { get; set; }
+		public Guid Id { get; set; }
 	}
 }

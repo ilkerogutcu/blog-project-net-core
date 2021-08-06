@@ -20,7 +20,8 @@ namespace Blog.Business.DependencyResolvers
 		{
 			var assembly = Assembly.GetExecutingAssembly();
 			builder.RegisterType<AuthenticationMailManager>().As<IAuthenticationMailService>().SingleInstance();
-			
+			builder.RegisterType<CloudinaryManager>().As<ICloudinaryService>().SingleInstance();
+
 			builder.RegisterAssemblyTypes(assembly).AsImplementedInterfaces()
 				.AsClosedTypesOf(typeof(IRequestHandler<,>));
 			

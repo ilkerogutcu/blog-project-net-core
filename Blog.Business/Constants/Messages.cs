@@ -50,9 +50,8 @@ namespace Blog.Business.Constants
 		public const string PleaseEnterTheValue = "Please enter the value";
 		public const string DataAddedSuccessfully = "Data successfully added";
 		public const string AddFailed = "Error occurred while inserting data!";
+		public const string FetchDataFailed = "Fetch data failed";
 		public const string YourAccountIsLockedOut = "Your account is locked out. Please wait for 10 minutes and try again";
 		public const string DataCannotBeDeletedBecauseItHasAnotherData = "Data cannot be deleted because it has another data.";
-
-
 	}
 }

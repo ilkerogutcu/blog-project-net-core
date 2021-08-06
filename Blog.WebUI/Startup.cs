@@ -1,7 +1,10 @@
 using System;
+using System.Text.Json;
+using System.Text.Json.Serialization;
 using Blog.Business.Helpers;
 using Blog.Core.DependencyResolvers;
 using Blog.Core.Extensions;
+using Blog.Core.Settings;
 using Blog.Core.Utilities.Encryption;
 using Blog.Core.Utilities.IoC;
 using Blog.DataAccess.Concrete.EntityFramework.Contexts;
@@ -31,10 +34,16 @@ namespace Blog.WebUI
 		// This method gets called by the runtime. Use this method to add services to the container.
 		public void ConfigureServices(IServiceCollection services)
 		{
-			services.AddControllers();
-			services.AddControllers().AddNewtonsoftJson(options =>
+			services.AddControllersWithViews().AddRazorRuntimeCompilation().AddNewtonsoftJson(options =>
 				options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore
-			);
+			).AddJsonOptions(options =>
+			{
+				options.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter(JsonNamingPolicy.CamelCase));
+				options.JsonSerializerOptions.ReferenceHandler=ReferenceHandler.Preserve;
+
+			});
+			services.Configure<CloudinarySettings>(Configuration.GetSection("CloudinarySettings"));
+
 			services.AddSwaggerGen(swagger =>
 			{
 				//This is to generate the Default UI of Swagger Documentation  
@@ -120,10 +129,12 @@ namespace Blog.WebUI
 			if (env.IsDevelopment())
 			{
 				app.UseDeveloperExceptionPage();
+				app.UseStatusCodePages();
 				app.UseSwagger();
 				app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "StarterProject.Blog.WebAPI v1"));
 			}
 
+			app.UseStaticFiles();	
 			app.UseHttpsRedirection();
 			app.UseStatusCodePages();
 			app.UseRouting();
@@ -132,7 +143,15 @@ namespace Blog.WebUI
 			app.UseAuthentication();
 			app.UseAuthorization();
 
-			app.UseEndpoints(endpoints => { endpoints.MapControllers(); });
+			app.UseEndpoints(endpoints =>
+			{
+				endpoints.MapAreaControllerRoute(
+					"Admin",
+					"Admin",
+					"Admin/{controller=Home}/{action=Index}/{id?}"
+				);
+				endpoints.MapDefaultControllerRoute();
+			});
 		}
 	}
 }
