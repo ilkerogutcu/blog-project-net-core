@@ -1,6 +1,7 @@
 using System;
 using System.Text.Json;
 using System.Text.Json.Serialization;
+using Blog.Business.DependencyResolvers;
 using Blog.Business.Helpers;
 using Blog.Core.DependencyResolvers;
 using Blog.Core.Extensions;
@@ -83,7 +84,6 @@ namespace Blog.WebUI
 				new CoreModule(),
 				new DataAccessModule()
 			});
-
 			services.AddAutoMapper(typeof(AutoMapperHelper));
 			services.AddIdentity<User, IdentityRole>().
 				AddEntityFrameworkStores<ApplicationDbContext>().AddDefaultTokenProviders();

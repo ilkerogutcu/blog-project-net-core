@@ -12,6 +12,7 @@ using Blog.Core.Aspects.Autofac.Logger;
 using Blog.Core.Aspects.Autofac.Transaction;
 using Blog.Core.Aspects.Autofac.Validation;
 using Blog.Core.CrossCuttingConcerns.Logging.Serilog.Loggers;
+using Blog.Core.Utilities.MessageBrokers.RabbitMq;
 using Blog.Core.Utilities.Results;
 using Blog.DataAccess.Abstract;
 using Blog.Entities.Concrete;
@@ -33,21 +34,31 @@ namespace Blog.Business.Features.Category.Handlers.Commands
         private readonly UserManager<User> _userManager;
         private readonly IHttpContextAccessor _httpContextAccessor;
         private readonly ICloudinaryService _cloudinaryService;
+        private readonly IRabbitMqProducer _producer;
+
         public AddCategoryCommandHandler(ICategoryRepository categoryRepository, IMapper mapper,
-            UserManager<User> userManager, IHttpContextAccessor httpContextAccessor, ICloudinaryService cloudinaryService)
+            UserManager<User> userManager, IHttpContextAccessor httpContextAccessor,
+            ICloudinaryService cloudinaryService, IRabbitMqProducer producer)
         {
             _categoryRepository = categoryRepository;
             _mapper = mapper;
             _userManager = userManager;
             _httpContextAccessor = httpContextAccessor;
             _cloudinaryService = cloudinaryService;
+            _producer = producer;
         }
 
         [ValidationAspect(typeof(AddCategoryValidator))]
         [LogAspect(typeof(FileLogger))]
         [ExceptionLogAspect(typeof(FileLogger))]
-        public async Task<IDataResult<CategoryDto>> Handle(AddCategoryCommand request, CancellationToken cancellationToken)
+        public async Task<IDataResult<CategoryDto>> Handle(AddCategoryCommand request,
+            CancellationToken cancellationToken)
         {
+            if (await _categoryRepository.GetAsync(x => x.Name == request.Name) is not null)
+            {
+                return new ErrorDataResult<CategoryDto>(Messages.CategoryAlreadyExist);
+            }
+
             var category = _mapper.Map<Entities.Concrete.Category>(request);
             var user = await _userManager.FindByEmailAsync("ilkerogtc@gmail.com");
             if (user is null)
@@ -59,20 +70,26 @@ namespace Blog.Business.Features.Category.Handlers.Commands
             category.CreatedDate = DateTime.Now;
             category.Status = true;
             var file = request.File;
-            if (file.Length>0)
+            if (file.Length > 0)
             {
                 category.Image = await _cloudinaryService.UploadImage(file);
             }
+
             await _categoryRepository.AddAsync(category);
             var result = await _categoryRepository.SaveChangesAsync();
             if (result <= 0)
             {
                 return new ErrorDataResult<CategoryDto>(Messages.AddCategoryFailed);
             }
+
+            await _producer.Publish(new ProducerModel
+            {
+                Model = category,
+                QueueName = "category-added-queue"
+            });
             
-                
             var categoryDto = _mapper.Map<CategoryDto>(category);
-            return new SuccessDataResult<CategoryDto>(categoryDto,Messages.CategorySuccessfullyAdded);
+            return new SuccessDataResult<CategoryDto>(categoryDto, Messages.CategorySuccessfullyAdded);
         }
     }
 }

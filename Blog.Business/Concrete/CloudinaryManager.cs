@@ -24,6 +24,7 @@ namespace Blog.Business.Concrete
                 cloudinarySettings.Value.ApiSecret);
             _cloudinary = new Cloudinary(account);
         }
+
         [LogAspect(typeof(FileLogger))]
         [ExceptionLogAspect(typeof(FileLogger))]
         public async Task<Image> UploadImage(IFormFile file)

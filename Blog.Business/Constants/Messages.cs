@@ -44,9 +44,11 @@ namespace Blog.Business.Constants
 		public const string PleaseEnterTheDescription = "Please enter the description";
 		public const string CategorySuccessfullyAdded = "Category successfully added";
 		public const string AddCategoryFailed = "Category added failed";
+		public const string CategoryAlreadyExist = "Category already exist!";
 		public const string UpdatedSuccessfully = "Updated successfully";
 		public const string UpdateFailed = "Update failed!";
 		public const string DeleteFailed = "Delete failed!";
+		public const string DeletedSuccessfully= "Deleted successfully!";
 		public const string PleaseEnterTheValue = "Please enter the value";
 		public const string DataAddedSuccessfully = "Data successfully added";
 		public const string AddFailed = "Error occurred while inserting data!";

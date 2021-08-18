@@ -1,7 +1,10 @@
-﻿using System.Diagnostics;
+﻿using System;
+using System.Diagnostics;
 using Blog.Core.CrossCuttingConcerns.Caching;
 using Blog.Core.CrossCuttingConcerns.Caching.Microsoft;
 using Blog.Core.CrossCuttingConcerns.Logging.Serilog.Loggers;
+using Blog.Core.DataAccess.ElasticSearch;
+using Blog.Core.Settings;
 using Blog.Core.Utilities.IoC;
 using Blog.Core.Utilities.Mail;
 using Blog.Core.Utilities.Uri;
@@ -22,6 +25,7 @@ namespace Blog.Core.DependencyResolvers
             serviceCollection.AddTransient<FileLogger>();
             serviceCollection.AddTransient<MongoDbLogger>();
             serviceCollection.AddHttpContextAccessor();
+            serviceCollection.AddSingleton<IElasticSearch, ElasticSearchManager>();
             serviceCollection.AddTransient<ElasticsearchLogger>();
             serviceCollection.AddSingleton<IUriService>(o =>
             {

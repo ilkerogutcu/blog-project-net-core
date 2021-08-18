@@ -13,6 +13,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Blog.Entities", "Blog.Entit
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Blog.WebUI", "Blog.WebUI\Blog.WebUI.csproj", "{F393E770-EAAC-4633-B975-194F0232D121}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Blog.RabbitMq.Consumers", "Blog.RabbitMq.Consumers", "{BD8912F4-DB83-4D9C-A2DA-24874885E0C6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blog.Consumer", "Blog.RabbitMq.Consumers\Blog.Consumer\Blog.Consumer.csproj", "{A87CC639-A2D2-489A-A282-B54491962BAE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,11 +43,18 @@ Global
 		{F393E770-EAAC-4633-B975-194F0232D121}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F393E770-EAAC-4633-B975-194F0232D121}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F393E770-EAAC-4633-B975-194F0232D121}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A87CC639-A2D2-489A-A282-B54491962BAE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A87CC639-A2D2-489A-A282-B54491962BAE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A87CC639-A2D2-489A-A282-B54491962BAE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A87CC639-A2D2-489A-A282-B54491962BAE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {312BB513-298D-4B9A-80B9-198399605B5A}
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{A87CC639-A2D2-489A-A282-B54491962BAE} = {BD8912F4-DB83-4D9C-A2DA-24874885E0C6}
 	EndGlobalSection
 EndGlobal
