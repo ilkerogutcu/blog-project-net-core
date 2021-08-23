@@ -60,7 +60,8 @@ namespace Blog.Business.Features.Category.Handlers.Commands
             }
 
             var category = _mapper.Map<Entities.Concrete.Category>(request);
-            var user = await _userManager.FindByEmailAsync("ilkerogtc@gmail.com");
+            var user = await _userManager.FindByEmailAsync(_httpContextAccessor?.HttpContext.User
+                .FindFirst(ClaimTypes.Email)?.Value);
             if (user is null)
             {
                 return new ErrorDataResult<CategoryDto>(Messages.UserNotFound);
@@ -87,7 +88,7 @@ namespace Blog.Business.Features.Category.Handlers.Commands
                 Model = category,
                 QueueName = "category-added-queue"
             });
-            
+
             var categoryDto = _mapper.Map<CategoryDto>(category);
             return new SuccessDataResult<CategoryDto>(categoryDto, Messages.CategorySuccessfullyAdded);
         }

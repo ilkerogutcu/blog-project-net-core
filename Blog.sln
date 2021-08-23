@@ -17,6 +17,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Blog.RabbitMq.Consumers", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blog.Consumer", "Blog.RabbitMq.Consumers\Blog.Consumer\Blog.Consumer.csproj", "{A87CC639-A2D2-489A-A282-B54491962BAE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blog.Tests", "Blog.Tests\Blog.Tests.csproj", "{B660D623-AB2B-47D5-B327-AAFFAC0E24AC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -47,6 +49,10 @@ Global
 		{A87CC639-A2D2-489A-A282-B54491962BAE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A87CC639-A2D2-489A-A282-B54491962BAE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A87CC639-A2D2-489A-A282-B54491962BAE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B660D623-AB2B-47D5-B327-AAFFAC0E24AC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B660D623-AB2B-47D5-B327-AAFFAC0E24AC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B660D623-AB2B-47D5-B327-AAFFAC0E24AC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B660D623-AB2B-47D5-B327-AAFFAC0E24AC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

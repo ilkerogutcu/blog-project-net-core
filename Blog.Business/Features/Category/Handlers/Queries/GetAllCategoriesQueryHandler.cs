@@ -11,26 +11,21 @@ using Blog.Core.CrossCuttingConcerns.Logging.Serilog.Loggers;
 using Blog.Core.DataAccess.ElasticSearch;
 using Blog.Core.DataAccess.ElasticSearch.Models;
 using Blog.Core.Utilities.Results;
-using Blog.DataAccess.Abstract;
 using Blog.Entities.DTOs;
 using MediatR;
 
 namespace Blog.Business.Features.Category.Handlers.Queries
 {
     /// <summary>
-    /// Get all categories
+    ///     Get all categories
     /// </summary>
-    public class
-        GetAllCategoriesQueryHandler : IRequestHandler<GetAllCategoriesQuery, IDataResult<IEnumerable<CategoryDto>>>
+    public class GetAllCategoriesQueryHandler : IRequestHandler<GetAllCategoriesQuery, IDataResult<IEnumerable<CategoryDto>>>
     {
-        private readonly ICategoryRepository _categoryRepository;
         private readonly IElasticSearch _elasticSearch;
         private readonly IMapper _mapper;
 
-        public GetAllCategoriesQueryHandler(ICategoryRepository categoryRepository, IElasticSearch elasticSearch,
-            IMapper mapper)
+        public GetAllCategoriesQueryHandler(IElasticSearch elasticSearch, IMapper mapper)
         {
-            _categoryRepository = categoryRepository;
             _elasticSearch = elasticSearch;
             _mapper = mapper;
         }
@@ -40,13 +35,13 @@ namespace Blog.Business.Features.Category.Handlers.Queries
             CancellationToken cancellationToken)
         {
             var categoriesCount = await _elasticSearch.GetCountAsync<Entities.Concrete.Category>("category");
-            var categories = await _elasticSearch.GetAllSearch<Entities.Concrete.Category>(new SearchParameters()
+            var categories = await _elasticSearch.GetAllSearch<Entities.Concrete.Category>(new SearchParameters
             {
                 IndexName = "category",
                 Size = Convert.ToInt32(categoriesCount)
             });
+            
             var result = _mapper.Map<List<CategoryDto>>(categories);
-
             return !result.Any()
                 ? new ErrorDataResult<List<CategoryDto>>(Messages.DataNotFound)
                 : new SuccessDataResult<IEnumerable<CategoryDto>>(result);

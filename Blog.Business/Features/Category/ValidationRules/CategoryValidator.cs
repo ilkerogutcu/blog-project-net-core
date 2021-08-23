@@ -12,6 +12,7 @@ namespace Blog.Business.Features.Category.ValidationRules
             RuleFor(x => x.Description).NotEmpty().WithMessage(Messages.PleaseEnterTheDescription);
         }
     }
+
     public class UpdateCategoryValidator : AbstractValidator<UpdateCategoryCommand>
     {
         public UpdateCategoryValidator()

@@ -30,7 +30,7 @@ namespace Blog.WebUI.Areas.Admin.Controllers
         [HttpGet]
         public async Task<IActionResult> Index()
         {
-            var result = await _mediator.Send(new GetAllCategoriesQuery());
+            var result = await _mediator.Send(new GetAllActiveCategoriesQuery());
             return View("Index", result);
         }
 

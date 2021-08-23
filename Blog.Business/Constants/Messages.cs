@@ -55,5 +55,7 @@ namespace Blog.Business.Constants
 		public const string FetchDataFailed = "Fetch data failed";
 		public const string YourAccountIsLockedOut = "Your account is locked out. Please wait for 10 minutes and try again";
 		public const string DataCannotBeDeletedBecauseItHasAnotherData = "Data cannot be deleted because it has another data.";
+		public const string ParameterCannotBeEmpty = "Parameter cannot be empty!";
+
 	}
 }

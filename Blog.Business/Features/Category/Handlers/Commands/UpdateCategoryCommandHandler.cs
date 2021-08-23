@@ -36,8 +36,8 @@ namespace Blog.Business.Features.Category.Handlers.Commands
         private readonly IRabbitMqProducer _producer;
         private readonly ICloudinaryService _cloudinaryService;
 
-        public UpdateCategoryCommandHandler(ICategoryRepository categoryRepository, UserManager<User> userManager,
-            IHttpContextAccessor httpContextAccessor, IMapper mapper, IRabbitMqProducer producer,
+        public UpdateCategoryCommandHandler(ICategoryRepository categoryRepository, IMapper mapper, UserManager<User> userManager,
+            IHttpContextAccessor httpContextAccessor, IRabbitMqProducer producer,
             ICloudinaryService cloudinaryService)
         {
             _categoryRepository = categoryRepository;

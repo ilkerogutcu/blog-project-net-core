@@ -26,20 +26,20 @@ namespace Blog.Business.Features.Category.Handlers.Queries
         public async Task<IDataResult<UpdateCategoryCommand>> Handle(GetCategoryByIdQuery request,
             CancellationToken cancellationToken)
         {
-            var category = (await _elasticSearch.GetSearchByField<Entities.Concrete.Category>(
+            var category = await _elasticSearch.GetSearchByField<Entities.Concrete.Category>(
                 new SearchByFieldParameters
                 {
                     FieldName = "id",
                     IndexName = "category",
                     Value = request.CategoryId
-                }))[0].Item;
+                });
             
-            if (category == null)
+            if (category?[0].Item == null)
             {
                 return new ErrorDataResult<UpdateCategoryCommand>(Messages.DataNotFound);
             }
 
-            var updateCategory = _mapper.Map<UpdateCategoryCommand>(category);
+            var updateCategory = _mapper.Map<UpdateCategoryCommand>(category[0].Item);
             return new SuccessDataResult<UpdateCategoryCommand>(updateCategory);
         }
     }

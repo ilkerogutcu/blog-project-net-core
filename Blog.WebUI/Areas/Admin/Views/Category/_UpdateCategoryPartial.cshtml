@@ -18,8 +18,7 @@
                     </div>
                     <div class="form-group">
                         <label asp-for="Description"></label>
-                        <input class="form-control" asp-for="Description"/>
-                        <span class="text-danger" asp-validation-for="Description"></span>
+                        <textarea class="form-control" asp-for="Description" rows="3"></textarea>
                     </div>
                     <img src="@Model.ImageUrl" alt="@Model.Name" class="my-image-table" style="display: block;margin: 0 auto 10px;"/>
                     <div class="form-group">
