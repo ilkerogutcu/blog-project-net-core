@@ -1,0 +1,37 @@
+@model Blog.Business.Features.Category.Commands.UpdateCategoryCommand
+
+<div class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title"><span class="fas fa-edit"> </span>Update @Model.Name category</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form asp-action="Update" id="form-update-category" enctype="multipart/form-data">
+                    <input type="hidden" asp-for="Id"/>
+                    <div class="form-group">
+                        <label asp-for="Name"></label>
+                        <input class="form-control" asp-for="Name"/>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Description"></label>
+                        <textarea class="form-control" asp-for="Description" rows="3"></textarea>
+                    </div>
+                    <img src="@Model.ImageUrl" alt="@Model.Name" class="my-image-table" style="display: block;margin: 0 auto 10px;"/>
+                    <div class="form-group">
+                        <label asp-for="File">New Image</label>
+                        <input type="file" asp-for="File" accept="image/*" id="uploadFile" name="FormFile" class="form-control-sm"/>
+                        <span class="text-danger" asp-validation-for="File"></span>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger btn-block" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary btn-block" id="btnUpdate"><span class="fas fa-save"> </span>Update Category</button>
+            </div>
+        </div>
+    </div>
+</div>

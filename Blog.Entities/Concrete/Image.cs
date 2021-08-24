@@ -7,6 +7,7 @@ namespace Blog.Entities.Concrete
     {
         public Guid Id { get; init; }
         public string Url { get; set; }
+        public string PublicId { get; set; }
         public DateTime CreatedDate { get; set; }=DateTime.Now;
     }
 }

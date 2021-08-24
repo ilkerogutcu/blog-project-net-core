@@ -9,16 +9,15 @@ namespace Blog.Business.Features.Category.ValidationRules
         public AddCategoryValidator()
         {
             RuleFor(x => x.Name).NotEmpty().WithMessage(Messages.PleaseEnterTheCategoryName);
-            RuleFor(x => x.ImageUrl).NotEmpty().WithMessage(Messages.PleaseEnterTheImageUrl);
             RuleFor(x => x.Description).NotEmpty().WithMessage(Messages.PleaseEnterTheDescription);
         }
     }
+
     public class UpdateCategoryValidator : AbstractValidator<UpdateCategoryCommand>
     {
         public UpdateCategoryValidator()
         {
             RuleFor(x => x.Name).NotEmpty().WithMessage(Messages.PleaseEnterTheCategoryName);
-            RuleFor(x => x.ImageUrl).NotEmpty().WithMessage(Messages.PleaseEnterTheImageUrl);
             RuleFor(x => x.Description).NotEmpty().WithMessage(Messages.PleaseEnterTheDescription);
         }
     }

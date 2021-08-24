@@ -1,10 +1,12 @@
 using System;
 using Blog.Core.Utilities.Results;
+using Blog.Entities.DTOs;
 using MediatR;
+using Microsoft.AspNetCore.Http;
 
 namespace Blog.Business.Features.Category.Commands
 {
-    public class UpdateCategoryCommand : IRequest<IResult>
+    public class UpdateCategoryCommand : IRequest<IDataResult<CategoryDto>>
     {
         /// <summary>
         ///     Category id
@@ -26,11 +28,6 @@ namespace Blog.Business.Features.Category.Commands
         /// </summary>
         public string Description { get; set; }
 
-        /// <summary>
-        ///     Category status
-        ///     true is active
-        ///     false is not active
-        /// </summary>
-        public bool Status { get; set; }
+        public IFormFile File { get; set; }
     }
 }

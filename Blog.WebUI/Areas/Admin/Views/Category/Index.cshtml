@@ -1,0 +1,104 @@
+@model Blog.Core.Utilities.Results.IDataResult<IEnumerable<Blog.Entities.DTOs.CategoryDto>>
+@{
+    Layout = "_Layout";
+    ViewBag.Title = "Categories Index";
+}
+
+@if (Model.Success)
+{
+    <div id="modalPlaceHolder" aria-hidden="false"></div>
+    <div class="card mb-4">
+        <div class="card-header">
+            <i class="fas fa-table mr-1"></i> Categories
+        </div>
+        <div class="card-body">
+            <div class="spinner-border" role="status" style="display: none">
+                <span class="sr-only">Loading...</span>
+            </div>
+            <div class="table-responsive">
+                <table class="table table-bordered" id="categoriesTable" style="width:100%">
+                    <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Image</th>
+                        <th>Category Name</th>
+                        <th>Description</th>
+                        <th>Status</th>
+                        <th>Created By</th>
+                        <th>Created Date</th>
+                        <th>Last Modified Date</th>
+                        <th>Last Modified By</th>
+                        <th>Actions</th>
+
+                    </tr>
+                    </thead>
+                    <tfoot>
+                    <tr>
+                        <th>Id</th>
+                        <th>Image</th>
+                        <th>Category Name</th>
+                        <th>Description</th>
+                        <th>Status</th>
+                        <th>Created By</th>
+                        <th>Created Date</th>
+                        <th>Last Modified Date</th>
+                        <th>Last Modified By</th>
+                        <th>Actions</th>
+                    </tr>
+                    </tfoot>
+                    <tbody>
+                    @foreach (var category in Model.Data)
+                    {
+                        <tr name="@category.CategoryName">
+                            <td>@(category.CategoryId[..18])...</td>
+
+                            <td>
+                                <img src="@category.ImageUrl" alt="@category.CategoryName" class="my-image-table"/>
+                            </td>
+                            <td>@category.CategoryName</td>
+                            <td>@category.Description</td>
+                            @if (category.Status)
+                            {
+                                <td>Active</td>
+                            }
+                            else
+                            {
+                                <td>Not Active</td>
+                            }
+                            <td>@category.CreatedBy</td>
+                            <td>@category.CreatedDate.ToString("dd'.'MM'.'yyyy HH:mm:ss")</td>
+                            @if (category.LastModifiedBy == null && category.LastModifiedDate == null)
+                            {
+                                <td>Category has not been updated.</td>
+                                <td>Category has not been updated.</td>
+                            }
+                            else
+                            {
+                                <td>@category.LastModifiedBy</td>
+                                <td>@category.LastModifiedDate</td>
+                            }
+                            <td style="display:flex; ">
+                                <button class="btn btn-primary btn-sm btn-update"  data-id="@category.CategoryId"><span class="fas fa-edit"></span> Update</button>
+                                <button class="btn btn-danger btn-sm btn-delete" style="margin-left: 15px"   data-id="@category.CategoryName" ><span class="fas fa-minus-circle"></span> Delete</button>
+                            </td>
+                        </tr>
+                    }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+}
+
+
+@if (Model.Success == false)
+{
+    <div class="alert alert-danger" style="margin-top: 10px">
+        @Model.Message<br/>
+        <a class="alert-link" asp-area="Admin" asp-controller="Home" asp-action="Index">Click here for go to the Dashboard Page</a>
+    </div>
+}
+
+@section Scripts {
+    <script src="~/js/categoryIndex.js" type="application/ecmascript"></script>
+}

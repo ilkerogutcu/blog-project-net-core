@@ -21,7 +21,32 @@ namespace Blog.WebUI.Controllers
         {
             _mediator = mediator;
         }
+        [Produces("application/json", "text/plain")]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(PaginatedResult<IEnumerable<TagDto>>))]
+        [ProducesResponseType(StatusCodes.Status400BadRequest, Type = typeof(string))]
+        [HttpGet]
+        public async Task<IActionResult> GetAll([FromQuery] PaginationFilter paginationFilter)
+        {
+            var result = await _mediator.Send(new GetAllTagsQuery
+            {
+                PaginationFilter = paginationFilter,
+                Route = Request.Path.Value
+            });
+            return result.Success ? Ok(result) : BadRequest(result.Message);
+        }
 
+        [Produces("application/json", "text/plain")]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(TagWithPostsDto))]
+        [ProducesResponseType(StatusCodes.Status400BadRequest, Type = typeof(string))]
+        [HttpGet("{name}")]
+        public async Task<IActionResult> GetByNameWithPosts(string name)
+        {
+            var result = await _mediator.Send(new GetTagByNameWithPostsQuery
+            {
+                Name = name
+            });
+            return result.Success ? Ok(result.Data) : BadRequest(result.Message);
+        }
         [Produces("application/json", "text/plain")]
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(string))]
         [ProducesResponseType(StatusCodes.Status400BadRequest, Type = typeof(string))]
@@ -50,30 +75,6 @@ namespace Blog.WebUI.Controllers
         {
             var result = await _mediator.Send(command);
             return result.Success ? Ok(result.Message) : BadRequest(result.Message);
-        }
-
-        [Produces("application/json", "text/plain")]
-        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(PaginatedResult<IEnumerable<TagDto>>))]
-        [ProducesResponseType(StatusCodes.Status400BadRequest, Type = typeof(string))]
-        [HttpGet("get-all")]
-        public async Task<IActionResult> GetAll([FromQuery] PaginationFilter paginationFilter)
-        {
-            var result = await _mediator.Send(new GetAllTagsQuery
-            {
-                PaginationFilter = paginationFilter,
-                Route = Request.Path.Value
-            });
-            return result.Success ? Ok(result) : BadRequest(result.Message);
-        }
-
-        [Produces("application/json", "text/plain")]
-        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(TagWithPostsDto))]
-        [ProducesResponseType(StatusCodes.Status400BadRequest, Type = typeof(string))]
-        [HttpGet("get-with-posts")]
-        public async Task<IActionResult> GetByNameWithPosts([FromQuery] GetTagByNameWithPostsQuery query)
-        {
-            var result = await _mediator.Send(query);
-            return result.Success ? Ok(result.Data) : BadRequest(result.Message);
         }
     }
 }

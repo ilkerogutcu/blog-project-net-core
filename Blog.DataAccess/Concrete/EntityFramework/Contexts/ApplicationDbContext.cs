@@ -11,7 +11,7 @@ namespace Blog.DataAccess.Concrete.EntityFramework.Contexts
 		{
 			optionsBuilder
 				.UseSnakeCaseNamingConvention()
-				.UseSqlServer("Server=DESKTOP-9JI7HVR;Database=blog;Trusted_Connection=True;");
+				.UseSqlServer(@"Server=DESKTOP-Q07SH9M;Database=blog;Trusted_Connection=True;");
 		}
 		public DbSet<Notification> Notifications { get; set; }
 		public DbSet<SeoDetail> SeoDetails { get; set; }	

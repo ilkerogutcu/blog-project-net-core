@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using Blog.Business.Constants;
 using Blog.Business.Features.Post.Commands;
 using Blog.Business.Features.Post.Queries;
 using Blog.Core.Entities.Concrete;
@@ -22,6 +23,9 @@ namespace Blog.WebUI.Controllers
             _mediator = mediator;
         }
 
+        /// <summary>
+        ///     It is for getting the Mediator instance creation process from the base controller.
+        /// </summary>
         [Produces("application/json", "text/plain")]
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(string))]
         [ProducesResponseType(StatusCodes.Status400BadRequest, Type = typeof(string))]
@@ -45,7 +49,7 @@ namespace Blog.WebUI.Controllers
         [Produces("application/json", "text/plain")]
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(PaginatedResult<IEnumerable<PostDto>>))]
         [ProducesResponseType(StatusCodes.Status400BadRequest, Type = typeof(string))]
-        [HttpGet("get-all")]
+        [HttpGet]
         public async Task<IActionResult> GetAll([FromQuery] PaginationFilter paginationFilter)
         {
             var result = await _mediator.Send(new GetAllPostsQuery
@@ -59,29 +63,28 @@ namespace Blog.WebUI.Controllers
         [Produces("application/json", "text/plain")]
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(PaginatedResult<IEnumerable<PostDto>>))]
         [ProducesResponseType(StatusCodes.Status400BadRequest, Type = typeof(string))]
-        [HttpGet("get-all-active")]
-        public async Task<IActionResult> GetAllActive([FromQuery] PaginationFilter paginationFilter)
+        [HttpGet("{status}")]
+        public async Task<IActionResult> GetAllActive([FromQuery] PaginationFilter paginationFilter, string status)
         {
-            var result = await _mediator.Send(new GetAllActivePostsQuery
+            switch (status)
             {
-                PaginationFilter = paginationFilter,
-                Route = Request.Path.Value
-            });
-            return result.Success ? Ok(result) : BadRequest(result.Message);
-        }
-
-        [Produces("application/json", "text/plain")]
-        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(PaginatedResult<IEnumerable<PostDto>>))]
-        [ProducesResponseType(StatusCodes.Status400BadRequest, Type = typeof(string))]
-        [HttpGet("get-all-not-active")]
-        public async Task<IActionResult> GetAllNotActive([FromQuery] PaginationFilter paginationFilter)
-        {
-            var result = await _mediator.Send(new GetAllNotActivePostsQuery
-            {
-                PaginationFilter = paginationFilter,
-                Route = Request.Path.Value
-            });
-            return result.Success ? Ok(result) : BadRequest(result.Message);
+                case Status.Active:
+                    var activePosts = await _mediator.Send(new GetAllActivePostsQuery
+                    {
+                        PaginationFilter = paginationFilter,
+                        Route = Request.Path.Value
+                    });
+                    return activePosts.Success ? Ok(activePosts) : BadRequest(activePosts.Message);
+                case Status.NotActive:
+                    var notActivePosts = await _mediator.Send(new GetAllNotActivePostsQuery
+                    {
+                        PaginationFilter = paginationFilter,
+                        Route = Request.Path.Value
+                    });
+                    return notActivePosts.Success ? Ok(notActivePosts) : BadRequest(notActivePosts.Message);
+                default:
+                    return BadRequest(Messages.FetchDataFailed);
+            }
         }
     }
 }

@@ -113,6 +113,10 @@ namespace Blog.DataAccess.Migrations
                         .HasColumnType("datetime2")
                         .HasColumnName("created_date");
 
+                    b.Property<string>("PublicId")
+                        .HasColumnType("nvarchar(max)")
+                        .HasColumnName("public_id");
+
                     b.Property<string>("Url")
                         .HasColumnType("nvarchar(max)")
                         .HasColumnName("url");

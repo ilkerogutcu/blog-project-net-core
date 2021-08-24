@@ -30,7 +30,7 @@ namespace Blog.Core.Utilities.Interceptors
                 }
             }
             OnAfter(invocation);
-        }
+            }
 
         protected virtual void OnBefore(IInvocation invocation) { }
         protected virtual void OnAfter(IInvocation invocation) { }
