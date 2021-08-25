@@ -14,7 +14,10 @@ namespace Blog.Business.Helpers
     {
         public AutoMapperHelper()
         {
-            CreateMap<User, UserResponse>().ReverseMap();
+            CreateMap<User, UserResponse>()
+                .ForMember(dest => dest.ImageUrl, opt => opt.MapFrom(src => src.Photo.Url))
+                .ForMember(dest => dest.Username, opt => opt.MapFrom(src => src.UserName))
+                .ReverseMap();
             CreateMap<User, SignUpRequest>().ReverseMap();
             CreateMap<Tag, CreateTagCommand>().ReverseMap();
             CreateMap<Category, AddCategoryCommand>().ReverseMap();

@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 using Blog.Business.Features.Category.Commands;
 using Blog.Business.Features.Category.ValidationRules;
 using FluentValidation.TestHelper;
-using Microsoft.AspNetCore.Http.Internal;
+using Microsoft.AspNetCore.Http;
 using Xunit;
 
 namespace Blog.Tests.Business.Validators

@@ -1,0 +1,99 @@
+@model Blog.Core.Utilities.Results.IDataResult<IEnumerable<Blog.Core.Entities.DTOs.Authentication.Responses.UserResponse>>
+@{
+    Layout = "_Layout";
+    ViewBag.Title = "Users";
+}
+
+@if (Model.Success)
+{
+    <div id="modalPlaceHolder" aria-hidden="false"></div>
+    <div class="card mb-4">
+        <div class="card-header">
+            <i class="fas fa-table mr-1"></i> Users
+        </div>
+        <div class="card-body">
+            <div class="spinner-border" role="status" style="display: none">
+                <span class="sr-only">Loading...</span>
+            </div>
+            <div class="table-responsive">
+                <table class="table table-bordered" id="accountsTable" style="width:100%">
+                    <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Photo</th>
+                        <th>FirstName</th>
+                        <th>LastName</th>
+                        <th>Username</th>
+                        <th>Email</th>
+                        <th>Created Date</th>
+                        <th>Status</th>
+                        <th>Last Modified Date</th>
+                        <th>Last Modified By</th>
+                        <th>Actions</th>
+
+                    </tr>
+                    </thead>
+                    <tfoot>
+                    <tr>
+                        <th>Id</th>
+                        <th>Photo</th>
+                        <th>FirstName</th>
+                        <th>LastName</th>
+                        <th>Username</th>
+                        <th>Email</th>
+                        <th>Created Date</th>
+                        <th>Status</th>
+                        <th>Last Modified Date</th>
+                        <th>Last Modified By</th>
+                        <th>Actions</th>
+                    </tr>
+                    </tfoot>
+                    <tbody>
+                    @foreach (var user in Model.Data)
+                    {
+                        <tr name="@user.Id">
+                            <td>@(user.Id[..18])...</td>
+                            <td>
+                                <img src="@user.ImageUrl" alt="@user.Username" class="my-image-table"/>
+                            </td>
+                            <td>@user.FirstName</td>
+                            <td>@user.LastName</td>
+                            <td>@user.Username</td>
+                            <td>@user.Email</td>
+                            <td>@user.Status</td>
+                            <td>@user.CreatedDate.ToString("dd'.'MM'.'yyyy HH:mm:ss")</td>
+                            @if (user.LastModifiedBy == default && user.LastModifiedDate == default)
+                            {
+                                <td>User has not been updated.</td>
+                                <td>User has not been updated.</td>
+                            }
+                            else
+                            {
+                                <td>@user.LastModifiedBy</td>
+                                <td>@user.LastModifiedDate</td>
+                            }
+                            <td style="display:flex; ">
+                                <button class="btn btn-primary btn-sm btn-update" data-id="@user.Id"><span class="fas fa-edit"></span> Update</button>
+                                <button class="btn btn-danger btn-sm btn-delete" style="margin-left: 15px" data-id="@user.Id"><span class="fas fa-minus-circle"></span> Delete</button>
+                            </td>
+                        </tr>
+                    }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+}
+
+
+@if (Model.Success == false)
+{
+    <div class="alert alert-danger" style="margin-top: 10px">
+        @Model.Message<br/>
+        <a class="alert-link" asp-area="Admin" asp-controller="Home" asp-action="Index">Click here for go to the Dashboard Page</a>
+    </div>
+}
+
+@section Scripts {
+    <script src="~/js/accountIndex.js" type="application/ecmascript"></script>
+}

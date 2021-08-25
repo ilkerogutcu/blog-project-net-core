@@ -40,7 +40,7 @@ namespace Blog.Business.Constants
 		public const string FieldMustBeLessThan500Characters = "Field must be less then 500 characters!";
 		public const string FieldMustBeLessThan70Characters = "Field must be less then 70 characters!";
 		public const string PleaseEnterTheCategoryName = "Please enter the category name.";
-		public const string PleaseEnterTheImageUrl = "Please enter the image url";
+		public const string PleaseSelectTheImage = "Please select the image";
 		public const string PleaseEnterTheDescription = "Please enter the description";
 		public const string CategorySuccessfullyAdded = "Category successfully added";
 		public const string AddCategoryFailed = "Category added failed";

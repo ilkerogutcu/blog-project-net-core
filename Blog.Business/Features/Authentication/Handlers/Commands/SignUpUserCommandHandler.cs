@@ -74,7 +74,7 @@ namespace Blog.Business.Features.Authentication.Handlers.Commands
 				UserName = request.SignUpRequest.Username,
 				Email = request.SignUpRequest.Email,
 				FirstName = request.SignUpRequest.FirstName,
-				LastName = request.SignUpRequest.LastName
+				LastName = request.SignUpRequest.LastName,
 			};
 			var result = await _userManager.CreateAsync(user, request.SignUpRequest.Password);
 			if (!result.Succeeded)

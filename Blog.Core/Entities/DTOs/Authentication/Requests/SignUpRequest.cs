@@ -1,4 +1,6 @@
-﻿namespace Blog.Core.Entities.DTOs.Authentication.Requests
+﻿using Microsoft.AspNetCore.Http;
+
+namespace Blog.Core.Entities.DTOs.Authentication.Requests
 {
     public class SignUpRequest : IDto
     {
@@ -25,7 +27,7 @@
         /// <summary>
         ///     User image url
         /// </summary>
-        public string ImageUrl { get; set; }
+        public IFormFile Image { get; set; }
 
         /// <summary>
         ///     Biography

@@ -1,4 +1,6 @@
-﻿using Blog.Business.Constants;
+﻿using System;
+using System.Security.Claims;
+using Blog.Business.Constants;
 using Blog.Business.Features.Authentication.Commands;
 using Blog.Core.Aspects.Autofac.Logger;
 using Blog.Core.CrossCuttingConcerns.Logging.Serilog.Loggers;
@@ -9,6 +11,7 @@ using Microsoft.AspNetCore.Identity;
 using System.Threading;
 using System.Threading.Tasks;
 using Blog.Core.Aspects.Autofac.Exception;
+using Microsoft.AspNetCore.Http;
 
 namespace Blog.Business.Features.Authentication.Handlers.Commands
 {
@@ -18,10 +21,12 @@ namespace Blog.Business.Features.Authentication.Handlers.Commands
 	public class UpdateTwoFactorSecurityCommandHandler : IRequestHandler<UpdateTwoFactorSecurityCommand, IResult>
 	{
 		private readonly UserManager<User> _userManager;
+		private readonly IHttpContextAccessor _httpContextAccessor;
 
-		public UpdateTwoFactorSecurityCommandHandler(UserManager<User> userManager)
+		public UpdateTwoFactorSecurityCommandHandler(UserManager<User> userManager, IHttpContextAccessor httpContextAccessor)
 		{
 			_userManager = userManager;
+			_httpContextAccessor = httpContextAccessor;
 		}
 
 		[LogAspect(typeof(FileLogger))]
@@ -33,7 +38,11 @@ namespace Blog.Business.Features.Authentication.Handlers.Commands
 			{
 				return new ErrorResult(Messages.UserNotFound);
 			}
+			var currentUser = await _userManager.FindByEmailAsync(_httpContextAccessor?.HttpContext.User
+				.FindFirst(ClaimTypes.Email)?.Value);
 			user.TwoFactorEnabled = request.IsEnable;
+			user.LastModifiedDate = DateTime.Now;
+			user.LastModifiedBy = currentUser.UserName;
 			var result = await _userManager.UpdateAsync(user);
 			return result.Succeeded
 				? new SuccessResult(Messages.UpdatedUserSuccessfully)

@@ -1,4 +1,5 @@
 using System;
+using System.Reflection;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 using Blog.Business.DependencyResolvers;
@@ -11,9 +12,11 @@ using Blog.Core.Utilities.IoC;
 using Blog.DataAccess.Concrete.EntityFramework.Contexts;
 using Blog.DataAccess.DependencyResolvers;
 using Blog.Entities.Concrete;
+using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -23,135 +26,152 @@ using Microsoft.OpenApi.Models;
 
 namespace Blog.WebUI
 {
-	public class Startup
-	{
-		public Startup(IConfiguration configuration)
-		{
-			Configuration = configuration;
-		}
+    public class Startup
+    {
+        public Startup(IConfiguration configuration)
+        {
+            Configuration = configuration;
+        }
 
-		private IConfiguration Configuration { get; }
+        private IConfiguration Configuration { get; }
 
-		// This method gets called by the runtime. Use this method to add services to the container.
-		public void ConfigureServices(IServiceCollection services)
-		{
-			services.AddControllersWithViews().AddRazorRuntimeCompilation().AddNewtonsoftJson(options =>
-				options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore
-			).AddJsonOptions(options =>
-			{
-				options.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter(JsonNamingPolicy.CamelCase));
-				options.JsonSerializerOptions.ReferenceHandler=ReferenceHandler.Preserve;
+        // This method gets called by the runtime. Use this method to add services to the container.
+        public void ConfigureServices(IServiceCollection services)
+        {
+            services.AddDependencyResolvers(new ICoreModule[]
+            {
+                new CoreModule(),
+                new DataAccessModule()
+            });
+            services.AddControllersWithViews().AddFluentValidation( ).AddRazorRuntimeCompilation().AddNewtonsoftJson(options =>
+                options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore
+            ).AddJsonOptions(options =>
+            {
+                options.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter(JsonNamingPolicy.CamelCase));
+                options.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.Preserve;
+            });
+            services.Configure<CloudinarySettings>(Configuration.GetSection("CloudinarySettings"));
 
-			});
-			services.Configure<CloudinarySettings>(Configuration.GetSection("CloudinarySettings"));
+            services.AddSwaggerGen(swagger =>
+            {
+                //This is to generate the Default UI of Swagger Documentation  
+                swagger.SwaggerDoc("v1", new OpenApiInfo
+                {
+                    Version = "v1",
+                    Title = "Starter Project WEB API",
+                    Description = "Starter Project WEB API"
+                });
+                // To Enable authorization using Swagger (JWT)  
+                swagger.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme()
+                {
+                    Name = "Authorization",
+                    Type = SecuritySchemeType.ApiKey,
+                    Scheme = "Bearer",
+                    BearerFormat = "JWT",
+                    In = ParameterLocation.Header,
+                    Description =
+                        "JWT Authorization header using the Bearer scheme. \r\n\r\n Enter 'Bearer' [space] and then your token in the text input below.\r\n\r\nExample: \"Bearer 12345abcdef\"",
+                });
+                swagger.AddSecurityRequirement(new OpenApiSecurityRequirement
+                {
+                    {
+                        new OpenApiSecurityScheme
+                        {
+                            Reference = new OpenApiReference
+                            {
+                                Type = ReferenceType.SecurityScheme,
+                                Id = "Bearer"
+                            }
+                        },
+                        System.Array.Empty<string>()
+                    }
+                });
+            });
+            services.AddAutoMapper(typeof(AutoMapperHelper));
+            services.AddIdentity<User, IdentityRole>().AddEntityFrameworkStores<ApplicationDbContext>()
+                .AddDefaultTokenProviders();
+            services.AddSession();
+            services.Configure<IdentityOptions>(options =>
+            {
+                options.User.RequireUniqueEmail = true;
+                options.Password.RequiredLength = 8;
+                options.SignIn.RequireConfirmedEmail = true;
+                options.Lockout.AllowedForNewUsers = true;
+                options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(10);
+                options.Lockout.MaxFailedAccessAttempts = 5;
+            });
 
-			services.AddSwaggerGen(swagger =>
-			{
-				//This is to generate the Default UI of Swagger Documentation  
-				swagger.SwaggerDoc("v1", new OpenApiInfo
-				{
-					Version = "v1",
-					Title = "Starter Project WEB API",
-					Description = "Starter Project WEB API"
-				});
-				// To Enable authorization using Swagger (JWT)  
-				swagger.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme()
-				{
-					Name = "Authorization",
-					Type = SecuritySchemeType.ApiKey,
-					Scheme = "Bearer",
-					BearerFormat = "JWT",
-					In = ParameterLocation.Header,
-					Description = "JWT Authorization header using the Bearer scheme. \r\n\r\n Enter 'Bearer' [space] and then your token in the text input below.\r\n\r\nExample: \"Bearer 12345abcdef\"",
-				});
-				swagger.AddSecurityRequirement(new OpenApiSecurityRequirement
-				{
-					{
-						new OpenApiSecurityScheme
-						{
-							Reference = new OpenApiReference
-							{
-								Type = ReferenceType.SecurityScheme,
-								Id = "Bearer"
-							}
-						},
-						System.Array.Empty<string>()
-					}
-				});
-			});
-			services.AddDependencyResolvers(new ICoreModule[]
-			{
-				new CoreModule(),
-				new DataAccessModule()
-			});
-			services.AddAutoMapper(typeof(AutoMapperHelper));
-			services.AddIdentity<User, IdentityRole>().
-				AddEntityFrameworkStores<ApplicationDbContext>().AddDefaultTokenProviders();
-			services.Configure<IdentityOptions>(options =>
-			{
-				options.User.RequireUniqueEmail = true;
-				options.Password.RequiredLength = 8;
-				options.SignIn.RequireConfirmedEmail = true;
-				options.Lockout.AllowedForNewUsers = true;
-				options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(10);
-				options.Lockout.MaxFailedAccessAttempts = 5; 
-			});
+            services.AddAuthentication(options =>
+                {
+                    options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                    options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+                    options.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
+                })
+                .AddJwtBearer(options =>
+                {
+                    options.SaveToken = true;
+                    options.RequireHttpsMetadata = false;
+                    options.TokenValidationParameters = new TokenValidationParameters
+                    {
+                        ValidateIssuer = true,
+                        ValidateAudience = true,
+                        ValidateLifetime = true,
+                        ValidIssuer = Configuration["TokenOptions:Issuer"],
+                        ValidAudience = Configuration["TokenOptions:Audience"],
+                        ValidateIssuerSigningKey = true,
+                        IssuerSigningKey =
+                            SecurityKeyHelper.CreateSecurityKey(Configuration["TokenOptions:SecurityKey"])
+                    };
+                });
 
-			services.AddAuthentication(options =>
-				{
-					options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
-					options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
-					options.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
-				})
-				.AddJwtBearer(options =>
-				{
-					options.SaveToken = true;
-					options.RequireHttpsMetadata = false;
-					options.TokenValidationParameters = new TokenValidationParameters
-					{
-						ValidateIssuer = true,
-						ValidateAudience = true,
-						ValidateLifetime = true,
-						ValidIssuer = Configuration["TokenOptions:Issuer"],
-						ValidAudience = Configuration["TokenOptions:Audience"],
-						ValidateIssuerSigningKey = true,
-						IssuerSigningKey =
-							SecurityKeyHelper.CreateSecurityKey(Configuration["TokenOptions:SecurityKey"])
-					};
-				});
-		}
+            services.ConfigureApplicationCookie(options =>
+            {
+                options.LoginPath = new PathString("/Admin/Account/SignIn");
+                options.LogoutPath = new PathString("/Admin/Account/SignOut");
+                options.Cookie = new CookieBuilder
+                {
+                    Name = "BlogProject",
+                    HttpOnly = true,
+                    SameSite = SameSiteMode.Strict,
+                    SecurePolicy = CookieSecurePolicy.SameAsRequest
+                };
+                options.SlidingExpiration = true;
+                options.ExpireTimeSpan = TimeSpan.FromDays(3);
+                options.AccessDeniedPath = new PathString("/Admin/Account/AccessDenied");
+            });
+        }
 
-		// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-		public static void Configure(IApplicationBuilder app, IWebHostEnvironment env)
-		{
-			ServiceTool.ServiceProvider = app.ApplicationServices;
+        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+        public static void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        {
+            ServiceTool.ServiceProvider = app.ApplicationServices;
 
-			if (env.IsDevelopment())
-			{
-				app.UseDeveloperExceptionPage();
-				app.UseStatusCodePages();
-				app.UseSwagger();
-				app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "StarterProject.Blog.WebAPI v1"));
-			}
+            if (env.IsDevelopment())
+            {
+                app.UseDeveloperExceptionPage();
+                app.UseStatusCodePages();
+                app.UseSwagger();
+                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "StarterProject.Blog.WebAPI v1"));
+            }
 
-			app.UseStaticFiles();	
-			app.UseHttpsRedirection();
-			app.UseStatusCodePages();
-			app.UseRouting();
+            app.UseStaticFiles();
+            app.UseHttpsRedirection();
+            app.UseStatusCodePages();
+            app.UseRouting();
 
-			//Authentication comes before Authorization.
-			app.UseAuthentication();
-			app.UseAuthorization();
+            //Authentication comes before Authorization.
+            app.UseAuthentication();
+            app.UseAuthorization();
 
-			app.UseEndpoints(endpoints =>
-			{
-				endpoints.MapAreaControllerRoute(
-					"Admin",
-					"Admin",
-					"Admin/{controller=Home}/{action=Index}/{id?}"
-				);
-				endpoints.MapDefaultControllerRoute();
-			});
-		}
-	}
+            app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapAreaControllerRoute(
+                    "Admin",
+                    "Admin",
+                    "Admin/{controller=Home}/{action=Index}/{id?}"
+                );
+                endpoints.MapDefaultControllerRoute();
+            });
+        }
+    }
 }
