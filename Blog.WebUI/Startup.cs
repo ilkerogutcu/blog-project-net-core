@@ -90,7 +90,6 @@ namespace Blog.WebUI
             services.AddAutoMapper(typeof(AutoMapperHelper));
             services.AddIdentity<User, IdentityRole>().AddEntityFrameworkStores<ApplicationDbContext>()
                 .AddDefaultTokenProviders();
-            services.AddSession();
             services.Configure<IdentityOptions>(options =>
             {
                 options.User.RequireUniqueEmail = true;
@@ -101,42 +100,43 @@ namespace Blog.WebUI
                 options.Lockout.MaxFailedAccessAttempts = 5;
             });
 
-            services.AddAuthentication(options =>
-                {
-                    options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
-                    options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
-                    options.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
-                })
-                .AddJwtBearer(options =>
-                {
-                    options.SaveToken = true;
-                    options.RequireHttpsMetadata = false;
-                    options.TokenValidationParameters = new TokenValidationParameters
-                    {
-                        ValidateIssuer = true,
-                        ValidateAudience = true,
-                        ValidateLifetime = true,
-                        ValidIssuer = Configuration["TokenOptions:Issuer"],
-                        ValidAudience = Configuration["TokenOptions:Audience"],
-                        ValidateIssuerSigningKey = true,
-                        IssuerSigningKey =
-                            SecurityKeyHelper.CreateSecurityKey(Configuration["TokenOptions:SecurityKey"])
-                    };
-                });
+            // services.AddAuthentication(options =>
+            //     {
+            //         options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+            //         options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+            //         options.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
+            //     })
+            //     .AddJwtBearer(options =>
+            //     {
+            //         options.SaveToken = true;
+            //         options.RequireHttpsMetadata = false;
+            //         options.TokenValidationParameters = new TokenValidationParameters
+            //         {
+            //             ValidateIssuer = true,
+            //             ValidateAudience = true,
+            //             ValidateLifetime = true,
+            //             ValidIssuer = Configuration["TokenOptions:Issuer"],
+            //             ValidAudience = Configuration["TokenOptions:Audience"],
+            //             ValidateIssuerSigningKey = true,
+            //             IssuerSigningKey =
+            //                 SecurityKeyHelper.CreateSecurityKey(Configuration["TokenOptions:SecurityKey"])
+            //         };
+            //     });
 
+            services.AddSession();
             services.ConfigureApplicationCookie(options =>
             {
-                options.LoginPath = new PathString("/Admin/Account/SignIn");
-                options.LogoutPath = new PathString("/Admin/Account/SignOut");
+                options.LoginPath = new PathString("/Admin/Account/Login");
+                options.LogoutPath = new PathString("/Admin/Account/Logout");
                 options.Cookie = new CookieBuilder
                 {
                     Name = "BlogProject",
                     HttpOnly = true,
                     SameSite = SameSiteMode.Strict,
-                    SecurePolicy = CookieSecurePolicy.SameAsRequest
+                    SecurePolicy = CookieSecurePolicy.SameAsRequest // Always
                 };
                 options.SlidingExpiration = true;
-                options.ExpireTimeSpan = TimeSpan.FromDays(3);
+                options.ExpireTimeSpan = System.TimeSpan.FromDays(7);
                 options.AccessDeniedPath = new PathString("/Admin/Account/AccessDenied");
             });
         }

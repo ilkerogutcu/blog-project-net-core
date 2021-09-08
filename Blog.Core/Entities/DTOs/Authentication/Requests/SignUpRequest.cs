@@ -39,6 +39,10 @@ namespace Blog.Core.Entities.DTOs.Authentication.Requests
         /// </summary>
         public char Gender { get; set; }
 
+        /// <summary>
+        /// Role
+        /// </summary>
+        public string Role { get; set; }
 
         /// <summary>
         ///     Password

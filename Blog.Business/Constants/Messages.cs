@@ -7,17 +7,22 @@ namespace Blog.Business.Constants
 	public static class Messages
 	{
 		public const string UsernameAlreadyExist = "Username already exist!";
+		public const string DataAlreadyExist = "Data already exist!";
 		public const string EmailAlreadyExist = "Username already exist!";
 		public const string SignInSuccessfully = "Sign in successfully.";
 		public const string RequiredTwoFactoryCode = "Required two factory code!";
-		public const string SignInFailed = "Sign in failed!";
+		public const string SignInFailed = "Username or password is incorrect!";
 		public const string UserNotFound = "User not found!";
 		public const string UsernameCannotBeEmpty = "Username cannot be empty!";
 		public const string PasswordsDontMatch = "Passwords don't match!";
-		public const string PleaseEnterTheEmail = "Please enter the email addres!";
+		public const string PleaseEnterTheEmail = "Please enter the email addres.";
 		public const string PleaseEnterAValidEmail = "Please enter a valid email address";
-		public const string PleaseEnterTheFirstName = "Please enter the first name!";
-		public const string PleaseEnterTheLastName = "Please enter the last name!";
+		public const string PleaseEnterTheFirstName = "Please enter the first name.";
+		public const string PleaseEnterYourBiography = "Please enter your biography";
+		public const string PleaseEnterTheLastName = "Please enter the last name.";
+		public const string PleaseEnterThePassword = "Please enter the password.";
+		public const string PleaseSelectTheRole = "Please select the role.";
+		public const string PleaseConfirmYourPassword = "Please confirm your password.";
 		public const string SignUpFailed = "Sign up failed!";
 		public const string ForgotPasswordFailed = "Forgot password failed!";
 		public const string SentForgotPasswordEmailSuccessfully = "Sent forgot password email successfully.";
@@ -25,7 +30,7 @@ namespace Blog.Business.Constants
 		public const string Sent2FaCodeEmailSuccessfully = "2FA code has been sent to email successfully";
 		public const string EmailIsNotConfirmed = "Email is not confirmed!";
 		public const string AuthorizationsDenied = "Authorizations denied!";
-		public const string SignUpSuccessfully = "Sign up successfully. Please confirm your account by visiting this URL: ";
+		public const string SignUpSuccessfully = "Sign up successfully. Please confirm your account.";
 		public const string DataNotFound = "Data not found!";
 		public const string UsernameIsNotInTheCorrectFormat = "The username field is not in the correct format.";
 		public const string TokenCreatedSuccessfully = "Token created successfully.";

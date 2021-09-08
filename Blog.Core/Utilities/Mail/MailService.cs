@@ -12,17 +12,20 @@ using System;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using Blog.Core.Utilities.MessageBrokers.RabbitMq;
+using MassTransit.RabbitMqTransport;
 
 namespace Blog.Core.Utilities.Mail
 {
 	public class MailService : IMailService
 	{
 		private readonly MailSettings _mailSettings;
-
+		private readonly IRabbitMqProducer _producer;
 		public MailService()
 		{
 			var configuration = ServiceTool.ServiceProvider.GetService<IConfiguration>();
 			_mailSettings = configuration.GetSection("MailSettings").Get<MailSettings>();
+			_producer= ServiceTool.ServiceProvider.GetService<IRabbitMqProducer>();
 		}
 
 		public async Task SendEmailAsync(MailRequest mailRequest)

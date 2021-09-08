@@ -2,8 +2,12 @@
 using System.IO;
 using System.Threading.Tasks;
 using Blog.Consumer.Consumers.Category;
+using Blog.Consumer.Consumers.Utils;
 using Blog.Core.DataAccess.ElasticSearch;
+using Blog.Core.DependencyResolvers;
+using Blog.Core.Extensions;
 using Blog.Core.Settings;
+using Blog.Core.Utilities.IoC;
 using GreenPipes;
 using MassTransit;
 using Microsoft.Extensions.Configuration;
@@ -30,6 +34,7 @@ namespace Blog.Consumer
             var categoryAddedConsumerLogger = host.Services.GetService<ILogger<CategoryAddedConsumer>>();
             var categoryDeletedConsumerLogger = host.Services.GetService<ILogger<CategoryDeletedConsumer>>();
             var categoryUpdatedConsumerLogger = host.Services.GetService<ILogger<CategoryUpdatedConsumer>>();
+            var sendEmailConsumer = host.Services.GetService<ILogger<SendEmailConsumer>>();
 
 
             var bus = Bus.Factory.CreateUsingRabbitMq(cfg =>
@@ -45,9 +50,9 @@ namespace Blog.Consumer
                     {
                         e.Consumer(() =>
                             new CategoryAddedConsumer(elasticSearchService, categoryAddedConsumerLogger));
-                        e.UseMessageRetry(r => r.Immediate(20));
+                        e.UseMessageRetry(r => r.Immediate(5));
                     });
-                
+
                 cfg.ReceiveEndpoint("category-deleted-queue",
                     e =>
                     {
@@ -62,6 +67,15 @@ namespace Blog.Consumer
                             new CategoryUpdatedConsumer(elasticSearchService, categoryUpdatedConsumerLogger));
                         e.UseMessageRetry(r => r.Immediate(5));
                     });
+                
+                cfg.ReceiveEndpoint("send-email-queue",
+                    e =>
+                    {
+                        e.Consumer(() =>
+                            new SendEmailConsumer(sendEmailConsumer));
+                        e.UseMessageRetry(r => r.Immediate(5));
+                    });
+
             });
             await bus.StartAsync();
             Console.WriteLine("Listening for register commands");
@@ -95,6 +109,10 @@ namespace Blog.Consumer
                 .ConfigureServices((context, services) =>
                 {
                     services.AddSingleton<IElasticSearch, ElasticSearchManager>();
+                    services.AddDependencyResolvers(new ICoreModule[]
+                    {
+                        new CoreModule(),
+                    });
                 })
                 .UseSerilog()
                 .Build();

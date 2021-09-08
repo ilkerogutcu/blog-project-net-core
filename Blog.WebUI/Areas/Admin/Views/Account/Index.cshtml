@@ -24,13 +24,15 @@
                         <th>FirstName</th>
                         <th>LastName</th>
                         <th>Username</th>
+                        <th>Bio</th>
                         <th>Email</th>
+                        <th>Email Confirmed</th>
+                        <th>Created By</th>
                         <th>Created Date</th>
                         <th>Status</th>
                         <th>Last Modified Date</th>
                         <th>Last Modified By</th>
                         <th>Actions</th>
-
                     </tr>
                     </thead>
                     <tfoot>
@@ -40,7 +42,10 @@
                         <th>FirstName</th>
                         <th>LastName</th>
                         <th>Username</th>
+                        <th>Bio</th>
                         <th>Email</th>
+                        <th>Email Confirmed</th>
+                        <th>Created By</th>
                         <th>Created Date</th>
                         <th>Status</th>
                         <th>Last Modified Date</th>
@@ -59,9 +64,19 @@
                             <td>@user.FirstName</td>
                             <td>@user.LastName</td>
                             <td>@user.Username</td>
+                            <td>@user.Bio</td>
                             <td>@user.Email</td>
-                            <td>@user.Status</td>
+                            <td>@user.EmailConfirmed</td>
+                            <td>@user.CreatedBy</td>
                             <td>@user.CreatedDate.ToString("dd'.'MM'.'yyyy HH:mm:ss")</td>
+                            @if (user.Status)
+                            {
+                                <td>Active</td>
+                            }
+                            else
+                            {
+                                <td>Not Active</td>
+                            }
                             @if (user.LastModifiedBy == default && user.LastModifiedDate == default)
                             {
                                 <td>User has not been updated.</td>
@@ -72,7 +87,7 @@
                                 <td>@user.LastModifiedBy</td>
                                 <td>@user.LastModifiedDate</td>
                             }
-                            <td style="display:flex; ">
+                            <td style="display:flex;">
                                 <button class="btn btn-primary btn-sm btn-update" data-id="@user.Id"><span class="fas fa-edit"></span> Update</button>
                                 <button class="btn btn-danger btn-sm btn-delete" style="margin-left: 15px" data-id="@user.Id"><span class="fas fa-minus-circle"></span> Delete</button>
                             </td>

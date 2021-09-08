@@ -1,0 +1,64 @@
+@model Blog.Core.Utilities.Results.IDataResult<IEnumerable<Blog.Entities.DTOs.RoleDto>>
+@{
+    Layout = "_Layout";
+    ViewBag.Title = "Roles";
+}
+
+@if (Model.Success)
+{
+    <div id="modalPlaceHolder" aria-hidden="false"></div>
+    <div class="card mb-4">
+        <div class="card-header">
+            <i class="fas fa-table mr-1"></i> Roles
+        </div>
+        <div class="card-body">
+            <div class="spinner-border" role="status" style="display: none">
+                <span class="sr-only">Loading...</span>
+            </div>
+            <div class="table-responsive">
+                <table class="table table-bordered" id="rolesTable" style="width:100%">
+                    <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Name</th>
+                        <th>Actions</th>
+                    </tr>
+                    </thead>
+                    <tfoot>
+                    <tr>
+                        <th>Id</th>
+                        <th>Name</th>
+                        <th>Actions</th>
+                    </tr>
+                    </tfoot>
+                    <tbody>
+                    @foreach (var roleDto in Model.Data)
+                    {
+                        <tr name="@roleDto.Name">
+                            <td>@roleDto.Id</td>
+                            <td>@roleDto.Name</td>
+                            <td style="display:flex;">
+                                <button class="btn btn-primary btn-sm btn-update" data-id="@roleDto.Name"><span class="fas fa-edit"></span> Update</button>
+                                <button class="btn btn-danger btn-sm btn-delete" style="margin-left: 15px" data-id="@roleDto.Name"><span class="fas fa-minus-circle"></span> Delete</button>
+                            </td>
+                        </tr>
+                    }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+}
+
+
+@if (Model.Success == false)
+{
+    <div class="alert alert-danger" style="margin-top: 10px">
+        @Model.Message<br/>
+        <a class="alert-link" asp-area="Admin" asp-controller="Home" asp-action="Index">Click here for go to the Dashboard Page</a>
+    </div>
+}
+
+@section Scripts {
+    <script src="~/js/roleIndex.js" type="application/ecmascript"></script>
+}

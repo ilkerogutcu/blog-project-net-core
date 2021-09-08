@@ -252,7 +252,7 @@ $(document).ready(function () {
                             <td>${category.LastModifiedDate}</td>
                              <td>
                             <button class="btn btn-primary btn-sm btn-update" data-id="${category.CategoryId}"><span class="fas fa-edit"></span> Update</button>
-                            <button class="btn btn-danger btn-sm btn-delete" data-id="${category.CategoryName}" style="margin-top: 7px;"><span class="fas fa-minus-circle"></span> Delete</button>
+                            <button class="btn btn-danger btn-sm btn-delete" data-id="${category.CategoryName}" style="margin-left: 15px;"><span class="fas fa-minus-circle"></span> Delete</button>
                             </td>
                         </tr>`;
                     const newTableRowObject = $(newFormBody);

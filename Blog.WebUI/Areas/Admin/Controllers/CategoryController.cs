@@ -9,11 +9,13 @@ using Blog.Core.Extensions;
 using Blog.Core.Utilities.Results;
 using Blog.WebUI.Areas.Admin.Models;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Blog.WebUI.Areas.Admin.Controllers
 {
     [Area("Admin")]
+    [Authorize]
     public class CategoryController : Controller
     {
         private readonly IMediator _mediator;
