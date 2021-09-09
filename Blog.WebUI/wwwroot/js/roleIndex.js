@@ -36,7 +36,6 @@ $(document).ready(function () {
                                         role.Name,
                                         `<td style="display: flex;">
                             <button class="btn btn-primary btn-sm btn-update" data-id="${role.Name}"><span class="fas fa-edit"></span> Update</button>
-                            <button class="btn btn-danger btn-sm btn-delete" data-id="${role.Name}" style="margin-left: 15px;"><span class="fas fa-minus-circle"></span> Delete</button>
                             </td>`
                                     ]);
                                 });
@@ -95,7 +94,6 @@ $(document).ready(function () {
                             role.name,
                             `<td>
                                 <button class="btn btn-primary btn-sm btn-update" data-id="${role.name}"><span class="fas fa-edit"></span> Update</button> 
-                                <button class="btn btn-danger btn-sm btn-delete" data-id="${role.name}" style="margin-top: 7px;"><span class="fas fa-minus-circle"></span> Delete</button>
                             </td>`
 
                         ]).node();
@@ -198,8 +196,7 @@ $(document).ready(function () {
                         dataTable.row(tableRow).data([
                             role.id,
                             role.name,
-                            ` <button class="btn btn-primary btn-sm btn-update" data-id="${role.name}"><span class="fas fa-edit"></span> Update</button>
-                       <button class="btn btn-danger btn-sm btn-delete" data-id="${role.name}" style="margin-left: 15px;"><span class="fas fa-minus-circle"></span> Delete</button>`
+                            ` <button class="btn btn-primary btn-sm btn-update" data-id="${role.name}"><span class="fas fa-edit"></span> Update</button>`
 
                         ]);
                         tableRow.attr("name", `${role.id}`);
