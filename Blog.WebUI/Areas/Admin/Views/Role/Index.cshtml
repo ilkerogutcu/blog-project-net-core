@@ -34,12 +34,16 @@
                     <tbody>
                     @foreach (var roleDto in Model.Data)
                     {
-                        <tr name="@roleDto.Name">
+                        <tr name="@roleDto.Id">
                             <td>@roleDto.Id</td>
                             <td>@roleDto.Name</td>
                             <td style="display:flex;">
-                                <button class="btn btn-primary btn-sm btn-update" data-id="@roleDto.Name"><span class="fas fa-edit"></span> Update</button>
-                                <button class="btn btn-danger btn-sm btn-delete" style="margin-left: 15px" data-id="@roleDto.Name"><span class="fas fa-minus-circle"></span> Delete</button>
+                                <button class="btn btn-primary btn-sm btn-update" data-id="@roleDto.Name">
+                                    <span class="fas fa-edit"></span> Update
+                                </button>
+                                <button class="btn btn-danger btn-sm btn-delete" style="margin-left: 15px" data-id="@roleDto.Name">
+                                    <span class="fas fa-minus-circle"></span> Delete
+                                </button>
                             </td>
                         </tr>
                     }

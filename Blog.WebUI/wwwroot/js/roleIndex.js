@@ -1,4 +1,4 @@
-$(document).ready(function() {
+$(document).ready(function () {
     let dataTable = $('#rolesTable').DataTable({
         dom: "<'row'<'col-sm-3'l><'col-sm-6 text-center'B><'col-sm-3'f>>" +
             "<'row'<'col-sm-12'tr>>" +
@@ -9,27 +9,28 @@ $(document).ready(function() {
                 id: "btnAdd",
             },
             className: 'btn btn-success',
-            action: function(e, dt, node, config) {}
+            action: function (e, dt, node, config) {
+            }
         },
             {
                 text: 'Get All',
                 className: 'btn btn-warning',
-                action: function(e, dt, node, config) {
+                action: function (e, dt, node, config) {
                     e.preventDefault();
                     $.ajax({
                         type: 'GET',
                         url: 'Role/GetAll',
                         contentType: "application/json",
-                        beforeSend: function() {
+                        beforeSend: function () {
                             $('#rolesTable').hide();
                             $('.spinner-border').show();
                         },
-                        success: function(data) {
+                        success: function (data) {
                             let roleList = jQuery.parseJSON(data);
                             dataTable.clear()
 
                             $.each(roleList.$values,
-                                function(index, role) {
+                                function (index, role) {
                                     dataTable.row.add([
                                         role.Id,
                                         role.Name,
@@ -44,7 +45,7 @@ $(document).ready(function() {
                             $('#rolesTable').fadeIn(1400);
                             toastr.success('Successfull');
                         },
-                        error: function(err) {
+                        error: function (err) {
                             toastr.error("Fetch data failed");
                         }
                     });
@@ -54,17 +55,17 @@ $(document).ready(function() {
         ]
     });
 
-    $(function() {
+    $(function () {
         const url = 'Role/Create';
         const placeHolderDiv = $('#modalPlaceHolder');
-        $('#btnAdd').click(function() {
-            $.get(url).done(function(data) {
+        $('#btnAdd').click(function () {
+            $.get(url).done(function (data) {
                 placeHolderDiv.html(data);
                 placeHolderDiv.find(".modal").modal('show');
             });
         });
 
-        placeHolderDiv.on('click', '#btnSave', function() {
+        placeHolderDiv.on('click', '#btnSave', function () {
             event.preventDefault();
             const form = $('#form-create-role');
             const actionUrl = form.attr('action');
@@ -75,7 +76,7 @@ $(document).ready(function() {
                 data: dataToSend,
                 processData: false,
                 contentType: false,
-                success: function(data) {
+                success: function (data) {
                     const createRoleAjaxModel = jQuery.parseJSON(data);
                     const newFormBody = $('.modal-body', createRoleAjaxModel.CreateRolePartial);
                     placeHolderDiv.find('.modal-body').replaceWith(newFormBody);
@@ -104,7 +105,7 @@ $(document).ready(function() {
                     }
                     toastr.error("Error", "Form is not valid ");
                 },
-                error: function(err) {
+                error: function (err) {
                     toastr.error("Error", err);
                 }
             })
@@ -150,25 +151,25 @@ $(document).ready(function() {
     //         }
     //     })
     // })
-    $(function() {
+    $(function () {
         const url = 'Role/Update';
         const placeHolderDiv = $('#modalPlaceHolder');
         $(document).on('click',
             '.btn-update',
-            function(event) {
+            function (event) {
                 event.preventDefault();
                 const name = $(this).attr('data-id');
                 console.log(name)
                 $.get(url, {
                     name: name
-                }).done(function(data) {
+                }).done(function (data) {
                     placeHolderDiv.html(data);
                     placeHolderDiv.find('.modal').modal('show');
-                }).fail(function() {
+                }).fail(function () {
                     toastr.error("Error")
                 });
             });
-        placeHolderDiv.on('click', '#btnUpdate', function(event) {
+        placeHolderDiv.on('click', '#btnUpdate', function (event) {
             event.preventDefault();
             const form = $('#form-update-role');
             const actionUrl = form.attr('action');
@@ -179,19 +180,19 @@ $(document).ready(function() {
                 data: dataToSend,
                 processData: false,
                 contentType: false,
-                success: function(data) {
+                success: function (data) {
                     const updateRoleAjaxModel = jQuery.parseJSON(data);
 
                     const newFormBody = $('.modal-body', updateRoleAjaxModel.UpdateRolePartial);
                     placeHolderDiv.find('.modal-body').replaceWith(newFormBody);
                     const isValid = newFormBody.find('[name="IsValid"]').val() === 'True';
                     if (isValid) {
-                        const id = updateRoleAjaxModel.RoleDto.Id;
-                        const tableRow = $(`[name="${updateRoleAjaxModel.RoleDto.Name}"]`);
                         let role = {
                             id: updateRoleAjaxModel.RoleDto.Id,
                             name: updateRoleAjaxModel.RoleDto.Name
                         }
+                        const tableRow = $(`[name="${role.id}"]`);
+
                         placeHolderDiv.find('.modal').modal('hide');
 
                         dataTable.row(tableRow).data([
@@ -201,19 +202,19 @@ $(document).ready(function() {
                        <button class="btn btn-danger btn-sm btn-delete" data-id="${role.name}" style="margin-left: 15px;"><span class="fas fa-minus-circle"></span> Delete</button>`
 
                         ]);
-                        tableRow.attr("name", `${role.name}`);
+                        tableRow.attr("name", `${role.id}`);
                         dataTable.row(tableRow).invalidate();
                         toastr.success("Successfully", "Role updated successfully.");
                     } else {
                         let summaryText = "";
-                        $('#validation-summary > ul > li').each(function() {
+                        $('#validation-summary > ul > li').each(function () {
                             let text = $(this).text();
                             summaryText = `*${text}\n`;
                         });
                         toastr.warning(summaryText);
                     }
                 },
-                error: function(error) {
+                error: function (error) {
                     console.log(error);
                 }
             });
