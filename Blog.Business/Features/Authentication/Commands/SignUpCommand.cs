@@ -5,7 +5,7 @@ using MediatR;
 
 namespace Blog.Business.Features.Authentication.Commands
 {
-	public class SignUpUserCommand : IRequest<IDataResult<SignUpResponse>>
+	public class SignUpCommand : IRequest<IDataResult<SignUpResponse>>
 	{
 		/// <summary>
 		/// Sign up request

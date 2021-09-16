@@ -1,4 +1,5 @@
-﻿using AutoMapper;
+﻿using System.Linq;
+using AutoMapper;
 using Blog.Business.Features.Category.Commands;
 using Blog.Business.Features.Post.Commands;
 using Blog.Business.Features.Tag.Commands;
@@ -7,6 +8,7 @@ using Blog.Core.Entities.DTOs.Authentication.Requests;
 using Blog.Core.Entities.DTOs.Authentication.Responses;
 using Blog.Entities.Concrete;
 using Blog.Entities.DTOs;
+using Microsoft.AspNetCore.Identity;
 
 namespace Blog.Business.Helpers
 {
@@ -14,7 +16,15 @@ namespace Blog.Business.Helpers
     {
         public AutoMapperHelper()
         {
-            CreateMap<User, UserResponse>().ReverseMap();
+            CreateMap<User, UserResponse>()
+                .ForMember(dest => dest.ImageUrl, opt => opt.MapFrom(src => src.Photo.Url))
+                .ForMember(dest => dest.Username, opt => opt.MapFrom(src => src.UserName))
+                .ForMember(dest => dest.Bio, opt => opt.MapFrom(src => string.Join("", src.Bio.Take(20))))
+                .ReverseMap();
+            CreateMap<User, SignUpResponse>()
+                .ForMember(dest => dest.ImageUrl, opt => opt.MapFrom(src => src.Photo.Url))
+                .ReverseMap();
+            CreateMap<IdentityRole, RoleDto>().ReverseMap();
             CreateMap<User, SignUpRequest>().ReverseMap();
             CreateMap<Tag, CreateTagCommand>().ReverseMap();
             CreateMap<Category, AddCategoryCommand>().ReverseMap();

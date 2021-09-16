@@ -13,6 +13,6 @@ namespace Blog.Business.Features.Authentication.Queries
 		/// <summary>
 		/// User id
 		/// </summary>
-		public Guid Id { get; set; }
+		public string Id { get; set; }
 	}
 }

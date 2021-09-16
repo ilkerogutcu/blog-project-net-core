@@ -5,7 +5,6 @@ namespace Blog.Entities.Enums
 	{
 		SuperAdmin,
 		Admin,
-		Moderator,
-		User
+		Editor
 	}
 }

@@ -11,22 +11,9 @@
   <component name="ChangeListManager">
     <list default="true" id="700393e1-e67f-4567-844a-381093fa77cd" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Blog/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Blog/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Blog.Business/Constants/Messages.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Blog.Business/Constants/Messages.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Blog.Business/Features/Category/Handlers/Commands/AddCategoryCommandHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Blog.Business/Features/Category/Handlers/Commands/AddCategoryCommandHandler.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Blog.Business/Features/Category/Handlers/Commands/UpdateCategoryCommandHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Blog.Business/Features/Category/Handlers/Commands/UpdateCategoryCommandHandler.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Blog.Business/Features/Category/Handlers/Queries/GetAllActiveCategoriesQueryHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Blog.Business/Features/Category/Handlers/Queries/GetAllActiveCategoriesQueryHandler.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Blog.Business/Features/Category/Handlers/Queries/GetAllCategoriesQueryHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Blog.Business/Features/Category/Handlers/Queries/GetAllCategoriesQueryHandler.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Blog.Business/Features/Category/Handlers/Queries/GetAllNotActiveCategoriesQueryHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Blog.Business/Features/Category/Handlers/Queries/GetAllNotActiveCategoriesQueryHandler.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Blog.Business/Features/Category/Handlers/Queries/GetCategoryByIdQueryHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Blog.Business/Features/Category/Handlers/Queries/GetCategoryByIdQueryHandler.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Blog.Business/Features/Category/Handlers/Queries/GetCategoryByNameQueryHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Blog.Business/Features/Category/Handlers/Queries/GetCategoryByNameQueryHandler.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Blog.Business/Features/Category/ValidationRules/CategoryValidator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Blog.Business/Features/Category/ValidationRules/CategoryValidator.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Blog.Test/CategoryControllerTest.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Blog.WebUI/Areas/Admin/Controllers/CategoryController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Blog.WebUI/Areas/Admin/Controllers/CategoryController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Blog.WebUI/Areas/Admin/Views/Category/Index.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/Blog.WebUI/Areas/Admin/Views/Category/Index.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Blog.WebUI/Areas/Admin/Views/Category/_AddCategoryPartial.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/Blog.WebUI/Areas/Admin/Views/Category/_AddCategoryPartial.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Blog.WebUI/Areas/Admin/Views/Category/_UpdateCategoryPartial.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/Blog.WebUI/Areas/Admin/Views/Category/_UpdateCategoryPartial.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Blog.WebUI/appsettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/Blog.WebUI/appsettings.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Blog.sln" beforeDir="false" afterPath="$PROJECT_DIR$/Blog.sln" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Blog.WebUI/Areas/Admin/Views/Role/Index.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/Blog.WebUI/Areas/Admin/Views/Role/Index.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Blog.WebUI/Areas/Admin/Views/Shared/_LayoutSidebarNavPartial.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/Blog.WebUI/Areas/Admin/Views/Shared/_LayoutSidebarNavPartial.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Blog.WebUI/wwwroot/js/roleIndex.js" beforeDir="false" afterPath="$PROJECT_DIR$/Blog.WebUI/wwwroot/js/roleIndex.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,78 +39,82 @@
     </file-type-list>
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/Blog.WebUI/Program.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Blog.WebUI/Startup.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/71079D86-B258-46CD-ABAF-C63CF537BF65/11/RabbitMqBusFactory.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/71079D86-B258-46CD-ABAF-C63CF537BF65/2/RabbitMqBusFactoryConfiguratorExtensions.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/BDD96C5F-630A-4529-8DAC-C07D80DEB23B/D/CallSiteFactory.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Blog.WebUI/Views/Home/Index.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Blog.RabbitMq.Consumers/Blog.Consumer/Consumers/Category/CategoryAddedConsumer.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Blog.WebUI/Views/_ViewStart.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Blog.WebUI/Startup.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Blog.WebUI/Program.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Blog.Business/Features/Authentication/Handlers/Commands/UpdateUserCommandHandler.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/71079D86-B258-46CD-ABAF-C63CF537BF65/2/RabbitMqBusFactoryConfiguratorExtensions.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/1BA52DC0-B103-422E-BA91-AD87A1AA9FE3/6a/94bd7436/ServiceProviderServiceExtensions.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/23C4E601-3839-4471-9686-3C89842D5158/08/192dc7ae/AbstractInvocation.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Blog.Business/Features/Authentication/Handlers/Commands/SignUpCommandHandler.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/968CD1E7-C557-4825-846C-4A4619F459AE/2a/1d6bd558/ISendEndpoint.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Blog.RabbitMq.Consumers/Blog.Consumer/Consumers/Category/CategoryDeletedConsumer.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Blog.RabbitMq.Consumers/Blog.Consumer/Consumers/Category/CategoryAddedConsumer.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/F1D061AC-D27D-4E95-B449-30527EE3091F/10F/ActionMethodExecutor.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Blog.Business/Features/Authentication/Handlers/Commands/CreateRoleCommandHandler.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/71079D86-B258-46CD-ABAF-C63CF537BF65/11/RabbitMqBusFactory.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/EA47468F-D1A8-438B-B922-810667918449/4/AssertionExtensions.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/3834795B-F41B-4E62-8161-509ECA0F5822/b7/b91d5bcf/ServiceFactoryExtensions.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/3834795B-F41B-4E62-8161-509ECA0F5822/F/RequestHandlerWrapper.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Blog.WebUI/appsettings.json" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/91DB7DD5-0DA2-46B4-940E-5A7B7D1688C2/54B/CountResponse.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Blog.WebUI/Views/_ViewStart.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/91DB7DD5-0DA2-46B4-940E-5A7B7D1688C2/2D4/ElasticClient.NoNamespace.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/EA47468F-D1A8-438B-B922-810667918449/4/AssertionExtensions.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/23C4E601-3839-4471-9686-3C89842D5158/08/192dc7ae/AbstractInvocation.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/18040/Desktop/blog-project-net-core/Blog.WebUI/Areas/Admin/Views/Category/_AddCategoryPartial.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/18040/Desktop/blog-project-net-core/Blog.WebUI/Areas/Admin/Views/Category/_AddCategoryPartial.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/BDD96C5F-630A-4529-8DAC-C07D80DEB23B/D/CallSiteFactory.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/1BA52DC0-B103-422E-BA91-AD87A1AA9FE3/6a/94bd7436/ServiceProviderServiceExtensions.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
-      <option value="$PROJECT_DIR$/Blog.Consumer/Consumers/Category/CategoryDeletedConsumer.cs" />
-      <option value="$PROJECT_DIR$/Blog.Consumer/Consumers/Category/CategoryAddedConsumer.cs" />
-      <option value="$PROJECT_DIR$/Blog.Consumer/Consumers/Category/CategoryUpdatedConsumer.cs" />
-      <option value="$PROJECT_DIR$/Blog.Consumer/Program.cs" />
-      <option value="$PROJECT_DIR$/Blog.RabbitMq.Consumers/Blog.Consumer/Blog.Consumer.csproj" />
-      <option value="$PROJECT_DIR$/Blog.RabbitMq.Consumers/Blog.Consumer/Consumers/Category/CategoryDeletedConsumer.cs" />
-      <option value="$PROJECT_DIR$/Blog.RabbitMq.Consumers/Blog.Consumer/Consumers/Category/CategoryAddedConsumer.cs" />
-      <option value="$PROJECT_DIR$/Blog.RabbitMq.Consumers/Blog.Consumer/Program.cs" />
-      <option value="$PROJECT_DIR$/Blog.Business/Concrete/CloudinaryManager.cs" />
-      <option value="$PROJECT_DIR$/Blog.Entities/DTOs/CategoryDto.cs" />
-      <option value="$PROJECT_DIR$/Blog.Business/Features/Category/Commands/UpdateCategoryCommand.cs" />
-      <option value="$PROJECT_DIR$/Blog.Business/Features/Category/Queries/GetCategoryByIdQuery.cs" />
-      <option value="$PROJECT_DIR$/Blog.WebUI/Areas/Admin/Models/UpdateCategoryAjaxViewModel.cs" />
-      <option value="$PROJECT_DIR$/Blog.Core/Utilities/Interceptors/MethodInterception.cs" />
-      <option value="$PROJECT_DIR$/Blog.Core/DataAccess/ElasticSearch/IElasticSearch.cs" />
-      <option value="$PROJECT_DIR$/Blog.Core/DataAccess/ElasticSearch/ElasticSearchManager.cs" />
-      <option value="$PROJECT_DIR$/Blog.WebUI/wwwroot/js/categoryIndex.js" />
-      <option value="$PROJECT_DIR$/Blog.Business/Helpers/AutoMapperHelper.cs" />
-      <option value="$PROJECT_DIR$/Blog.WebUI/appsettings.json" />
-      <option value="$PROJECT_DIR$/Blog.Test/UnitTest1.cs" />
-      <option value="$PROJECT_DIR$/Blog.Test/Blog.Test.csproj" />
-      <option value="$PROJECT_DIR$/Blog.Test/CategoryControllerTest.cs" />
-      <option value="$PROJECT_DIR$/Blog.Tests/UnitTest1.cs" />
-      <option value="$PROJECT_DIR$/Blog.Tests/Business/CategoryController.cs" />
-      <option value="$PROJECT_DIR$/Blog.Tests/Business/CategoryTest.cs" />
-      <option value="$PROJECT_DIR$/Blog.Business/Features/Category/Handlers/Queries/GetCategoryByIdQueryHandler.cs" />
-      <option value="$PROJECT_DIR$/Blog.Business/Constants/Messages.cs" />
-      <option value="$PROJECT_DIR$/Blog.Business/Features/Category/Handlers/Queries/GetCategoryByNameQueryHandler.cs" />
-      <option value="$PROJECT_DIR$/Blog.Business/Features/Category/Handlers/Queries/GetAllCategoriesQueryHandler.cs" />
-      <option value="$PROJECT_DIR$/Blog.WebUI/Areas/Admin/Controllers/CategoryController.cs" />
-      <option value="$PROJECT_DIR$/Blog.Business/Features/Category/Handlers/Queries/GetAllActiveCategoriesQueryHandler.cs" />
-      <option value="$PROJECT_DIR$/Blog.Business/Features/Category/Handlers/Queries/GetAllNotActiveCategoriesQueryHandler.cs" />
-      <option value="$PROJECT_DIR$/Blog.Tests/Blog.Tests.csproj" />
-      <option value="$PROJECT_DIR$/Blog.Business/Features/Category/Handlers/Commands/AddCategoryCommandHandler.cs" />
-      <option value="$PROJECT_DIR$/Blog.Tests/Business/Validators/CategoryValidatorTest.cs" />
-      <option value="$PROJECT_DIR$/Blog.Business/Features/Category/ValidationRules/CategoryValidator.cs" />
-      <option value="$PROJECT_DIR$/Blog.Tests/Business/Validators/CategoryValidatorsTest.cs" />
-      <option value="$PROJECT_DIR$/Blog.Tests/Business/Validators/AddCategoryValidatorTests.cs" />
-      <option value="$PROJECT_DIR$/Blog.Tests/Business/Validators/UpdateCategoryValidatorTests.cs" />
-      <option value="$PROJECT_DIR$/Blog.Business/Features/Category/Handlers/Commands/UpdateCategoryCommandHandler.cs" />
-      <option value="$PROJECT_DIR$/Blog.Tests/Business/Handlers/CategoryTests/UpdateCategoryTests.cs" />
-      <option value="$PROJECT_DIR$/Blog.Tests/MockHelpers/MockHelper.cs" />
-      <option value="$PROJECT_DIR$/Blog.Tests/Business/Handlers/CategoryTests/CreateCategoryTests.cs" />
-      <option value="$PROJECT_DIR$/Blog.Tests/Business/Handlers/CategoryHandlerTests.cs" />
-      <option value="$PROJECT_DIR$/Blog.Tests/Business/Handlers/CategoryTests/CategoryHandlerTests.cs" />
-      <option value="$PROJECT_DIR$/Blog.Tests/Business/Handlers/CategoryTests/DeleteCategoryTests.cs" />
-      <option value="$PROJECT_DIR$/Blog.Tests/Business/Handlers/CategoryTests/GetAllCategoriesTests.cs" />
-      <option value="$PROJECT_DIR$/Blog.Tests/Business/Handlers/CategoryTests/GetCategoryTests.cs" />
       <option value="$PROJECT_DIR$/Blog.WebUI/Areas/Admin/Views/Category/Index.cshtml" />
-      <option value="$PROJECT_DIR$/Blog.WebUI/Areas/Admin/Views/Category/_AddCategoryPartial.cshtml" />
-      <option value="$PROJECT_DIR$/Blog.WebUI/Areas/Admin/Views/Category/_UpdateCategoryPartial.cshtml" />
+      <option value="$PROJECT_DIR$/Blog.Core/Entities/DTOs/Authentication/Responses/UserResponse.cs" />
+      <option value="$PROJECT_DIR$/Blog.Business/Features/Authentication/ValidationRules/UpdateUserValidator.cs" />
+      <option value="$PROJECT_DIR$/Blog.WebUI/Areas/Admin/Views/Account/Index.cshtml" />
+      <option value="$PROJECT_DIR$/Blog.Business/Features/Authentication/Commands/UpdateUserCommand.cs" />
+      <option value="$PROJECT_DIR$/Blog.WebUI/Areas/Admin/Models/UpdateUserAjaxViewModel.cs" />
+      <option value="$PROJECT_DIR$/Blog.Business/Features/Authentication/Queries/GetUserByIdQuery.cs" />
+      <option value="$PROJECT_DIR$/Blog.WebUI/Areas/Admin/Views/Account/_UpdateUserPartial.cshtml" />
+      <option value="$PROJECT_DIR$/Blog.Business/Features/Authentication/Handlers/Commands/UpdateUserCommandHandler.cs" />
+      <option value="$PROJECT_DIR$/Blog.Business/Features/Authentication/Queries/SignInCommand.cs" />
+      <option value="$PROJECT_DIR$/Blog.Business/Features/Authentication/Commands/SignInCommand.cs" />
+      <option value="$PROJECT_DIR$/Blog.Business/Features/Authentication/Handlers/Queries/SignInCommandHandler.cs" />
+      <option value="$PROJECT_DIR$/Blog.WebUI/Areas/Admin/Views/Shared/_UserLoginLayout.cshtml" />
+      <option value="$PROJECT_DIR$/Blog.WebUI/Areas/Admin/Controllers/HomeController.cs" />
+      <option value="$PROJECT_DIR$/Blog.WebUI/Areas/Admin/Controllers/CategoryController.cs" />
+      <option value="$PROJECT_DIR$/Blog.WebUI/Startup.cs" />
+      <option value="$PROJECT_DIR$/Blog.Business/Features/Authentication/ValidationRules/SignInValidator.cs" />
+      <option value="$PROJECT_DIR$/Blog.Business/Features/Authentication/Handlers/Commands/SignInCommandHandler.cs" />
+      <option value="$PROJECT_DIR$/Blog.WebUI/Areas/Admin/Views/Account/UserLogin.cshtml" />
+      <option value="$PROJECT_DIR$/Blog.DataAccess/Concrete/EntityFramework/Contexts/ApplicationDbContext.cs" />
+      <option value="$PROJECT_DIR$/Blog.Entities/Enums/Roles.cs" />
+      <option value="$PROJECT_DIR$/Blog.Business/Features/Authentication/Handlers/Commands/SignUpAdminCommandHandler.cs" />
+      <option value="$PROJECT_DIR$/Blog.Core/Entities/DTOs/Authentication/Requests/SignUpRequest.cs" />
+      <option value="$PROJECT_DIR$/Blog.Business/Features/Authentication/Handlers/Queries/GetAllUsersByStatusQueryHandler.cs" />
+      <option value="$PROJECT_DIR$/Blog.Business/Features/Authentication/ValidationRules/SignUpValidator.cs" />
+      <option value="$PROJECT_DIR$/Blog.WebUI/Areas/Admin/Views/Account/_AddUserPartial.cshtml" />
+      <option value="$PROJECT_DIR$/Blog.Business/Constants/Messages.cs" />
+      <option value="$PROJECT_DIR$/Blog.Business/Features/Authentication/Handlers/Commands/SignUpCommandHandler.cs" />
+      <option value="$PROJECT_DIR$/Blog.Business/Features/Authentication/ValidationRules/CreateRoleValidator.cs" />
+      <option value="$PROJECT_DIR$/Blog.Business/Features/Authentication/ValidationRules/UpdateRoleValidator.cs" />
+      <option value="$PROJECT_DIR$/Blog.Entities/DTOs/RoleDto.cs" />
+      <option value="$PROJECT_DIR$/Blog.Business/Helpers/AutoMapperHelper.cs" />
+      <option value="$PROJECT_DIR$/Blog.Business/Features/Authentication/Handlers/Commands/CreateRoleCommandHandler.cs" />
+      <option value="$PROJECT_DIR$/Blog.Business/Features/Authentication/Queries/GetAllRolesQuery.cs" />
+      <option value="$PROJECT_DIR$/Blog.Business/Features/Authentication/Handlers/Queries/GetAllRolesQueryHandler.cs" />
+      <option value="$PROJECT_DIR$/Blog.WebUI/Areas/Admin/Controllers/AccountController.cs" />
+      <option value="$PROJECT_DIR$/Blog.WebUI/Areas/Admin/Models/CreateRoleAjaxViewModel.cs" />
+      <option value="$PROJECT_DIR$/Blog.Business/Features/Authentication/Commands/CreateRoleCommand.cs" />
+      <option value="$PROJECT_DIR$/Blog.WebUI/Areas/Admin/Models/UpdateRoleAjaxViewModel.cs" />
+      <option value="$PROJECT_DIR$/Blog.WebUI/Areas/Admin/Views/Role/_CreateRolePartial.cshtml" />
+      <option value="$PROJECT_DIR$/Blog.Business/Features/Authentication/Commands/UpdateRoleCommand.cs" />
+      <option value="$PROJECT_DIR$/Blog.WebUI/Areas/Admin/Views/Role/_UpdateRolePartial.cshtml" />
+      <option value="$PROJECT_DIR$/Blog.Business/Features/Authentication/Handlers/Commands/UpdateRoleCommandHandler.cs" />
+      <option value="$PROJECT_DIR$/Blog.Business/Features/Authentication/Queries/GetRoleByNameQuery.cs" />
+      <option value="$PROJECT_DIR$/Blog.Business/Features/Authentication/Handlers/Queries/GetUserByIdQueryHandler.cs" />
+      <option value="$PROJECT_DIR$/Blog.Business/Features/Authentication/Handlers/Queries/GetRoleByNameQueryHandler.cs" />
+      <option value="$PROJECT_DIR$/Blog.WebUI/Areas/Admin/Controllers/RoleController.cs" />
+      <option value="$PROJECT_DIR$/Blog.WebUI/Areas/Admin/Views/Shared/_LayoutSidebarNavPartial.cshtml" />
+      <option value="$PROJECT_DIR$/Blog.WebUI/wwwroot/js/accountIndex.js" />
+      <option value="$PROJECT_DIR$/Blog.WebUI/Areas/Admin/Views/Role/Index.cshtml" />
+      <option value="$PROJECT_DIR$/Blog.WebUI/wwwroot/js/roleIndex.js" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1vOzNfqviKpLhKQbI5itEKFj8pw" />
@@ -142,7 +133,7 @@
     <property name="settings.editor.selected.configurable" value="ReSpellerSettingsId" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
-  <component name="RunManager" selected=".NET Launch Settings Profile.Blog.WebUI: IIS Express">
+  <component name="RunManager" selected=".NET Launch Settings Profile.Blog.WebUI: StarterProject.Blog.WebAPI">
     <configuration name="Blog.Category.Consumer" type="DotNetProject" factoryName=".NET Project">
       <option name="EXE_PATH" value="" />
       <option name="PROGRAM_PARAMETERS" value="" />
@@ -356,6 +347,20 @@
       <workItem from="1629627049798" duration="12359000" />
       <workItem from="1629662243844" duration="3744000" />
       <workItem from="1629743965167" duration="2697000" />
+      <workItem from="1629879035748" duration="4881000" />
+      <workItem from="1629913573568" duration="18153000" />
+      <workItem from="1630006302133" duration="10869000" />
+      <workItem from="1630098632206" duration="2456000" />
+      <workItem from="1630147097664" duration="7504000" />
+      <workItem from="1630232845150" duration="7125000" />
+      <workItem from="1630243253064" duration="1029000" />
+      <workItem from="1630262243828" duration="7363000" />
+      <workItem from="1630755777705" duration="2331000" />
+      <workItem from="1630838562689" duration="7741000" />
+      <workItem from="1630861967281" duration="3551000" />
+      <workItem from="1630953787364" duration="6071000" />
+      <workItem from="1631129062650" duration="6215000" />
+      <workItem from="1631213470135" duration="2426000" />
     </task>
     <task id="LOCAL-00001" summary="fix: Category validator fixed">
       <created>1626724440747</created>
@@ -374,7 +379,7 @@
     <option name="coveragePercentColumnWidth" value="75" />
     <option name="sortOrder" value="ASCENDING" />
     <option name="sortedColumn" value="2" />
-    <option name="symbolColumnWidth" value="215" />
+    <option name="symbolColumnWidth" value="285" />
     <coverage-tree-state>
       <expand />
       <select />
@@ -403,10 +408,30 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Blog.RabbitMq.Consumers/Blog.Consumer/Consumers/Category/CategoryDeletedConsumer.cs</url>
-          <line>24</line>
-          <properties documentPath="C:\Users\18040\Desktop\blog\Blog.RabbitMq.Consumers\Blog.Consumer\Consumers\Category\CategoryDeletedConsumer.cs" initialLine="24" containingFunctionPresentation="method 'Consume'" />
+          <url>file://$PROJECT_DIR$/Blog.WebUI/Areas/Admin/Controllers/RoleController.cs</url>
+          <line>54</line>
+          <properties documentPath="C:\Users\18040\Desktop\blog-project-net-core\Blog.WebUI\Areas\Admin\Controllers\RoleController.cs" initialLine="52" containingFunctionPresentation="method 'Create'">
+            <startOffsets>
+              <option value="1514" />
+            </startOffsets>
+            <endOffsets>
+              <option value="1537" />
+            </endOffsets>
+          </properties>
           <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Blog.Business/Features/Authentication/Handlers/Commands/UpdateRoleCommandHandler.cs</url>
+          <line>29</line>
+          <properties documentPath="C:\Users\18040\Desktop\blog-project-net-core\Blog.Business\Features\Authentication\Handlers\Commands\UpdateRoleCommandHandler.cs" initialLine="29" containingFunctionPresentation="method 'Handle'">
+            <startOffsets>
+              <option value="1061" />
+            </startOffsets>
+            <endOffsets>
+              <option value="1114" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="4" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

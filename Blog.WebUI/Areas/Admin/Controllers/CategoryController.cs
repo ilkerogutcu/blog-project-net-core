@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
@@ -8,15 +7,15 @@ using Blog.Business.Features.Category.Commands;
 using Blog.Business.Features.Category.Queries;
 using Blog.Core.Extensions;
 using Blog.Core.Utilities.Results;
-using Blog.Entities.DTOs;
 using Blog.WebUI.Areas.Admin.Models;
 using MediatR;
-using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Blog.WebUI.Areas.Admin.Controllers
 {
     [Area("Admin")]
+    [Authorize]
     public class CategoryController : Controller
     {
         private readonly IMediator _mediator;
@@ -91,43 +90,46 @@ namespace Blog.WebUI.Areas.Admin.Controllers
                 var result = await _mediator.Send(command);
                 if (result.Success)
                 {
-                    var addCategoryAjaxModel = new AddCategoryAjaxViewModel
+                    var addCategoryAjaxModel = JsonSerializer.Serialize(new AddCategoryAjaxViewModel
                     {
                         Category = result.Data,
                         AddCategoryPartial = await this.RenderViewToStringAsync("_AddCategoryPartial", command)
-                    };
-                    return Json(new SuccessDataResult<AddCategoryAjaxViewModel>(addCategoryAjaxModel, result.Message));
+                    });
+                    return Json(addCategoryAjaxModel);
                 }
             }
 
-            var categoryAddAjaxErrorModel = new AddCategoryAjaxViewModel
+            var categoryAddAjaxErrorModel = JsonSerializer.Serialize(new AddCategoryAjaxViewModel
             {
                 AddCategoryPartial = await this.RenderViewToStringAsync("_AddCategoryPartial", command)
-            };
-            return Json(new ErrorDataResult<AddCategoryAjaxViewModel>(categoryAddAjaxErrorModel, Messages.AddFailed));
+            });
+
+            return Json(categoryAddAjaxErrorModel);
         }
 
         [HttpPost]
         public async Task<IActionResult> Update(UpdateCategoryCommand command)
         {
-            var result = await _mediator.Send(command);
-            if (result.Success)
+            if (ModelState.IsValid)
             {
-                var updateCategoryAjaxModel = new UpdateCategoryAjaxViewModel
+                var result = await _mediator.Send(command);
+                if (result.Success)
                 {
-                    CategoryDto = result.Data,
-                    CategoryUpdatePartial = await this.RenderViewToStringAsync("_UpdateCategoryPartial", command)
-                };
-                return Json(
-                    new SuccessDataResult<UpdateCategoryAjaxViewModel>(updateCategoryAjaxModel, result.Message));
+                    var updateCategoryAjaxModel = JsonSerializer.Serialize(new UpdateCategoryAjaxViewModel
+                    {
+                        CategoryDto = result.Data,
+                        CategoryUpdatePartial = await this.RenderViewToStringAsync("_UpdateCategoryPartial", command)
+                    });
+                    return Json(updateCategoryAjaxModel);
+                }
             }
 
-            var updateCategoryAjaxErrorModel = new UpdateCategoryAjaxViewModel
+            var updateCategoryAjaxErrorModel = JsonSerializer.Serialize(new UpdateCategoryAjaxViewModel
             {
                 CategoryUpdatePartial = await this.RenderViewToStringAsync("_UpdateCategoryPartial", command)
-            };
-            return Json(
-                new ErrorDataResult<UpdateCategoryAjaxViewModel>(updateCategoryAjaxErrorModel, Messages.AddFailed));
+            });
+
+            return Json(updateCategoryAjaxErrorModel);
         }
 
         public async Task<IActionResult> Update(Guid categoryId)

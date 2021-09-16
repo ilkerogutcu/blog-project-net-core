@@ -99,44 +99,51 @@ $(document).ready(function () {
                 processData: false,
                 contentType: false,
                 success: function (data) {
-                    const categoryAddAjaxModel = jQuery.parseJSON(JSON.stringify(data));
-                    let category = {
-                        id: categoryAddAjaxModel.data.category.categoryId,
-                        name: categoryAddAjaxModel.data.category.categoryName,
-                        description: categoryAddAjaxModel.data.category.description,
-                        imageUrl: categoryAddAjaxModel.data.category.imageUrl,
-                        status: categoryAddAjaxModel.data.category.status,
-                        createdBy: categoryAddAjaxModel.data.category.createdBy,
-                        createdDate: categoryAddAjaxModel.data.category.createdDate,
-                        lastModifiedDate: categoryAddAjaxModel.data.category.lastModifiedDate,
-                        lastModifiedBy: categoryAddAjaxModel.data.category.lastModifiedBy
-                    }
-                    if (category.lastModifiedDate == null && category.lastModifiedBy == null) {
-                        category.lastModifiedDate = "Category has not been updated.";
-                        category.lastModifiedBy = "Category has not been updated.";
-                    }
-                    if (category.status) {
-                        category.status = "Active";
-                    } else {
-                        category.status = "Not active";
-                    }
-                    const newFormBody = $('.modal-body', categoryAddAjaxModel.data.AddCategoryPartial);
+                    console.log(data);
+
+                    const categoryAddAjaxModel = jQuery.parseJSON(data);
+                    console.log(categoryAddAjaxModel);
+
+                    const newFormBody = $('.modal-body', categoryAddAjaxModel.AddCategoryPartial);
                     placeHolderDiv.find('.modal-body').replaceWith(newFormBody);
-                    placeHolderDiv.find('.modal').modal('hide');
-                    const newTableRow = dataTable.row.add([
-                        category.id,
-                        `<img src="${category.imageUrl}" alt="${category.categoryName}" class="my-image-table" />`,
-                        category.name,
-                        category.description,
-                        category.status,
-                        category.createdBy,
-                        `${new Date(category.createdDate).toLocaleString()}`,
-                        category.lastModifiedDate,
-                        category.lastModifiedBy,
-                        '<button class="btn btn-primary btn-sm btn-update" data-id="${category.categoryName}"><span class="fas fa-edit"></span> Update</button> <button class="btn btn-danger btn-sm btn-delete" data-id="${category.categoryName}" style="margin-top: 7px;"><span class="fas fa-minus-circle"></span> Delete</button>'
-                    ]).node();
-                    dataTable.row(newTableRow).draw();
-                    placeHolderDiv.find(".modal").modal('toggle');
+                    const isValid = newFormBody.find('[name="IsValid"]').val() === 'True';
+                    if (isValid) {
+                        let category = {
+                            id: categoryAddAjaxModel.Category.CategoryId,
+                            name: categoryAddAjaxModel.Category.CategoryName,
+                            description: categoryAddAjaxModel.Category.Description,
+                            imageUrl: categoryAddAjaxModel.Category.ImageUrl,
+                            status: categoryAddAjaxModel.Category.Status,
+                            createdBy: categoryAddAjaxModel.Category.CreatedBy,
+                            createdDate: categoryAddAjaxModel.Category.CreatedDate,
+                            lastModifiedDate: categoryAddAjaxModel.Category.LastModifiedDate,
+                            lastModifiedBy: categoryAddAjaxModel.Category.LastModifiedBy
+                        }
+                        if (category.lastModifiedDate == null && category.lastModifiedBy == null) {
+                            category.lastModifiedDate = "Category has not been updated.";
+                            category.lastModifiedBy = "Category has not been updated.";
+                        }
+                        if (category.status) {
+                            category.status = "Active";
+                        } else {
+                            category.status = "Not active";
+                        }
+                        placeHolderDiv.find('.modal').modal('hide');
+                        const newTableRow = dataTable.row.add([
+                            category.id,
+                            `<img src="${category.imageUrl}" alt="${category.categoryName}" class="my-image-table" />`,
+                            category.name,
+                            category.description,
+                            category.status,
+                            category.createdBy,
+                            `${new Date(category.createdDate).toLocaleString()}`,
+                            category.lastModifiedDate,
+                            category.lastModifiedBy,
+                            '<button class="btn btn-primary btn-sm btn-update" data-id="${category.categoryName}"><span class="fas fa-edit"></span> Update</button> <button class="btn btn-danger btn-sm btn-delete" data-id="${category.categoryName}" style="margin-top: 7px;"><span class="fas fa-minus-circle"></span> Delete</button>'
+                        ]).node();
+                        dataTable.row(newTableRow).draw();
+                        placeHolderDiv.find(".modal").modal('toggle');
+                    }
                 },
                 error: function (err) {
                     toastr.error("Error", err);
@@ -149,7 +156,7 @@ $(document).ready(function () {
         const categoryName = $(this).attr('data-id');
         Swal.fire({
             title: 'Are you sure you want to delete this category?',
-            text: "Selected category will be deleted.",
+            text: `${categoryName} will be deleted.`,
             icon: 'warning',
             showCancelButton: true,
             confirmButtonColor: '#3085d6',
@@ -170,9 +177,11 @@ $(document).ready(function () {
                         if (result.Success) {
                             Swal.fire(
                                 'Deleted!',
-                                'Category has been deleted.',
+                                `${categoryName} has been deleted.`,
                                 'success'
                             )
+                            const tableRow = $(`[name="${categoryName}]"`)
+                            tableRow.fadeOut(3500);
                         }
                     },
                     error: function (err) {
@@ -203,32 +212,34 @@ $(document).ready(function () {
             const actionUrl = form.attr('action');
             const dataToSend = form.serialize();
             $.post(actionUrl, dataToSend).done(function (data) {
-                const categoryUpdateAjaxModel = jQuery.parseJSON(JSON.stringify(data));
+                const categoryUpdateAjaxModel = jQuery.parseJSON(data);
                 console.log(categoryUpdateAjaxModel);
-                let category = {
-                    id: categoryUpdateAjaxModel.data.categoryDto.categoryId,
-                    name: categoryUpdateAjaxModel.data.categoryDto.categoryName,
-                    description: categoryUpdateAjaxModel.data.categoryDto.description,
-                    imageUrl: categoryUpdateAjaxModel.data.categoryDto.imageUrl,
-                    status: categoryUpdateAjaxModel.data.categoryDto.status,
-                    createdBy: categoryUpdateAjaxModel.data.categoryDto.createdBy,
-                    createdDate: categoryUpdateAjaxModel.data.categoryDto.createdDate,
-                    lastModifiedDate: categoryUpdateAjaxModel.data.categoryDto.lastModifiedDate,
-                    lastModifiedBy: categoryUpdateAjaxModel.data.categoryDto.lastModifiedBy
-                }
                 const newFormBody = $('.modal-body', categoryUpdateAjaxModel.CategoryUpdatePartial);
                 placeHolderDiv.find('.modal-body').replaceWith(newFormBody);
-                if (category.LastModifiedDate == null && category.LastModifiedBy == null) {
-                    category.LastModifiedDate = "Category has not been updated.";
-                    category.LastModifiedBy = "Category has not been updated.";
-                }
-                if (category.Status) {
-                    category.Status = "Active";
-                } else {
-                    category.Status = "Not active";
-                }
-                category.CreatedDate = new Date(category.CreatedDate).toLocaleString()
-                const newTableRow = `
+                const isValid = newFormBody.find('[name="IsValid"]').val() === 'True';
+                if (isValid) {
+                    let category = {
+                        id: categoryUpdateAjaxModel.CategoryDto.CategoryId,
+                        name: categoryUpdateAjaxModel.CategoryDto.CategoryName,
+                        description: categoryUpdateAjaxModel.CategoryDto.Description,
+                        imageUrl: categoryUpdateAjaxModel.CategoryDto.ImageUrl,
+                        status: categoryUpdateAjaxModel.CategoryDto.Status,
+                        createdBy: categoryUpdateAjaxModel.CategoryDto.CreatedBy,
+                        createdDate: categoryUpdateAjaxModel.CategoryDto.CreatedDate,
+                        lastModifiedDate: categoryUpdateAjaxModel.CategoryDto.LastModifiedDate,
+                        lastModifiedBy: categoryUpdateAjaxModel.CategoryDto.LastModifiedBy
+                    }
+                    if (category.LastModifiedDate == null && category.LastModifiedBy == null) {
+                        category.LastModifiedDate = "Category has not been updated.";
+                        category.LastModifiedBy = "Category has not been updated.";
+                    }
+                    if (category.Status) {
+                        category.Status = "Active";
+                    } else {
+                        category.Status = "Not active";
+                    }
+                    category.CreatedDate = new Date(category.CreatedDate).toLocaleString()
+                    const newTableRow = `
                         <tr name="${category.CategoryId}">
                             <td>${category.CategoryId}</td>
                             <td><img src="${category.ImageUrl}" alt="${category.CategoryName}" class="my-image-table"/></td>
@@ -241,16 +252,17 @@ $(document).ready(function () {
                             <td>${category.LastModifiedDate}</td>
                              <td>
                             <button class="btn btn-primary btn-sm btn-update" data-id="${category.CategoryId}"><span class="fas fa-edit"></span> Update</button>
-                            <button class="btn btn-danger btn-sm btn-delete" data-id="${category.CategoryName}" style="margin-top: 7px;"><span class="fas fa-minus-circle"></span> Delete</button>
+                            <button class="btn btn-danger btn-sm btn-delete" data-id="${category.CategoryName}" style="margin-left: 15px;"><span class="fas fa-minus-circle"></span> Delete</button>
                             </td>
                         </tr>`;
-                const newTableRowObject = $(newFormBody);
-                const categoryTableRow = $(`[name="${category.CategoryId}"]`)
-                newTableRowObject.hide();
-                categoryTableRow.replaceWith(newTableRowObject);
-                newTableRowObject.fadeIn(3500)
-                toastr.success("Successfull", "Category updated successfully")
-                placeHolderDiv.find('.modal').modal('toggle');
+                    const newTableRowObject = $(newFormBody);
+                    const categoryTableRow = $(`[name="${category.CategoryId}"]`)
+                    newTableRowObject.hide();
+                    categoryTableRow.replaceWith(newTableRowObject);
+                    newTableRowObject.fadeIn(3500)
+                    toastr.success("Successfull", "Category updated successfully")
+                    placeHolderDiv.find('.modal').modal('toggle');
+                }
             });
         });
     })

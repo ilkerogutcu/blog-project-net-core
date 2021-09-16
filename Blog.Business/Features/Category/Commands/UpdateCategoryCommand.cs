@@ -28,6 +28,9 @@ namespace Blog.Business.Features.Category.Commands
         /// </summary>
         public string Description { get; set; }
 
+        /// <summary>
+        /// Category image
+        /// </summary>
         public IFormFile File { get; set; }
     }
 }

@@ -44,14 +44,16 @@ namespace Blog.Business.DependencyResolvers
                 .As<IBusControl>()
                 .As<IBus>();
             builder.RegisterAssemblyTypes(assembly).AsImplementedInterfaces()
-                .AsClosedTypesOf(typeof(IRequestHandler<,>));
-
-            builder.RegisterAssemblyTypes(assembly).AsImplementedInterfaces()
                 .AsClosedTypesOf(typeof(IValidator<>));
+            
+            builder.RegisterAssemblyTypes(assembly).AsImplementedInterfaces()
+                .AsClosedTypesOf(typeof(IRequestHandler<,>));
+            
             builder
                 .RegisterType<Mediator>()
                 .As<IMediator>()
                 .InstancePerLifetimeScope();
+
 
             builder.Register<ServiceFactory>(context =>
             {

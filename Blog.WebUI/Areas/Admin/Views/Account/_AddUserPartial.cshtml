@@ -1,0 +1,81 @@
+@using Blog.Core.Utilities.Results
+@model Blog.Core.Entities.DTOs.Authentication.Requests.SignUpRequest
+
+<div class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title"><span class="fas fa-plus"> </span>Create a new admin</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form asp-action="SignUpAdmin" id="form-sign-up-admin" method="post" enctype="multipart/form-data">
+                    <input name="IsValid" type="hidden" value="@ViewData.ModelState.IsValid.ToString()"/>
+                    <div asp-validation-summary="All" class="text-danger" id="validation-summary" aria-hidden="false" style="display: none;"></div>
+                    <div class="form-group">
+                        <label asp-for="FirstName">First name</label>
+                        <input class="form-control" asp-for="FirstName" placeholder="Please enter the first name"/>
+                        <span class="text-danger" asp-validation-for="FirstName"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="LastName">Last name</label>
+                        <input class="form-control" asp-for="LastName" placeholder="Please enter the last name"/>
+                        <span class="text-danger" asp-validation-for="LastName"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Username">Username</label>
+                        <input class="form-control" asp-for="Username" placeholder="Please enter the username"/>
+                        <span class="text-danger" asp-validation-for="Username"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Email">Email</label>
+                        <input type="email" class="form-control" asp-for="Email" placeholder="Please enter the email"/>
+                        <span class="text-danger" asp-validation-for="Email"></span>
+                    </div>
+                    <div class="form-group">
+                        <label>Gender</label>
+                        <select asp-for="Gender">
+                            <option value="">Please select...</option>
+                            <option value="M">Male</option>
+                            <option value="F">Female</option>
+                            <span class="text-danger" asp-validation-for="Gender"></span>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Bio">Biography</label>
+                        <textarea class="form-control" asp-for="Bio" rows="3" placeholder="Please enter the biography"></textarea>
+                        <span class="text-danger" asp-validation-for="Bio"></span>
+                    </div>
+                    <div class="form-group">
+                        <label>Role</label>
+                        <select asp-for="Role" asp-items="ViewBag.Roles">
+                            <option>Please select...</option>
+                            <span class="text-danger" asp-validation-for="Role"></span>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Password">Password</label>
+                        <input type="password" class="form-control" asp-for="Password" placeholder="Please enter the password"/>
+                        <span class="text-danger" asp-validation-for="Password"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="ConfirmPassword">Confirm password</label>
+                        <input type="password" class="form-control" asp-for="ConfirmPassword" placeholder="Please confirm your password"/>
+                        <span class="text-danger" asp-validation-for="ConfirmPassword"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Image"></label>
+                        <input type="file" asp-for="Image" accept="image/*" id="uploadFile" name="FormFile" class="form-control-sm"/>
+                        <span class="text-danger" asp-validation-for="Image"></span>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger btn-block" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary btn-block" id="btnSave"><span class="fas fa-save"> </span>Create</button>
+            </div>
+        </div>
+    </div>
+</div>

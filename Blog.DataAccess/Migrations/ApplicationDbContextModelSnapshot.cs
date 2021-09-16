@@ -301,6 +301,10 @@ namespace Blog.DataAccess.Migrations
                         .HasColumnType("nvarchar(max)")
                         .HasColumnName("concurrency_stamp");
 
+                    b.Property<string>("CreatedBy")
+                        .HasColumnType("nvarchar(max)")
+                        .HasColumnName("created_by");
+
                     b.Property<DateTime>("CreatedDate")
                         .HasColumnType("datetime2")
                         .HasColumnName("created_date");

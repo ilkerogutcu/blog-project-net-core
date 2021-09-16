@@ -48,9 +48,9 @@ namespace Blog.Business.Features.Category.Handlers.Commands
             _producer = producer;
         }
 
-        [ValidationAspect(typeof(AddCategoryValidator))]
         [LogAspect(typeof(FileLogger))]
         [ExceptionLogAspect(typeof(FileLogger))]
+        [ValidationAspect(typeof(AddCategoryValidator))]
         public async Task<IDataResult<CategoryDto>> Handle(AddCategoryCommand request,
             CancellationToken cancellationToken)
         {
@@ -60,8 +60,10 @@ namespace Blog.Business.Features.Category.Handlers.Commands
             }
 
             var category = _mapper.Map<Entities.Concrete.Category>(request);
-            var user = await _userManager.FindByEmailAsync(_httpContextAccessor?.HttpContext.User
-                .FindFirst(ClaimTypes.Email)?.Value);
+            // var user = await _userManager.FindByEmailAsync(_httpContextAccessor?.HttpContext.User
+            //     .FindFirst(ClaimTypes.Email)?.Value);
+            
+            var user = await _userManager.FindByEmailAsync("ilkerogtc@gmail.com");
             if (user is null)
             {
                 return new ErrorDataResult<CategoryDto>(Messages.UserNotFound);

@@ -8,6 +8,8 @@ using MediatR;
 using Microsoft.AspNetCore.Identity;
 using System.Threading;
 using System.Threading.Tasks;
+using Blog.Core.Aspects.Autofac.Exception;
+using Blog.Core.CrossCuttingConcerns.Logging.Serilog.Loggers;
 
 namespace Blog.Business.Features.Authentication.Handlers.Queries
 {
@@ -28,10 +30,11 @@ namespace Blog.Business.Features.Authentication.Handlers.Queries
 		/// <summary>
 		///     Get user by id
 		/// </summary>
+		[ExceptionLogAspect(typeof(FileLogger))]
 		public async Task<IDataResult<UserResponse>> Handle(GetUserByIdQuery request,
 			CancellationToken cancellationToken)
 		{
-			var user = await _userManager.FindByIdAsync(request.Id.ToString());
+			var user = await _userManager.FindByIdAsync(request.Id);
 			if (user is null) return new ErrorDataResult<UserResponse>(Messages.UserNotFound);
 
 			var userResponse = _mapper.Map<UserResponse>(user);
