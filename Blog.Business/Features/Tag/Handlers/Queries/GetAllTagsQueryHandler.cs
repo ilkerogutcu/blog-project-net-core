@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
@@ -18,22 +19,19 @@ namespace Blog.Business.Features.Tag.Handlers.Queries
     {
         private readonly ITagRepository _tagRepository;
         private readonly IMapper _mapper;
-        private readonly IUriService _uriService;
 
-        public GetAllTagsQueryHandler(ITagRepository tagRepository, IMapper mapper, IUriService uriService)
+        public GetAllTagsQueryHandler(ITagRepository tagRepository, IMapper mapper)
         {
             _tagRepository = tagRepository;
             _mapper = mapper;
-            _uriService = uriService;
         }
 
-        public async Task<IDataResult<IEnumerable<TagDto>>> Handle(GetAllTagsQuery request, CancellationToken cancellationToken)
+        public async Task<IDataResult<IEnumerable<TagDto>>> Handle(GetAllTagsQuery request,
+            CancellationToken cancellationToken)
         {
             var tags = await _tagRepository.GetAllAsync();
             var result = _mapper.Map<List<TagDto>>(tags);
-            return !result.Any()
-                ?  new ErrorDataResult<List<TagDto>>(Messages.DataNotFound)
-                : PaginationHelper.CreatePaginatedResponse(result, request.PaginationFilter, result.Count, _uriService, request.Route);
+            return new SuccessDataResult<IEnumerable<TagDto>>(result);
         }
     }
 }

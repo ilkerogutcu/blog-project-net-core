@@ -1,0 +1,67 @@
+@model Blog.Core.Utilities.Results.IDataResult<IEnumerable<Blog.Entities.DTOs.TagDto>>
+@{
+    Layout = "_Layout";
+    ViewBag.Title = "Tags";
+}
+
+
+<div id="modalPlaceHolder" aria-hidden="false"></div>
+<div class="card mb-4">
+    <div class="card-header">
+        <i class="fas fa-table mr-1"></i> Tags
+    </div>
+    <div class="card-body">
+        <div class="spinner-border" role="status" style="display: none">
+            <span class="sr-only">Loading...</span>
+        </div>
+        <div class="table-responsive">
+            <table class="table table-bordered" id="tagsTable" style="width:100%">
+                <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Created By</th>
+                    <th>Created Date</th>
+                    <th>Updated By</th>
+                    <th>Updated Date</th>
+                    <th>Actions</th>
+                </tr>
+                </thead>
+                <tfoot>
+                <tr>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Created By</th>
+                    <th>Created Date</th>
+                    <th>Updated By</th>
+                    <th>Updated Date</th>
+                    <th>Actions</th>
+                </tr>
+                </tfoot>
+                <tbody>
+
+                @foreach (var tagDto in Model.Data)
+                {
+                    <tr name="@tagDto.Id">
+                        <td>@tagDto.Id.ToString()[..20]</td>
+                        <td>@tagDto.Name</td>
+                        <td>@tagDto.CreatedBy</td>
+                        <td>@tagDto.CreatedDate</td>
+                        <td>@tagDto.LastModifiedBy</td>
+                        <td>@tagDto.LastModifiedDate</td>
+                        <td style="display:flex;">
+                            <button class="btn btn-primary btn-sm btn-update" data-id="@tagDto.Id"><span class="fas fa-edit"></span> Update</button>
+                            <button class="btn btn-danger btn-sm btn-delete" style="margin-left: 15px" data-id="@tagDto.Name"><span class="fas fa-minus-circle"></span> Delete</button>
+                        </td>
+                    </tr>
+                }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+@section Scripts {
+    <script src="~/js/tagIndex.js" type="application/ecmascript"></script>
+}

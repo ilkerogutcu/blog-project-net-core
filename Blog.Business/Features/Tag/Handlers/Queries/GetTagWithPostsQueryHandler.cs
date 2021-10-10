@@ -18,13 +18,11 @@ namespace Blog.Business.Features.Tag.Handlers.Queries
     {
         private readonly ITagRepository _tagRepository;
         private readonly IMapper _mapper;
-        private readonly IUriService _uriService;
 
         public GetTagWithPostsQueryHandler(ITagRepository tagRepository, IMapper mapper, IUriService uriService)
         {
             _tagRepository = tagRepository;
             _mapper = mapper;
-            _uriService = uriService;
         }
 
         public async Task<IDataResult<TagWithPostsDto>> Handle(GetTagByNameWithPostsQuery request, CancellationToken cancellationToken)

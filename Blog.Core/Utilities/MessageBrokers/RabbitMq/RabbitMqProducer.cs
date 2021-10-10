@@ -18,9 +18,10 @@ namespace Blog.Core.Utilities.MessageBrokers.RabbitMq
         [ExceptionLogAspect(typeof(FileLogger))]
         public async Task Publish(ProducerModel producerModel)
         {
+            // Queue name içeren URI
             var sendToUri = new System.Uri($"{RabbitMqSettings.RabbitMqUri}{producerModel.QueueName}");
             var endPoint = await _bus.GetSendEndpoint(sendToUri);
-            endPoint.Send(producerModel.Model);
+            await endPoint.Send(producerModel.Model);
         }
     }
 }

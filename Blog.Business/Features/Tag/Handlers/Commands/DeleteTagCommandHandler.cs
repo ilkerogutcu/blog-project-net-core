@@ -27,7 +27,7 @@ namespace Blog.Business.Features.Tag.Handlers.Commands
         [ExceptionLogAspect(typeof(FileLogger))]
         public async Task<IResult> Handle(DeleteTagCommand request, CancellationToken cancellationToken)
         {
-            var tag = await _tagRepository.GetTagWithPostsAsync(x => x.Id == request.TagId);
+            var tag = await _tagRepository.GetTagWithPostsAsync(x => x.Name.Equals(request.Name));
             if (tag is null)
             {
                 return new ErrorResult(Messages.DataNotFound);

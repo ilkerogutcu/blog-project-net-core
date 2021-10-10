@@ -28,7 +28,7 @@ namespace Blog.Business.DependencyResolvers
             builder.RegisterType<CloudinaryManager>().As<ICloudinaryService>().SingleInstance();
             builder.RegisterType<RabbitMqProducer>().As<IRabbitMqProducer>().SingleInstance();
 
-            builder.Register(context =>
+            builder.Register(_ =>
                 {
                     var busControl = Bus.Factory.CreateUsingRabbitMq(cfg =>
                     {

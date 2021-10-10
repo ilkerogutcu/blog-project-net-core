@@ -99,29 +99,7 @@ namespace Blog.WebUI
                 options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(10);
                 options.Lockout.MaxFailedAccessAttempts = 5;
             });
-
-            // services.AddAuthentication(options =>
-            //     {
-            //         options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
-            //         options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
-            //         options.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
-            //     })
-            //     .AddJwtBearer(options =>
-            //     {
-            //         options.SaveToken = true;
-            //         options.RequireHttpsMetadata = false;
-            //         options.TokenValidationParameters = new TokenValidationParameters
-            //         {
-            //             ValidateIssuer = true,
-            //             ValidateAudience = true,
-            //             ValidateLifetime = true,
-            //             ValidIssuer = Configuration["TokenOptions:Issuer"],
-            //             ValidAudience = Configuration["TokenOptions:Audience"],
-            //             ValidateIssuerSigningKey = true,
-            //             IssuerSigningKey =
-            //                 SecurityKeyHelper.CreateSecurityKey(Configuration["TokenOptions:SecurityKey"])
-            //         };
-            //     });
+            
 
             services.AddSession();
             services.ConfigureApplicationCookie(options =>

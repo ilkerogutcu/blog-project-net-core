@@ -6,6 +6,6 @@ namespace Blog.Business.Features.Tag.Commands
 {
     public class DeleteTagCommand : IRequest<IResult>
     {
-        public Guid TagId { get; set; }
+        public string Name { get; set; }
     }
 }

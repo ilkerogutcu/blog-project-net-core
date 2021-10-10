@@ -15,6 +15,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 namespace Blog.WebUI.Areas.Admin.Controllers
 {
     [Area("Admin")]
+    [Authorize]
     public class AccountController : Controller
     {
         private readonly IMediator _mediator;

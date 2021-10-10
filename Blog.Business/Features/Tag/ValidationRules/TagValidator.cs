@@ -8,13 +8,16 @@ namespace Blog.Business.Features.Tag.ValidationRules
     {
         public CreateTagValidator()
         {
+            RuleFor(x => x.Name).NotEmpty().WithMessage("Name: " + Messages.ParameterCannotBeEmpty);
             RuleFor(x => x.Name).MaximumLength(70).WithMessage("Name: " + Messages.FieldMustBeLessThan70Characters);
         }
     }
+
     public class UpdateTagValidator : AbstractValidator<UpdateTagCommand>
     {
         public UpdateTagValidator()
         {
+            RuleFor(x => x.Name).NotEmpty().WithMessage("Name: " + Messages.ParameterCannotBeEmpty);
             RuleFor(x => x.Name).MaximumLength(70).WithMessage("Name: " + Messages.FieldMustBeLessThan70Characters);
         }
     }

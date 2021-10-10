@@ -12,6 +12,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace Blog.WebUI.Areas.Admin.Controllers
 {
     [Area("Admin")]
+    [Authorize]
     public class RoleController : Controller
     {
         private readonly IMediator _mediator;

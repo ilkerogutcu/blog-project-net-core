@@ -17,12 +17,12 @@
                     Categories
                 </a>
 
-                <a class="nav-link" asp-area="Admin" asp-controller="Post" asp-action="Index">
-                    <div class="sb-nav-link-icon">
-                        <i class="fas fa-file-alt"></i>
-                    </div>
-                    Posts
-                </a>
+                @* <a class="nav-link" asp-area="Admin" asp-controller="Post" asp-action="Index"> *@
+                @*     <div class="sb-nav-link-icon"> *@
+                @*         <i class="fas fa-file-alt"></i> *@
+                @*     </div> *@
+                @*     Posts *@
+                @* </a> *@
 
                 <a class="nav-link" asp-area="Admin" asp-controller="Role" asp-action="Index">
                     <div class="sb-nav-link-icon">
@@ -38,19 +38,12 @@
                     Users
                 </a>
 
-                <div class="sb-sidenav-menu-heading">Addons</div>
-                <a class="nav-link" href="charts.html">
-                    <div class="sb-nav-link-icon">
-                        <i class="fas fa-chart-area"></i>
-                    </div>
-                    Charts
-                </a>
-                <a class="nav-link" href="tables.html">
-                    <div class="sb-nav-link-icon">
-                        <i class="fas fa-table"></i>
-                    </div>
-                    Tables
-                </a>
+                <a class="nav-link" asp-area="Admin" asp-controller="Tag" asp-action="Index">
+                                 <div class="sb-nav-link-icon">
+                                     <i class="fas fa-users"></i>
+                                 </div>
+                                 Tag
+                             </a>
             </div>
         </div>
         <div class="sb-sidenav-footer">
